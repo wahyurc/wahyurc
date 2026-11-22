@@ -18,14 +18,14 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
     const dolly = lerp(t, [0, tPindah], [0, 1], (x) => x);
     return (
       <AbsoluteFill>
-        <Stage cam={{ pos: [-0.3, 1.9 + dolly * 0.2, 5.6 - dolly * 0.8], look: [-0.3, 2.0, -2.5], fov: 50 }} bg="#f6e8dd">
+        <Stage cam={{ pos: [0, 2.1 + dolly * 0.2, 5.8 - dolly * 0.8], look: [0, 2.3, -2.5], fov: 50 }} bg="#f6e8dd">
           <Lights dir={[2, 6, 5]} />
           <RoomShell warm={warm} />
-          <IndoorUnit t={t} louver={louver} glow={louver} position={[-0.4, 3.1, -2.55]} scale={0.8} />
+          <IndoorUnit t={t} louver={louver} glow={louver} position={[0, 3.2, -2.55]} scale={0.8} />
           {/* hot air hanging in the room before AC starts */}
           <AirStream t={t} color={C.orange} position={[-0.4, 0.8, -1.2]} dir={[0.2, 1, 0.3]} len={2.4} spread={3.2} count={70} size={0.16} opacity={0.75 * warm} speed={0.15} />
           {/* cold stream out of the louver */}
-          <AirStream t={t} color={C.cold} position={[-0.4, 2.75, -2.2]} dir={[0, -0.7, 1]} len={3} spread={1.8} count={90} size={0.15} opacity={0.85 * louver} speed={0.5} />
+          <AirStream t={t} color={C.cold} position={[0, 2.85, -2.2]} dir={[0, -0.7, 1]} len={3} spread={1.8} count={90} size={0.15} opacity={0.85 * louver} speed={0.5} />
           {/* sofa-ish block + plant for scale */}
           <mesh position={[0.6, 0.35, -1.8]} castShadow>
             <boxGeometry args={[2.0, 0.7, 0.8]} />
@@ -37,8 +37,8 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
           </mesh>
         </Stage>
         <Bloom x="75%" y="38%" o={0.55 * warm + 0.2} color={warm > 0.5 ? "255,220,170" : "230,245,255"} />
-        <Thermo x={880} y={760} level={0.15 + warm * 0.75} o={lerp(t, [0.4, 1.0], [0, 1])} scale={0.85} />
-        <div style={{ position: "absolute", left: 818, top: 1050, width: 180, textAlign: "center", fontFamily: "Rubik", fontWeight: 800, fontSize: 30, color: warm > 0.5 ? C.red : C.coldD, opacity: lerp(t, [0.4, 1.0], [0, 1]) }}>
+        <Thermo x={890} y={930} level={0.15 + warm * 0.75} o={lerp(t, [0.4, 1.0], [0, 1])} scale={0.85} />
+        <div style={{ position: "absolute", left: 828, top: 1220, width: 180, textAlign: "center", fontFamily: "Rubik", fontWeight: 800, fontSize: 30, color: warm > 0.5 ? C.red : C.coldD, opacity: lerp(t, [0.4, 1.0], [0, 1]) }}>
           {warm > 0.5 ? "PANAS" : "SEJUK"}
         </div>
         <Title t={t} at={tTidak - 0.2} chip="FAKTA" title="AC tidak membuat dingin" accent="tidak" />
@@ -51,7 +51,7 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
     <AbsoluteFill>
       <Stage cam={{ pos: [0.2 + zoom * 0.1, 0.4, 12.5 - zoom * 1.0], look: [0.3, -0.1, 0], fov: 40, roll: lerp(t, [tPindah - 0.25, tPindah + 0.3], [0.2, 0], eOut) }} bg="#f7ebe1">
         <Lights dir={[3, 5, 6]} />
-        <group rotation={[0.18, -0.35 + Math.sin(t * 0.4) * 0.05, 0]} position={[0, -0.2, 0]}>
+        <group rotation={[0.16, -0.28 + Math.sin(t * 0.4) * 0.04, 0]} position={[0, -0.2, 0]}>
           <MiniHouse t={t} flow={on(t, tPindah + 0.2, 0.6)} outHeat={on(t, tLuar, 0.5)} />
         </group>
       </Stage>

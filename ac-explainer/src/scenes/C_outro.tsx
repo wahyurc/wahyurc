@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import * as THREE from "three";
 import { Stage } from "../three/Stage";
-import { AirStream, IndoorUnit, Lights, OutdoorUnit, RBox, roundedBoxGeo } from "../three/parts";
+import { AirStream, IndoorUnit, Lights, OutdoorUnit, RBox, Wrench, roundedBoxGeo } from "../three/parts";
 import { LOOP_CAM, LoopDiagram, MiniHouse, NODE_SCREEN, LABEL_OFF } from "../three/shared";
 import { C, cue, eIn, eOut, eSoft, lerp, on, pop, rand } from "../lib";
 import { Halftone, Label, Title } from "../fx";
@@ -48,7 +48,7 @@ export const Tips: React.FC<{ t: number }> = ({ t }) => {
         <AbsoluteFill>
           <Stage cam={{ pos: [0, 0.2, 5], look: [0, 0, 0], fov: 40 }} bg="#f7ece3" shadows={false}>
             <Lights shadow={false} />
-            <IndoorUnit t={t} louver={1} glow={1} position={[0, -0.1, 0]} scale={0.9} rotation={[0.1, -0.25 + Math.sin(t) * 0.05, 0]} />
+            <IndoorUnit t={t} louver={1} glow={1} position={[0, -0.1, 0]} scale={0.9} rotation={[0.1, Math.sin(t * 0.8) * 0.06, 0]} />
             <AirStream t={t} color={C.cold} position={[0, -0.5, 0.4]} dir={[0, -0.6, 1]} len={1.8} spread={2} count={60} size={0.12} opacity={0.8} />
           </Stage>
           <Title t={t} at={t0 - 0.1} chip="TIPS PERAWATAN" title="Biar dingin & awet" accent="awet" />
@@ -61,7 +61,7 @@ export const Tips: React.FC<{ t: number }> = ({ t }) => {
         <AbsoluteFill>
           <Stage cam={{ pos: [0, 0.3, 6.6], look: [0, -0.1, 0], fov: 42 }} bg="#f7ece3" shadows={false}>
             <Lights shadow={false} />
-            <FilterPanel dirt={dirt} rotation={[0.15, -0.3 + Math.sin(t * 0.7) * 0.06, 0]} />
+            <FilterPanel dirt={dirt} rotation={[0.15, Math.sin(t * 0.7) * 0.06, 0]} />
             {/* dust washing off */}
             <AirStream t={t} color="#9d8672" position={[0, -0.3, 0.2]} dir={[0, -1, 0.2]} len={1.4} spread={2} count={50} size={0.09} opacity={lerp(t, [tBersih + 0.1, tBersih + 0.4, tBersih + 1.4, tBersih + 1.8], [0, 0.9, 0.9, 0])} speed={0.9} />
             {/* airflow: free when clean, blocked when dirty */}
@@ -103,18 +103,9 @@ export const Tips: React.FC<{ t: number }> = ({ t }) => {
         <AbsoluteFill>
           <Stage cam={{ pos: [0, 0.3, 8.2], look: [0, -0.1, 0], fov: 42 }} bg="#f7ece3" shadows={false}>
             <Lights shadow={false} />
-            <IndoorUnit t={t} louver={0.6} cut={1} fan={t * 4} frost={0.2} position={[0, 0.3, 0]} rotation={[0.1, -0.2, 0]} scale={0.9} />
-            {/* wrench */}
-            <group position={[0.4 + Math.sin(t * 3) * 0.15, -0.9, 0.9]} rotation={[0.3, 0.2, 0.6 + Math.sin(t * 3) * 0.2]} scale={pop(t, tTeknisi) * 0.65}>
-              <mesh>
-                <boxGeometry args={[0.18, 1.2, 0.08]} />
-                <meshStandardMaterial color={C.orange} />
-              </mesh>
-              <mesh position={[0, 0.68, 0]}>
-                <torusGeometry args={[0.2, 0.07, 12, 30, Math.PI * 1.5]} />
-                <meshStandardMaterial color="#b5aca3" metalness={0.6} />
-              </mesh>
-            </group>
+            <IndoorUnit t={t} louver={0.6} cut={1} fan={t * 4} frost={0.2} position={[0, 0.35, 0]} rotation={[0.12, 0, 0]} scale={0.9} />
+            {/* adjustable wrench, gently tightening */}
+            <Wrench position={[0.55, -0.55, 1.0]} rotation={[0.1, 0, -0.35 + Math.sin(t * 2.5) * 0.1]} scale={pop(t, tTeknisi) * 0.72} open={0.5 + Math.sin(t * 2) * 0.3} />
           </Stage>
           <Badge t={t} at={tTiga} n="3" text="Servis berkala ke teknisi" out={tDan - 0.1} />
           <Label t={t} at={tKisi} x={110} y={1180} text="✨ kisi-kisi bersih" color={C.cold} />
@@ -195,7 +186,7 @@ export const Penutup: React.FC<{ t: number }> = ({ t }) => {
       <AbsoluteFill style={{ opacity: toHouse }}>
         <Stage cam={{ pos: [0.3, 0.3, 12.2 - toHouse * 0.6], look: [0.3, -0.25, 0], fov: 40 }} bg="#f7ebe1">
           <Lights />
-          <group rotation={[0.18, -0.35 + Math.sin(t * 0.4) * 0.05, 0]} position={[0, -0.2, 0]}>
+          <group rotation={[0.16, -0.28 + Math.sin(t * 0.4) * 0.04, 0]} position={[0, -0.2, 0]}>
             <MiniHouse t={t} flow={1} outHeat={1} />
           </group>
         </Stage>
@@ -229,7 +220,7 @@ export const Share: React.FC<{ t: number }> = ({ t }) => {
       <Stage cam={{ pos: [0, 0.2, 9.6], look: [0, 0.35, 0], fov: 40 }} bg="#f7ece3" shadows={false}>
         <Lights shadow={false} />
         {/* phone */}
-        <group rotation={[0.12, -0.25 + Math.sin(t * 0.6) * 0.06, 0.04]} position={[0, -0.1 + (1 - on(t, 168, 0.6)) * -2, 0]} scale={1 - end * 0.25}>
+        <group rotation={[0.1, Math.sin(t * 0.6) * 0.06, 0]} position={[0, -0.1 + (1 - on(t, 168, 0.6)) * -2, 0]} scale={1 - end * 0.25}>
           <mesh geometry={roundedBoxGeo(1.7, 3.3, 0.18, 0.2)}>
             <meshStandardMaterial color="#2a2522" roughness={0.4} />
           </mesh>

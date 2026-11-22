@@ -9,16 +9,23 @@ type P = { position?: V3; rotation?: V3; scale?: number | V3 };
 /* ---------- rounded box (extruded rounded rectangle, bevelled) ---------- */
 const rbCache = new Map<string, THREE.BufferGeometry>();
 export const roundedBoxGeo = (w: number, h: number, d: number, r = 0.08) => {
+  // perfectly symmetric rounded box: rounded-rect profile (absarc corners) + uniform bevel.
+  // The bevel grows the profile by `b` on every side, so the profile is shrunk by 2b to keep w×h×d exact.
   const key = [w, h, d, r].join("|");
   if (rbCache.has(key)) return rbCache.get(key)!;
+  const b = Math.min(r * 0.6, d / 2 - 0.001, w / 4, h / 4);
+  const pw = w - 2 * b, ph = h - 2 * b;
+  const rc = Math.max(0.0005, Math.min(r - b * 0.5, pw / 2 - 0.0005, ph / 2 - 0.0005));
   const sh = new THREE.Shape();
-  const x = -w / 2 + r, y = -h / 2 + r, ww = w - 2 * r, hh = h - 2 * r;
-  sh.moveTo(x, y); sh.lineTo(x + ww, y); sh.quadraticCurveTo(x + ww + r, y, x + ww + r, y + r);
-  sh.lineTo(x + ww + r, y + hh - r + r); sh.quadraticCurveTo(x + ww + r, y + hh + r, x + ww, y + hh + r);
-  sh.lineTo(x, y + hh + r); sh.quadraticCurveTo(x - r, y + hh + r, x - r, y + hh);
-  sh.lineTo(x - r, y); sh.quadraticCurveTo(x - r, y - r, x, y - r);
-  const g = new THREE.ExtrudeGeometry(sh, { depth: Math.max(0.001, d - 2 * r * 0.6), bevelEnabled: true, bevelThickness: r * 0.6, bevelSize: r * 0.6, bevelSegments: 5, curveSegments: 8 });
+  const L = -pw / 2, R = pw / 2, B = -ph / 2, T = ph / 2;
+  sh.moveTo(L + rc, B);
+  sh.lineTo(R - rc, B); sh.absarc(R - rc, B + rc, rc, -Math.PI / 2, 0, false);
+  sh.lineTo(R, T - rc); sh.absarc(R - rc, T - rc, rc, 0, Math.PI / 2, false);
+  sh.lineTo(L + rc, T); sh.absarc(L + rc, T - rc, rc, Math.PI / 2, Math.PI, false);
+  sh.lineTo(L, B + rc); sh.absarc(L + rc, B + rc, rc, Math.PI, Math.PI * 1.5, false);
+  const g = new THREE.ExtrudeGeometry(sh, { depth: Math.max(0.001, d - 2 * b), bevelEnabled: true, bevelThickness: b, bevelSize: b, bevelSegments: 6, curveSegments: 12 });
   g.center();
+  g.computeVertexNormals();
   rbCache.set(key, g);
   return g;
 };
@@ -113,8 +120,8 @@ export const AirStream: React.FC<P & { t: number; color: string; count?: number;
 };
 
 /* ---------- copper pipe along a curve ---------- */
-export const Pipe: React.FC<{ curve: THREE.Curve<THREE.Vector3>; r?: number; color?: string; opacity?: number }> = ({ curve, r = 0.07, color = C.copper, opacity = 1 }) => {
-  const g = useMemo(() => new THREE.TubeGeometry(curve, 240, r, 12, true), [curve, r]);
+export const Pipe: React.FC<{ curve: THREE.Curve<THREE.Vector3>; r?: number; color?: string; opacity?: number; closed?: boolean }> = ({ curve, r = 0.07, color = C.copper, opacity = 1, closed = true }) => {
+  const g = useMemo(() => new THREE.TubeGeometry(curve, 320, r, 16, closed), [curve, r, closed]);
   return (
     <mesh geometry={g} castShadow>
       <meshStandardMaterial color={color} roughness={0.35} metalness={0.4} transparent={opacity < 1} opacity={opacity} depthWrite={opacity >= 1} />
@@ -317,3 +324,81 @@ export const RoomShell: React.FC<{ warm?: number; window?: boolean }> = ({ warm 
     )}
   </group>
 );
+
+/* ---------- adjustable wrench (kunci inggris): chrome body, angled jaw head, movable jaw, knurled worm screw ---------- */
+const wrenchGeos = (() => {
+  const ext = (sh: THREE.Shape, depth: number, bev = 0.025) => {
+    const g = new THREE.ExtrudeGeometry(sh, { depth, bevelEnabled: true, bevelThickness: bev, bevelSize: bev, bevelSegments: 4, curveSegments: 24 });
+    g.translate(0, 0, -depth / 2);
+    return g;
+  };
+  // handle: tapered bar with a rounded end and a hanging hole (symmetric about the Y axis)
+  const hd = new THREE.Shape();
+  hd.moveTo(-0.13, 0.05); hd.lineTo(-0.105, -1.25); hd.absarc(0, -1.25, 0.105, Math.PI, 0, false); hd.lineTo(0.13, 0.05); hd.closePath();
+  const hole = new THREE.Path(); hole.absarc(0, -1.22, 0.045, 0, Math.PI * 2, true); hd.holes.push(hole);
+  // head with the fixed jaw: rounded body, open slot on the right
+  const he = new THREE.Shape();
+  he.moveTo(-0.16, 0.0);
+  he.lineTo(-0.28, 0.22);
+  he.quadraticCurveTo(-0.34, 0.52, -0.12, 0.64);  // back of the head
+  he.lineTo(0.02, 0.66);                          // tip of fixed jaw
+  he.lineTo(0.02, 0.42);                          // fixed jaw face
+  he.lineTo(0.12, 0.36);                          // slot bottom
+  he.lineTo(0.12, 0.22);
+  he.quadraticCurveTo(0.12, 0.05, 0.16, 0.0);
+  he.closePath();
+  // movable jaw (slides in the slot)
+  const mj = new THREE.Shape();
+  mj.moveTo(0.0, 0.0); mj.lineTo(0.0, 0.26); mj.lineTo(0.09, 0.3); mj.lineTo(0.13, 0.22); mj.lineTo(0.13, 0.0); mj.closePath();
+  return { handle: ext(hd, 0.07), head: ext(he, 0.11), jaw: ext(mj, 0.09, 0.015) };
+})();
+
+export const Wrench: React.FC<P & { open?: number }> = ({ open = 0.5, ...p }) => (
+  <group {...p}>
+    <mesh geometry={wrenchGeos.handle} castShadow>
+      <meshStandardMaterial color="#e3e6ea" metalness={0.25} roughness={0.32} />
+    </mesh>
+    {/* orange rubber grip */}
+    <mesh position={[0, -0.75, 0]}>
+      <boxGeometry args={[0.235, 0.7, 0.13]} />
+      <meshStandardMaterial color={C.orange} roughness={0.7} />
+    </mesh>
+    <mesh geometry={wrenchGeos.head} castShadow>
+      <meshStandardMaterial color="#e3e6ea" metalness={0.25} roughness={0.32} />
+    </mesh>
+    <mesh geometry={wrenchGeos.jaw} position={[0.14, 0.18 + open * 0.06, 0]} castShadow>
+      <meshStandardMaterial color="#cdd1d6" metalness={0.25} roughness={0.35} />
+    </mesh>
+    {/* knurled worm screw */}
+    <group position={[0.15, 0.12, 0]} rotation={[0, 0, Math.PI / 2]}>
+      <mesh>
+        <cylinderGeometry args={[0.045, 0.045, 0.16, 20]} />
+        <meshStandardMaterial color="#aeb3ba" metalness={0.3} roughness={0.3} />
+      </mesh>
+      {[-0.05, -0.025, 0, 0.025, 0.05].map((y) => (
+        <mesh key={y} position={[0, y, 0]}>
+          <torusGeometry args={[0.046, 0.008, 6, 20]} />
+          <meshStandardMaterial color="#959aa1" metalness={0.3} />
+        </mesh>
+      ))}
+    </group>
+  </group>
+);
+
+/** orthogonal pipe route with neat rounded bends (straight runs + quarter-bends of radius r) */
+export const routedPath = (pts: [number, number, number][], r = 0.08) => {
+  const P = pts.map((p) => new THREE.Vector3(...p));
+  const path = new THREE.CurvePath<THREE.Vector3>();
+  let cur = P[0].clone();
+  for (let i = 1; i < P.length - 1; i++) {
+    const a = P[i - 1], b = P[i], c = P[i + 1];
+    const d1 = b.clone().sub(a).normalize(), d2 = c.clone().sub(b).normalize();
+    const rr = Math.min(r, b.distanceTo(a) / 2, c.distanceTo(b) / 2);
+    const p1 = b.clone().addScaledVector(d1, -rr), p2 = b.clone().addScaledVector(d2, rr);
+    path.add(new THREE.LineCurve3(cur, p1));
+    path.add(new THREE.QuadraticBezierCurve3(p1, b.clone(), p2));
+    cur = p2;
+  }
+  path.add(new THREE.LineCurve3(cur, P[P.length - 1].clone()));
+  return path;
+};

@@ -2,7 +2,7 @@
 import React, { useMemo } from "react";
 import * as THREE from "three";
 import { C, lerp, eBack } from "../lib";
-import { AirStream, Coil, Flow, IndoorUnit, OutdoorUnit, Pipe, RBox, heatColor } from "./parts";
+import { AirStream, Coil, Flow, IndoorUnit, OutdoorUnit, Pipe, RBox, heatColor, routedPath } from "./parts";
 
 /** rounded-rectangle closed loop in the XY plane (clockwise from top-left) */
 export const loopCurve = (w = 2.2, h = 3.0, r = 0.45) => {
@@ -87,39 +87,57 @@ export const NODE_SCREEN = [
 export const LABEL_OFF = [ { dx: 0, dy: -78 }, { dx: -40, dy: 120 }, { dx: 0, dy: -110 }, { dx: 40, dy: 120 } ];
 export const LOOP_CAM = { pos: [0, 0, 8.6] as [number, number, number], look: [0, 0, 0] as [number, number, number], fov: 40 };
 
-/** small cut-away house: inside room with indoor unit, wall, outdoor unit; heat carried outside */
+/** neat cut-away house (symmetric gable roof), indoor unit on the back wall, pipes routed
+    along the wall, through the exterior wall and down to the outdoor unit */
+const roofGable = (() => {
+  const sh = new THREE.Shape();
+  sh.moveTo(-1.2, 0); sh.lineTo(1.2, 0); sh.lineTo(0, 0.78); sh.closePath();
+  const g = new THREE.ExtrudeGeometry(sh, { depth: 0.14, bevelEnabled: false });
+  g.translate(0, 0, -0.07);
+  return g;
+})();
+
 export const MiniHouse: React.FC<{ t: number; flow: number; outHeat?: number }> = ({ t, flow, outHeat = 1 }) => {
-  const curve = useMemo(
-    () => new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-0.9, 0.95, 0.15), new THREE.Vector3(0.1, 1.1, 0.15), new THREE.Vector3(0.6, 1.05, 0.15),
-      new THREE.Vector3(0.75, 0.4, 0.15), new THREE.Vector3(1.0, -0.25, 0.15), new THREE.Vector3(1.4, -0.3, 0.15),
-    ]),
-    []
-  );
+  const X = -0.5; // room centre
+  const pipeGas = useMemo(() => routedPath([[0.02, 0.6, -0.62], [0.63, 0.6, -0.62], [0.9, 0.6, -0.62], [0.9, -0.7, -0.62], [1.05, -0.7, -0.62]], 0.1), []);
+  const pipeLiq = useMemo(() => routedPath([[0.02, 0.5, -0.5], [0.63, 0.5, -0.5], [0.8, 0.5, -0.5], [0.8, -0.8, -0.5], [1.05, -0.8, -0.5]], 0.1), []);
+  const roofAng = Math.atan2(0.78, 1.2), roofLen = Math.hypot(1.2, 0.78) + 0.12;
   return (
     <group scale={0.8}>
-      {/* floor + inside walls */}
-      <RBox size={[3.6, 0.15, 1.6]} r={0.05} color="#f2d8c4" position={[0, -1.1, 0]} />
-      <RBox size={[2.0, 2.4, 0.12]} r={0.04} color="#f6e6da" position={[-0.6, 0.1, -0.75]} />
-      <RBox size={[0.18, 2.4, 1.6]} r={0.04} color="#ecc3a8" position={[0.48, 0.1, 0]} />
-      {/* roof */}
-      <mesh position={[-0.6, 1.62, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.95, 1, 0.5]}>
-        <cylinderGeometry args={[1.25, 1.25, 1.62, 3]} />
-        <meshStandardMaterial color={C.orange} />
-      </mesh>
-      <IndoorUnit t={t} louver={1} glow={1} position={[-0.6, 0.85, -0.45]} scale={0.42} />
-      <OutdoorUnit fan={t * 10} position={[1.35, -0.55, 0.1]} scale={0.42} />
-      <Pipe curve={curve} r={0.03} color={C.copper} />
-      {/* room heat travelling through the pipe and out */}
-      <Flow curve={curve} t={t} count={36} speed={0.35} size={0.14} colorAt={() => C.orange} opacity={flow} />
-      <AirStream t={t} color={C.orange} position={[1.4, -0.45, 0.4]} dir={[1, 0.6, 0.3]} len={1.4} spread={0.4} count={40} size={0.13} opacity={0.8 * flow * outHeat} />
-      {/* cool air in room */}
-      <AirStream t={t} color={C.cold} position={[-0.6, 0.62, -0.25]} dir={[0, -0.8, 1]} len={1.3} spread={0.8} count={40} size={0.12} opacity={0.7 * flow} />
-      {/* ground outside */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.19, 0]} receiveShadow>
+      {/* ground + foundation */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.2, 0]} receiveShadow>
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial color="#efd2bd" />
       </mesh>
+      <RBox size={[2.5, 0.16, 1.9]} r={0.04} color="#e9cbb5" position={[X, -1.12, 0]} />
+      <RBox size={[2.3, 0.05, 1.7]} r={0.02} color="#f5e3d6" position={[X, -1.02, 0.02]} />
+      {/* walls: back, left, right (exterior) — front left open as a cut-away */}
+      <RBox size={[2.4, 2.0, 0.14]} r={0.03} color="#f6e6da" position={[X, -0.04, -0.83]} />
+      <RBox size={[0.14, 2.0, 1.8]} r={0.03} color="#efd6c5" position={[X - 1.13, -0.04, 0]} />
+      <RBox size={[0.14, 2.0, 1.8]} r={0.03} color="#efd6c5" position={[X + 1.13, -0.04, 0]} />
+      {/* symmetric gable roof */}
+      <mesh geometry={roofGable} position={[X, 0.96, -0.83]}>
+        <meshStandardMaterial color="#f6e6da" />
+      </mesh>
+      {[-1, 1].map((sd) => (
+        <RBox key={sd} size={[roofLen, 0.1, 2.05]} r={0.03} color={C.orange} position={[X + sd * 0.6, 0.96 + 0.39 + 0.05, 0]} rotation={[0, 0, -sd * roofAng]} />
+      ))}
+      {/* indoor unit centred on the back wall */}
+      <IndoorUnit t={t} louver={1} glow={1} position={[X, 0.55, -0.68]} scale={0.42} />
+      {/* wall sleeve where the pipes pass through */}
+      <mesh position={[X + 1.13, 0.55, -0.56]} rotation={[0, Math.PI / 2, 0]}>
+        <torusGeometry args={[0.1, 0.025, 10, 24]} />
+        <meshStandardMaterial color="#d9c2b2" />
+      </mesh>
+      {/* outdoor unit on the ground, outside */}
+      <OutdoorUnit fan={t * 10} position={[1.5, -0.82, -0.55]} scale={0.42} />
+      <Pipe curve={pipeGas} r={0.032} color={C.copper} closed={false} />
+      <Pipe curve={pipeLiq} r={0.022} color="#d9915e" closed={false} />
+      {/* room heat travelling through the pipe and out */}
+      <Flow curve={pipeGas} t={t} count={30} speed={0.35} size={0.13} colorAt={() => C.orange} opacity={flow} />
+      <AirStream t={t} color={C.orange} position={[1.35, -0.8, -0.3]} dir={[0.3, 0.5, 1]} len={1.3} spread={0.4} count={40} size={0.13} opacity={0.8 * flow * outHeat} />
+      {/* cool air in the room */}
+      <AirStream t={t} color={C.cold} position={[X, 0.35, -0.5]} dir={[0, -0.8, 1]} len={1.3} spread={0.8} count={40} size={0.12} opacity={0.7 * flow} />
     </group>
   );
 };
