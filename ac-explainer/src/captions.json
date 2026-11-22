@@ -1,0 +1,317 @@
+[
+{
+"s": 1.0,
+"e": 3.004,
+"t": "Siang terik, kamu masuk\nkamar, nyalakan AC,"
+},
+{
+"s": 3.684,
+"e": 5.764,
+"t": "dan dalam beberapa menit\nsemuanya terasa sejuk."
+},
+{
+"s": 6.224,
+"e": 9.784,
+"t": "Tapi tahukah kamu? AC sama\nsekali tidak membuat dingin."
+},
+{
+"s": 10.284,
+"e": 12.724,
+"t": "Yang dilakukan AC adalah\nmemindahkan panas,"
+},
+{
+"s": 13.244,
+"e": 16.704,
+"t": "dari dalam kamar, ke luar\nrumah. Bagaimana caranya?"
+},
+{
+"s": 17.664,
+"e": 20.224,
+"t": "Coba ingat saat kulitmu\nbasah lalu tertiup angin."
+},
+{
+"s": 20.744,
+"e": 21.564,
+"t": "Terasa dingin, kan?"
+},
+{
+"s": 22.204,
+"e": 24.704,
+"t": "Itu karena air yang menguap\nmembawa pergi panas dari"
+},
+{
+"s": 24.744,
+"e": 27.384,
+"t": "tubuhmu. AC memakai\nprinsip yang sama,"
+},
+{
+"s": 27.684,
+"e": 30.944,
+"t": "hanya saja dilakukan terus-menerus,\ndi dalam pipa tertutup."
+},
+{
+"s": 31.704,
+"e": 33.544,
+"t": "Bintang utamanya\nadalah refrigeran,"
+},
+{
+"s": 34.064,
+"e": 36.524,
+"t": "cairan khusus yang bisa mendidih\npada suhu sangat rendah."
+},
+{
+"s": 37.084,
+"e": 39.264,
+"t": "Refrigeran ini berputar\ndalam satu lingkaran,"
+},
+{
+"s": 39.544,
+"e": 41.084,
+"t": "melewati empat komponen penting."
+},
+{
+"s": 41.764,
+"e": 44.124,
+"t": "Pertama, evaporator\ndi unit dalam."
+},
+{
+"s": 44.924,
+"e": 47.604,
+"t": "Udara kamar yang hangat\ndihisap kipas, disaring,"
+},
+{
+"s": 48.124,
+"e": 50.224000000000004,
+"t": "lalu dilewatkan ke\nkisi-kisi logam yang dingin."
+},
+{
+"s": 50.264,
+"e": 53.604,
+"t": "Di dalam kisi itu, refrigeran\nbertekanan rendah menguap,"
+},
+{
+"s": 53.644,
+"e": 55.204,
+"t": "dan menyerap panas dari udara."
+},
+{
+"s": 55.764,
+"e": 58.444,
+"t": "Udara yang keluar pun\nterasa sejuk. Bonusnya,"
+},
+{
+"s": 58.864,
+"e": 61.524,
+"t": "uap air di udara ikut\nmengembun di kisi dingin,"
+},
+{
+"s": 61.824,
+"e": 63.064,
+"t": "lalu dibuang lewat selang."
+},
+{
+"s": 63.564,
+"e": 65.484,
+"t": "Itulah kenapa kamar ber-AC\nterasa lebih kering."
+},
+{
+"s": 66.164,
+"e": 70.224,
+"t": "Kedua, kompresor di unit\nluar, jantung dari sistem AC."
+},
+{
+"s": 70.804,
+"e": 73.904,
+"t": "Refrigeran yang sudah menjadi\ngas dihisap, lalu dimampatkan."
+},
+{
+"s": 74.444,
+"e": 76.644,
+"t": "Tekanannya naik, dan\nsuhunya ikut melonjak,"
+},
+{
+"s": 77.064,
+"e": 78.784,
+"t": "bahkan lebih panas dari\nudara di luar rumah."
+},
+{
+"s": 79.424,
+"e": 81.044,
+"t": "Ketiga, kondensor."
+},
+{
+"s": 81.624,
+"e": 84.104,
+"t": "Gas panas itu mengalir ke\nkisi-kisi di unit luar,"
+},
+{
+"s": 84.244,
+"e": 86.944,
+"t": "dan kipas besar meniupkan\npanasnya ke udara bebas."
+},
+{
+"s": 87.424,
+"e": 89.784,
+"t": "Itu sebabnya angin dari\nunit luar terasa hangat."
+},
+{
+"s": 90.444,
+"e": 93.404,
+"t": "Setelah panasnya lepas,\nrefrigeran kembali menjadi cair."
+},
+{
+"s": 94.344,
+"e": 97.884,
+"t": "Keempat, katup ekspansi,\natau pada banyak AC rumahan,"
+},
+{
+"s": 98.044,
+"e": 98.58399999999999,
+"t": "pipa kapiler."
+},
+{
+"s": 98.624,
+"e": 102.42399999999999,
+"t": "Cairan bertekanan tinggi dipaksa\nmelewati celah yang sangat"
+},
+{
+"s": 102.464,
+"e": 105.864,
+"t": "sempit. Tekanannya turun\ndrastis, suhunya anjlok,"
+},
+{
+"s": 106.104,
+"e": 108.864,
+"t": "dan refrigeran yang kini\ndingin kembali ke evaporator."
+},
+{
+"s": 109.444,
+"e": 112.384,
+"t": "Siklus pun berulang,\nterus-menerus."
+},
+{
+"s": 112.424,
+"e": 113.684,
+"t": "Lalu, kapan AC berhenti?"
+},
+{
+"s": 114.464,
+"e": 116.904,
+"t": "Sensor suhu di unit dalam\nterus memantau kamar."
+},
+{
+"s": 117.444,
+"e": 119.044,
+"t": "Begitu suhu yang\nkamu pilih tercapai,"
+},
+{
+"s": 119.444,
+"e": 121.104,
+"t": "AC biasa mematikan kompresornya."
+},
+{
+"s": 121.604,
+"e": 123.924,
+"t": "Sementara AC inverter cukup\nmemperlambat putarannya,"
+},
+{
+"s": 124.204,
+"e": 126.66399999999999,
+"t": "sehingga suhu lebih stabil\ndan listrik lebih hemat."
+},
+{
+"s": 126.704,
+"e": 129.224,
+"t": "Supaya AC tetap dingin dan awet,"
+},
+{
+"s": 129.384,
+"e": 131.964,
+"t": "ada tiga kebiasaan\nsederhana. Satu,"
+},
+{
+"s": 132.304,
+"e": 133.724,
+"t": "bersihkan filter secara rutin."
+},
+{
+"s": 134.184,
+"e": 136.404,
+"t": "Filter yang penuh debu\nmembuat udara tertahan,"
+},
+{
+"s": 136.684,
+"e": 140.344,
+"t": "AC bekerja lebih berat, dan\ntagihan listrik ikut naik. Dua,"
+},
+{
+"s": 140.744,
+"e": 143.284,
+"t": "jangan halangi unit luar.\nBeri ruang di sekitarnya,"
+},
+{
+"s": 143.584,
+"e": 146.384,
+"t": "supaya panas bisa dibuang\ndengan lancar. Tiga,"
+},
+{
+"s": 146.804,
+"e": 148.544,
+"t": "panggil teknisi\nuntuk servis berkala,"
+},
+{
+"s": 148.784,
+"e": 151.524,
+"t": "agar kisi-kisi bersih dan\nrefrigeran tetap cukup."
+},
+{
+"s": 151.564,
+"e": 155.004,
+"t": "Dan selama AC menyala,\ntutup pintu serta jendela,"
+},
+{
+"s": 155.264,
+"e": 156.664,
+"t": "supaya dingin tidak\nbocor ke luar."
+},
+{
+"s": 157.164,
+"e": 160.704,
+"t": "Jadi, ingat empat langkahnya:\nmenyerap, memampatkan,"
+},
+{
+"s": 161.084,
+"e": 164.484,
+"t": "membuang, lalu mengembang.\nSetiap hembusan sejuk dari AC,"
+},
+{
+"s": 164.864,
+"e": 167.324,
+"t": "sebenarnya adalah panas kamarmu\nyang sedang diantar keluar."
+},
+{
+"s": 168.204,
+"e": 168.544,
+"t": "Nah,"
+},
+{
+"s": 168.584,
+"e": 171.104,
+"t": "kalau kamu punya teman yang\nAC-nya selalu disetel paling"
+},
+{
+"s": 171.144,
+"e": 174.324,
+"t": "dingin, atau yang filternya\nbelum dicuci sejak zaman dulu,"
+},
+{
+"s": 174.784,
+"e": 176.824,
+"t": "kirimkan video ini\nke dia. Anggap saja,"
+},
+{
+"s": 177.204,
+"e": 179.344,
+"t": "kamu sedang mengirim\nsedikit kesejukan."
+}
+]

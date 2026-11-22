@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <!-- HyperFrames segment for the AC explainer: "Kapan AC berhenti?" (video 112.0s -> 126.9s).
+         All times below are relative to 112.0s and come from the word-aligned voiceover. -->
+    <script src="./assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Rubik"; font-weight: 700; src: url(./assets/rubik-latin-700-normal.woff2); }
+      @font-face { font-family: "Rubik"; font-weight: 800; src: url(./assets/rubik-latin-800-normal.woff2); }
+      @font-face { font-family: "Rubik"; font-weight: 900; src: url(./assets/rubik-latin-900-normal.woff2); }
+      :root { --cream: #f7ece3; --orange: #ff6a1a; --red: #e8402a; --cold: #5fb8ff; --coldD: #2f86d6; --ink: #1f1a17; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Rubik, Inter, sans-serif; color: var(--ink);
+        background: radial-gradient(ellipse at 50% 40%, #fbf4ee 0%, var(--cream) 60%, #f1dfd0 100%); }
+      .clip { position: absolute; inset: 0; }
+      .chip { position: absolute; left: 50%; top: 150px; transform: translateX(-50%); padding: 10px 26px; border-radius: 999px; background: var(--orange); color: #fff; font-weight: 800; font-size: 30px; letter-spacing: 2px; }
+      .h1 { position: absolute; left: 60px; right: 60px; top: 220px; text-align: center; font-weight: 900; font-size: 92px; letter-spacing: -2px; line-height: 1; }
+      .h1 b { color: var(--orange); }
+      /* sensor scene */
+      #unit { position: absolute; left: 190px; top: 560px; width: 700px; height: 220px; border-radius: 70px; background: #fffaf5; box-shadow: 0 30px 50px rgba(150,80,30,.18), inset 0 -14px 0 #efe4da; }
+      #unit::after { content: ""; position: absolute; left: 90px; right: 90px; bottom: 34px; height: 16px; border-radius: 8px; background: #efe4da; }
+      #sensor { position: absolute; left: 790px; top: 640px; width: 34px; height: 34px; border-radius: 50%; background: var(--cold); box-shadow: 0 0 0 10px rgba(95,184,255,.25); }
+      .wave { opacity: 0; position: absolute; left: 807px; top: 657px; width: 10px; height: 10px; border-radius: 50%; border: 6px solid var(--cold); transform: translate(-50%,-50%); }
+      #lblSensor { position: absolute; left: 600px; top: 470px; padding: 10px 20px; border-radius: 16px; background: var(--ink); color: #fff; font-weight: 800; font-size: 36px; }
+      #dial { position: absolute; left: 320px; top: 830px; width: 440px; height: 440px; }
+      #tick { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; }
+      #tick span { display: inline-block; padding: 14px 30px; border-radius: 999px; background: #3aa56b; color: #fff; font-weight: 900; font-size: 46px; }
+      /* graphs */
+      .card { position: absolute; left: 70px; right: 70px; height: 420px; border-radius: 34px; background: #fffaf5; box-shadow: 0 20px 40px rgba(150,80,30,.15); }
+      .card h3 { position: absolute; left: 40px; top: 28px; font-size: 44px; font-weight: 900; }
+      .card .tag { position: absolute; right: 36px; top: 30px; padding: 6px 16px; border-radius: 12px; font-weight: 800; font-size: 26px; color: #fff; }
+      .card svg { position: absolute; left: 30px; top: 100px; }
+      .legend { position: absolute; left: 40px; bottom: 22px; font-size: 24px; font-weight: 700; color: #7a6a5e; }
+      .legend i { display: inline-block; width: 28px; height: 8px; border-radius: 4px; margin: 0 8px 4px 0; vertical-align: middle; }
+      #cardA { top: 420px; } #cardB { top: 870px; }
+      .pill { position: absolute; padding: 12px 24px; border-radius: 999px; color: #fff; font-weight: 900; font-size: 42px; }
+      #pStabil { left: 120px; top: 1305px; background: var(--cold); }
+      #pHemat { right: 120px; top: 1305px; background: var(--orange); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="14.9" data-width="1080" data-height="1920">
+
+      <!-- 0.0 – 7.3 : sensor + thermostat -->
+      <div id="s1" class="clip" data-start="0" data-duration="7.35" data-track-index="0">
+        <div class="chip" id="chip1">KONTROL OTOMATIS</div>
+        <div class="h1" id="h1">Kapan AC <b>berhenti?</b></div>
+        <div id="unit"></div>
+        <div id="sensor"></div>
+        <div class="wave" id="w1"></div><div class="wave" id="w2"></div><div class="wave" id="w3"></div>
+        <div id="lblSensor">sensor suhu</div>
+        <svg id="dial" viewBox="0 0 500 500">
+          <circle cx="250" cy="250" r="200" fill="#fffaf5" stroke="#efe2d6" stroke-width="34" />
+          <circle id="arc" cx="250" cy="250" r="200" fill="none" stroke="#ff6a1a" stroke-width="34" stroke-linecap="round" stroke-dasharray="1256.6" stroke-dashoffset="250" transform="rotate(-90 250 250)" />
+          <circle id="target" cx="250" cy="50" r="22" fill="#5fb8ff" stroke="#fff" stroke-width="8" transform="rotate(150 250 250)" />
+          <text id="tLabel" x="250" y="235" text-anchor="middle" font-family="Rubik" font-weight="900" font-size="64" fill="#1f1a17">suhu</text>
+          <text x="250" y="300" text-anchor="middle" font-family="Rubik" font-weight="700" font-size="34" fill="#7a6a5e">kamar</text>
+        </svg>
+        <div id="tick"><span>✓ suhu pilihanmu tercapai</span></div>
+      </div>
+
+      <!-- 7.3 – 14.9 : regular vs inverter -->
+      <div id="s2" class="clip" data-start="7.25" data-duration="7.65" data-track-index="1">
+        <div class="chip">AC BIASA vs INVERTER</div>
+        <div class="card" id="cardA">
+          <h3>AC biasa</h3><div class="tag" style="background:#e8402a">ON / OFF</div>
+          <svg width="880" height="260" viewBox="0 0 880 260">
+            <path id="aPow" d="M 0 40 H 140 V 200 H 260 V 40 H 400 V 200 H 520 V 40 H 660 V 200 H 780 V 40 H 880" fill="none" stroke="#e8402a" stroke-width="10" stroke-linejoin="round" />
+            <path id="aTmp" d="M 0 150 L 140 110 L 260 170 L 400 110 L 520 170 L 660 110 L 780 170 L 880 120" fill="none" stroke="#5fb8ff" stroke-width="8" stroke-dasharray="14 10" />
+          </svg>
+          <div class="legend"><i style="background:#e8402a"></i>kompresor mati–nyala &nbsp; <i style="background:#5fb8ff"></i>suhu naik-turun</div>
+        </div>
+        <div class="card" id="cardB">
+          <h3>AC inverter</h3><div class="tag" style="background:#2f86d6">PELAN</div>
+          <svg width="880" height="260" viewBox="0 0 880 260">
+            <path id="bPow" d="M 0 40 C 120 40, 160 140, 260 140 S 500 150, 880 150" fill="none" stroke="#ff6a1a" stroke-width="10" />
+            <path id="bTmp" d="M 0 150 C 120 150, 180 130, 260 130 S 600 130, 880 130" fill="none" stroke="#5fb8ff" stroke-width="8" stroke-dasharray="14 10" />
+          </svg>
+          <div class="legend"><i style="background:#ff6a1a"></i>putaran diperlambat &nbsp; <i style="background:#5fb8ff"></i>suhu stabil</div>
+        </div>
+        <div class="pill" id="pStabil">suhu lebih stabil</div>
+        <div class="pill" id="pHemat">⚡ lebih hemat</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const O = "power3.out", S = "power2.inOut";
+      // title
+      tl.fromTo("#chip1", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.3);
+      tl.fromTo("#h1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: O }, 0.4);
+      // sensor appears, waves scan the room ("Sensor" 2.5, "memantau" 4.1)
+      tl.fromTo("#unit", { opacity: 0, y: 60, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: O }, 1.2);
+      tl.fromTo("#sensor", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(3)" }, 2.5);
+      tl.fromTo("#lblSensor", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: O }, 2.6);
+      ["#w1", "#w2", "#w3"].forEach((w, i) => {
+        for (let k = 0; k < 3; k++) tl.fromTo(w, { width: 10, height: 10, opacity: 0.9 }, { width: 420, height: 420, opacity: 0, duration: 1.2, ease: "power1.out" }, 4.1 + i * 0.4 + k * 1.2);
+      });
+      // dial: room temperature falls to the chosen target ("Begitu" 5.4, "tercapai" 6.5)
+      tl.fromTo("#dial", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.5, ease: O }, 3.6);
+      tl.fromTo("#arc", { strokeDashoffset: 250 }, { strokeDashoffset: 1256.6 * (1 - 150 / 360), duration: 1.3, ease: S }, 5.4);
+      tl.fromTo("#target", { scale: 0, transformOrigin: "250px 250px" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 5.6);
+      tl.fromTo("#tick", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 6.5);
+      tl.to("#s1", { opacity: 0, duration: 0.25 }, 7.1);
+      // regular AC: on/off ("AC biasa" 7.4, "mematikan" 7.9)
+      tl.fromTo("#s2", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 7.25);
+      tl.fromTo("#cardA", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: O }, 7.3);
+      tl.fromTo("#aPow", { strokeDasharray: 2600, strokeDashoffset: 2600 }, { strokeDashoffset: 0, duration: 1.8, ease: "none" }, 7.8);
+      tl.fromTo("#aTmp", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.4);
+      // inverter: slows down ("inverter" 10.2, "memperlambat" 10.9)
+      tl.fromTo("#cardB", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: O }, 9.6);
+      tl.fromTo("#bPow", { strokeDasharray: 1100, strokeDashoffset: 1100 }, { strokeDashoffset: 0, duration: 1.8, ease: S }, 10.6);
+      tl.fromTo("#bTmp", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 11.4);
+      // "stabil" 13.0, "hemat" 14.4
+      tl.fromTo("#pStabil", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 12.8);
+      tl.fromTo("#pHemat", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 14.0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

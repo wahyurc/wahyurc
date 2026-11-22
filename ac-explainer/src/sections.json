@@ -1,0 +1,57 @@
+[
+ {
+  "name": "Hook",
+  "start": 1.0,
+  "end": 16.704
+ },
+ {
+  "name": "Analogi",
+  "start": 17.664,
+  "end": 30.944
+ },
+ {
+  "name": "Refrigeran",
+  "start": 31.704,
+  "end": 41.084
+ },
+ {
+  "name": "1 — Evaporator",
+  "start": 41.764,
+  "end": 65.484
+ },
+ {
+  "name": "2 — Kompresor",
+  "start": 66.164,
+  "end": 78.784
+ },
+ {
+  "name": "3 — Kondensor",
+  "start": 79.424,
+  "end": 93.404
+ },
+ {
+  "name": "4 — Katup ekspansi",
+  "start": 94.344,
+  "end": 112.424
+ },
+ {
+  "name": "Kontrol",
+  "start": 112.424,
+  "end": 126.704
+ },
+ {
+  "name": "Tips perawatan",
+  "start": 126.704,
+  "end": 156.664
+ },
+ {
+  "name": "Penutup",
+  "start": 157.164,
+  "end": 167.324
+ },
+ {
+  "name": "Ajakan share",
+  "start": 168.204,
+  "end": 178.944
+ }
+]
