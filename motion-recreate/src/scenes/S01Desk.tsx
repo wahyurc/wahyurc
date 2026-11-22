@@ -1,7 +1,7 @@
 // Scene 1 (0.00s – 3.20s): top-down desk, flipping ebook, 3D cursor, exploding pencil cup,
 // "For beginners" tags pop, camera dives low to the "Learn Prompt" card + big cursor.
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, useCurrentFrame } from "remotion";
 import * as THREE from "three";
 import { Stage } from "../three/Stage";
 import { Book, Card, Cube, Cursor3D, Lights, OpenBook, Particles, PencilCup, Pencil } from "../three/objects";
@@ -27,7 +27,8 @@ const WindowShadowCaster: React.FC = () => (
 
 export const S01Desk: React.FC = () => {
   const f = useCurrentFrame();
-  const flip = f < 22 ? (f / 5.5) % 1 : 1;
+  const cyc = Math.min(f, 21.999) / 5.5;
+  const flip = f < 22 ? Easing.inOut(Easing.cubic)(cyc % 1) : 1;
   const burst = lerp(f, [6, 30], [0, 1], eOut);
   const pop = (start: number) => lerp(f, [start, start + 7], [0, 1], eBack);
   const learn = pop(38);
@@ -80,9 +81,10 @@ export const S01Desk: React.FC = () => {
         <Cube color="#b0582c" size={0.2} position={[-0.6, -2.0, 0.1]} rotation={[0.1, 0.2, 0.7]} />
 
         {/* the 3D cursor clicking the book */}
+        {/* 3D cursor: tip touches the right page; smooth press cycles while pages flip */}
         <Cursor3D
-          position={[0.35 + Math.sin(f / 6) * 0.04, -0.35 - lerp(f, [0, 20], [0.2, 0]), 0.55 + (f % 12 < 3 ? -0.08 : 0)]}
-          rotation={[0.2, 0.1, 0.25]}
+          position={[0.45 + Math.sin(f / 9) * 0.03, -0.05, 0.075 + 0.16 * (1 - Math.pow(Math.max(0, Math.sin((f / 11) * Math.PI * 2)), 2)) + lerp(f, [0, 14], [0.35, 0])]}
+          rotation={[0.35, -0.25, 0.1]}
           scale={0.9}
         />
 
@@ -98,8 +100,11 @@ export const S01Desk: React.FC = () => {
         ))}
 
         {/* Learn Prompt card + big cursor (revealed by the camera dive) */}
-        <Card tex={learnCardTex()} w={1.6} h={0.53} depth={0.08} position={[1.35, -1.55, 0.95]} rotation={[1.25, 0.1, 0.22]} scale={learn} />
-        <Cursor3D position={[2.25, -2.6, 0.75]} rotation={[1.3, 0.2, 0.45]} scale={learn * 1.05} color="#ff8a2a" />
+        {/* card + cursor share one transform, cursor tip sits on the card face */}
+        <group position={[1.35, -1.55, 0.95]} rotation={[1.25, 0.1, 0.22]} scale={learn}>
+          <Card tex={learnCardTex()} w={1.6} h={0.53} depth={0.08} />
+          <Cursor3D position={[0.42, -0.02, 0.045 + 0.06 * lerp(f, [44, 50, 54], [1, 0, 0.4], eOut)]} rotation={[0.35, -0.35, 0.15]} scale={1.15} color="#ff8a2a" />
+        </group>
         {/* orange pegboard block on the right */}
         <mesh position={[4.0, -0.9, 0.9]} rotation={[0.1, 0.2, 0.4]} castShadow>
           <boxGeometry args={[0.8, 0.45, 1.5]} />

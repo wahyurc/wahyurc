@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import * as THREE from "three";
 import { Stage } from "../three/Stage";
 import { Book, Card, Confetti, Lights, OpenBook, Particles, Pencil, PencilCup } from "../three/objects";
@@ -159,6 +159,8 @@ export const S14End: React.FC = () => {
   const btn = lerp(f, [22, 28], [0, 1], eBack);
   const book = lerp(f, [20, 30], [0, 1], eOut);
   const sel = lerp(f, [12, 18], [0, 1], eOut);
+  const ctr = lerp(f, [26, 40], [0, 1], Easing.bezier(0.22, 1, 0.36, 1));
+  const press = interpolate(f, [41, 44, 48], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.sin) });
   return (
     <AbsoluteFill>
       <Stage cam={{ pos: [-1.2 + f * 0.003, 2.7, 3.4 - f * 0.003], look: [0.5, 2.75, -2.6], fov: 44 }} bg="#f6e8dd" style={{ filter: "blur(0.6px)" }}>
@@ -196,10 +198,10 @@ export const S14End: React.FC = () => {
         <div style={{ position: "absolute", right: -6, top: -4, width: 16, height: 16, borderRadius: "50%", background: "#fff", border: `3px solid ${C.orange}` }} />
       </div>
       {/* Get it now button + cursor */}
-      <div style={{ position: "absolute", left: 320, top: 800, width: 380, height: 110, borderRadius: 60, background: `linear-gradient(180deg, #ff8d4a, ${C.orangeD})`, color: "#fff", fontFamily: "Rubik", fontWeight: 800, fontSize: 52, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 16px 30px rgba(200,80,20,.35), inset 0 4px 0 rgba(255,255,255,.3)", transform: `scale(${btn * (f > 40 && f < 43 ? 0.95 : 1)})` }}>
+      <div style={{ position: "absolute", left: 320, top: 800, width: 380, height: 110, borderRadius: 60, background: `linear-gradient(180deg, #ff8d4a, ${C.orangeD})`, color: "#fff", fontFamily: "Rubik", fontWeight: 800, fontSize: 52, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 16px 30px rgba(200,80,20,.35), inset 0 4px 0 rgba(255,255,255,.3)", transform: `scale(${btn * (1 - 0.05 * press)})` }}>
         Get it now
       </div>
-      <svg width={110} height={130} viewBox="0 0 26 30" style={{ position: "absolute", left: lerp(f, [26, 40], [820, 630], eOut), top: lerp(f, [26, 40], [1000, 860], eOut), opacity: btn, filter: "drop-shadow(0 8px 8px rgba(160,60,10,.3))" }}>
+      <svg width={110} height={130} viewBox="0 0 26 30" style={{ position: "absolute", left: 588 - 8.5 + (1 - ctr) * 230 + press * 3, top: 862 - 8.7 + (1 - ctr) * 150 + press * 6, opacity: btn, filter: "drop-shadow(0 8px 8px rgba(160,60,10,.3))" }}>
         <path d="M2 2 L22 16 L13 17 L18 27 L14 29 L9 19 L3 25 Z" fill={C.orangeL} stroke="#fff" strokeWidth={0.8} />
       </svg>
       <Halftone opacity={0.4} />

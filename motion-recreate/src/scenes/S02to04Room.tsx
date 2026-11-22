@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, interpolateColors, spring, useCurrentFrame } from "remotion";
 import { Stage } from "../three/Stage";
 import { Room } from "../three/Room";
 import { Card, Cursor3D, Particles, Pencil } from "../three/objects";
@@ -28,7 +28,7 @@ export const S02Room: React.FC = () => {
         {/* a paper sheet whipping past the camera */}
         <Card tex={pageTex("white", 7)} w={1.4} h={2} position={[lerp(f, [6, 16], [-3, 3], eIn), 2.6, 3.6]} rotation={[0.2, 0.9, f * 0.1]} opacity={f > 5 && f < 17 ? 1 : 0} />
         <Cursor3D
-          position={[0.25 - cur * 0.2, 1.35 + cur * 0.85, -1.4 + cur * 5.2]}
+          position={[0.05 - cur * 0.35, 1.6 + cur * 1.1, -1.4 + cur * 5.2]}
           rotation={[0.25, -0.15 + cur * 0.3, 0.35 - cur * 0.2]}
           scale={0.45 + cur * 0.9}
           color="#ff6a1a"
@@ -42,64 +42,76 @@ export const S02Room: React.FC = () => {
 };
 
 /* Scene 3 (5.40s – 7.40s): close-up on the book stand, a glassy "Learn" pill appears,
-   the cursor clicks it -> turns solid glowing orange with ring icon + flare. */
+   the cursor glides onto it and clicks -> crossfades to solid glowing orange with ring icon + flare.
+   The cursor lives INSIDE the button's 3D transform, so its tip is always exactly on the target. */
+const BTN_W = 820, BTN_H = 230;
+const TARGET = { x: 640, y: 128 }; // click point in button-local px (right part of the pill)
+const TIP = { x: 10, y: 10 }; // arrow tip offset inside the 130x150 cursor svg
+
 export const S03Learn: React.FC = () => {
   const f = useCurrentFrame();
-  const appear = lerp(f, [0, 10], [0, 1], eOut);
-  const clicked = f >= 22;
-  const press = f >= 22 && f < 25 ? 0.94 : 1;
-  const pulse = lerp(f, [22, 34], [0, 1], eOut);
-  const exitRot = lerp(f, [38, 48], [0, -14], eIn);
-  const camz = lerp(f, [0, 48], [-0.9, -1.25]);
-  const flare = lerp(f, [22, 26, 40], [0, 1, 0]);
+  const appear = lerp(f, [0, 12], [0, 1], eOut);
+  // cursor travel: starts off to the lower right, eases onto the target, arrives at f18
+  const travel = lerp(f, [3, 18], [0, 1], Easing.bezier(0.22, 1, 0.36, 1));
+  // press: smooth dip 19 -> 22 -> 26 (no hard steps)
+  const press = interpolate(f, [19, 22, 26], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.sin) });
+  const on = lerp(f, [21, 26], [0, 1], eOut); // click state crossfade
+  const grow = spring({ frame: f - 21, fps: 24, config: { damping: 12, stiffness: 140, mass: 0.6 } });
+  const pulse = lerp(f, [22, 36], [0, 1], eOut);
+  const rise = lerp(f, [0, 34], [0, 60], Easing.inOut(Easing.sin));
+  const exit = lerp(f, [36, 48], [0, 1], Easing.in(Easing.sin));
+  const flare = interpolate(f, [21, 25, 40], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const scale = appear * (1 + 0.18 * grow) * (1 - 0.05 * press);
+  const textCol = interpolateColors(on, [0, 1], ["#ff7a3e", "#ffffff"]);
+  const ringW = 112 * on;
+  const curX = TARGET.x - TIP.x + (1 - travel) * 520 + press * 6;
+  const curY = TARGET.y - TIP.y + (1 - travel) * 420 + press * 10;
   return (
     <AbsoluteFill>
-      <Stage cam={{ pos: [-0.7 + f * 0.004, 2.45, camz], look: [-0.4, 2.2, -2.8], fov: 42, roll: lerp(f, [36, 48], [0, -0.15]) }} bg="#f6e8dd" style={{ filter: "blur(2.5px) saturate(1.1)" }}>
+      <Stage cam={{ pos: [-0.7 + f * 0.004, 2.45, lerp(f, [0, 48], [-0.9, -1.25], Easing.inOut(Easing.sin))], look: [-0.4, 2.2, -2.8], fov: 42, roll: -0.15 * exit }} bg="#f6e8dd" style={{ filter: "blur(2.5px) saturate(1.1)" }}>
         <Room flip={1} showChair={false} />
       </Stage>
       <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(255,140,80,.25), transparent 40%, rgba(255,120,60,.2))" }} />
       <InfoBlock lines={INFO} o={0.7} />
-      {/* the Learn pill (3D via CSS perspective) */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0, perspective: 1400 }}>
+      <div style={{ position: "absolute", inset: 0, perspective: 1400 }}>
         <div
           style={{
             position: "absolute",
-            left: 560 - (clicked ? 30 : 0) + lerp(f, [0, 10], [-160, 0], eOut),
-            top: 300 - lerp(f, [10, 30], [0, 70], eOut),
-            width: 820, height: 230, borderRadius: 120,
-            transform: `rotateX(18deg) rotateY(-12deg) rotateZ(${-4 + exitRot}deg) scale(${(clicked ? 1.25 : 1) * press * appear})`,
+            left: 540 + lerp(f, [0, 12], [-160, 0], eOut) - exit * 120,
+            top: 300 - rise + exit * 40,
+            width: BTN_W, height: BTN_H,
+            transformOrigin: `${TARGET.x}px ${TARGET.y}px`,
+            transform: `rotateX(18deg) rotateY(-12deg) rotateZ(${-4 - exit * 14}deg) scale(${scale})`,
             transformStyle: "preserve-3d",
-            background: clicked ? `linear-gradient(180deg, #ff8a3a, ${C.orangeD})` : "linear-gradient(180deg, rgba(255,240,230,.75), rgba(255,215,195,.55))",
-            boxShadow: clicked
-              ? "0 30px 60px rgba(200,70,10,.45), inset 0 6px 0 rgba(255,255,255,.35), inset 0 -10px 0 rgba(0,0,0,.12)"
-              : "0 20px 40px rgba(200,100,60,.25), inset 0 4px 0 rgba(255,255,255,.8)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontFamily: "Rubik", fontWeight: 800, fontSize: 150, letterSpacing: -2,
-            color: clicked ? "#fff" : "#ff7a3e",
-            textShadow: clicked ? "0 0 30px rgba(255,255,255,.7)" : "0 6px 0 #fff, 0 0 20px rgba(255,120,60,.6)",
           }}
         >
-          Learn
-          {clicked && (
-            <div style={{ marginLeft: 26, width: 90, height: 90, borderRadius: "50%", border: "10px solid #fff", boxShadow: "0 0 30px #fff", transform: `scale(${lerp(f, [22, 28], [0, 1], eBack)})` }} />
-          )}
-          {/* click ring pulse */}
-          <div style={{ position: "absolute", right: 70, top: 70, width: 90, height: 90, borderRadius: "50%", border: "6px solid #fff", opacity: (1 - pulse) * (clicked ? 1 : 0), transform: `scale(${1 + pulse * 3})` }} />
+          {/* glass state */}
+          <div style={{ position: "absolute", inset: 0, borderRadius: 120, opacity: 1 - on, background: "linear-gradient(180deg, rgba(255,240,230,.78), rgba(255,215,195,.55))", boxShadow: "0 20px 40px rgba(200,100,60,.25), inset 0 4px 0 rgba(255,255,255,.8)" }} />
+          {/* solid orange state */}
+          <div style={{ position: "absolute", inset: 0, borderRadius: 120, opacity: on, background: `linear-gradient(180deg, #ff8a3a, ${C.orangeD})`, boxShadow: "0 30px 60px rgba(200,70,10,.45), inset 0 6px 0 rgba(255,255,255,.35), inset 0 -10px 0 rgba(0,0,0,.12)" }} />
+          <div style={{
+            position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: "Rubik", fontWeight: 800, fontSize: 150, letterSpacing: -2, color: textCol,
+            textShadow: `0 6px 0 rgba(255,255,255,${1 - on}), 0 0 ${20 + 10 * on}px rgba(255,${120 + 135 * on},${60 + 195 * on},.65)`,
+          }}>
+            Learn
+            <div style={{ width: ringW, height: 90, marginLeft: 26 * on, position: "relative" }}>
+              <div style={{ position: "absolute", left: 11, top: 0, width: 90, height: 90, borderRadius: "50%", border: "10px solid #fff", boxShadow: "0 0 30px #fff", boxSizing: "border-box", opacity: on, transform: `scale(${on})` }} />
+            </div>
+          </div>
+          {/* click ripple exactly at the cursor tip */}
+          <div style={{ position: "absolute", left: TARGET.x - 45, top: TARGET.y - 45, width: 90, height: 90, borderRadius: "50%", border: "6px solid #fff", opacity: f >= 22 ? (1 - pulse) * 0.9 : 0, transform: `scale(${1 + pulse * 2.6})` }} />
+          {/* cursor (same transform space as the button => tip always on target) */}
+          <svg width={130} height={150} viewBox="0 0 26 30" style={{
+            position: "absolute", left: curX, top: curY, opacity: lerp(f, [3, 7], [0, 1]),
+            transform: "translateZ(40px)", filter: "drop-shadow(0 16px 14px rgba(160,60,10,.35))",
+          }}>
+            <path d="M2 2 L22 16 L13 17 L18 27 L14 29 L9 19 L3 25 Z" fill={C.orange} stroke="#ffb183" strokeWidth={0.8} strokeLinejoin="round" />
+          </svg>
         </div>
       </div>
-      {/* the 2D/3D-ish cursor that clicks */}
-      <svg width={260} height={300} viewBox="0 0 26 30" style={{
-        position: "absolute",
-        left: lerp(f, [4, 20], [1500, 1250], eOut) + (clicked ? 60 : 0),
-        top: lerp(f, [4, 20], [700, 450], eOut) + (press < 1 ? 10 : 0),
-        transform: `rotate(-12deg) rotateZ(${exitRot}deg)`,
-        filter: "drop-shadow(0 16px 14px rgba(160,60,10,.35))",
-      }}>
-        <path d="M2 2 L22 16 L13 17 L18 27 L14 29 L9 19 L3 25 Z" fill={C.orange} stroke="#ffb183" strokeWidth={0.8} strokeLinejoin="round" />
-      </svg>
-      {/* lens flare at click */}
-      <AbsoluteFill style={{ mixBlendMode: "screen", opacity: flare, background: "radial-gradient(circle at 54% 30%, #fff 0%, rgba(255,230,200,.7) 6%, transparent 22%)" }} />
-      <div style={{ position: "absolute", left: 300, top: 330, width: 1300, height: 6, background: "linear-gradient(90deg, transparent, #fff, transparent)", opacity: flare * 0.8, filter: "blur(2px)" }} />
+      <AbsoluteFill style={{ mixBlendMode: "screen", opacity: flare, background: "radial-gradient(circle at 56% 28%, #fff 0%, rgba(255,230,200,.7) 6%, transparent 22%)" }} />
+      <div style={{ position: "absolute", left: 300, top: 300, width: 1300, height: 6, background: "linear-gradient(90deg, transparent, #fff, transparent)", opacity: flare * 0.8, filter: "blur(2px)" }} />
       <Halftone opacity={0.4} />
     </AbsoluteFill>
   );

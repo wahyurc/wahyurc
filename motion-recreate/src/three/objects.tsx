@@ -22,7 +22,8 @@ const cursorShape = (() => {
 export const cursorGeo = new THREE.ExtrudeGeometry(cursorShape, {
   depth: 0.18, bevelEnabled: true, bevelThickness: 0.08, bevelSize: 0.06, bevelSegments: 6,
 });
-cursorGeo.center();
+// pivot = arrow tip: shape tip is at (0,0); centre the extrusion depth only
+cursorGeo.translate(0, 0, -0.09);
 
 export const Cursor3D: React.FC<P & { color?: string }> = ({ color = C.orange, ...p }) => (
   <mesh geometry={cursorGeo} {...p} castShadow>

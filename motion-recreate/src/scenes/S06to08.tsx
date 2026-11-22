@@ -57,8 +57,8 @@ export const S06FlatLay: React.FC = () => {
         <mesh geometry={triGeo} position={[1.3, 2.1, 0.3]} rotation={[0.2, 0.1, -0.3 + f * 0.01]} castShadow>
           <meshStandardMaterial color={C.orange} />
         </mesh>
-        <Cursor3D position={[0.9, 1.0, 0.4]} rotation={[0.1, 0.1, 0.5]} scale={0.45} />
-        <Cursor3D position={[2.6, 1.5, 0.3]} rotation={[0.2, 0.3, 0.2]} scale={0.3} color="#ff8a4a" />
+        <Cursor3D position={[0.9, 1.0, 0.1]} rotation={[0.1, 0.1, 0.5]} scale={0.45} />
+        <Cursor3D position={[2.6, 1.5, 0.08]} rotation={[0.2, 0.3, 0.2]} scale={0.3} color="#ff8a4a" />
         <PencilCup mesh rotation={[Math.PI / 2, 0, 0]} position={[-2.3, 1.9, 0]} scale={0.6} />
         <Pencil position={[2.0, 1.3, 0.08]} rotation={[0, 0, 1.4]} color={C.yellow} len={1.1} />
         <Pencil position={[-1.8, -1.6, 0.08]} rotation={[0, 0, 1.9]} color={C.red} len={1.8} />
