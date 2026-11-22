@@ -1,0 +1,303 @@
+1
+00:00:01,000 --> 00:00:03,760
+Siang terik, kamu masuk
+kamar, nyalakan AC,
+
+2
+00:00:03,800 --> 00:00:06,560
+dan dalam beberapa menit
+semuanya terasa sejuk.
+
+3
+00:00:06,750 --> 00:00:10,310
+Tapi tahukah kamu? AC sama
+sekali tidak membuat dingin.
+
+4
+00:00:10,500 --> 00:00:12,860
+Yang dilakukan AC adalah
+memindahkan panas,
+
+5
+00:00:12,900 --> 00:00:16,060
+dari dalam kamar, ke luar
+rumah. Bagaimana caranya?
+
+6
+00:00:16,700 --> 00:00:19,860
+Coba ingat saat kulitmu
+basah lalu tertiup angin.
+
+7
+00:00:20,050 --> 00:00:21,210
+Terasa dingin, kan?
+
+8
+00:00:21,400 --> 00:00:24,960
+Itu karena air yang menguap
+membawa pergi panas dari
+
+9
+00:00:25,000 --> 00:00:27,360
+tubuhmu. AC memakai
+prinsip yang sama,
+
+10
+00:00:27,400 --> 00:00:30,560
+hanya saja dilakukan terus-menerus,
+di dalam pipa tertutup.
+
+11
+00:00:31,200 --> 00:00:32,760
+Bintang utamanya
+adalah refrigeran,
+
+12
+00:00:32,800 --> 00:00:36,360
+cairan khusus yang bisa mendidih
+pada suhu sangat rendah.
+
+13
+00:00:36,550 --> 00:00:38,910
+Refrigeran ini berputar
+dalam satu lingkaran,
+
+14
+00:00:38,950 --> 00:00:40,510
+melewati empat komponen penting.
+
+15
+00:00:41,150 --> 00:00:43,110
+Pertama, evaporator
+di unit dalam.
+
+16
+00:00:43,300 --> 00:00:46,060
+Udara kamar yang hangat
+dihisap kipas, disaring,
+
+17
+00:00:46,100 --> 00:00:48,860
+lalu dilewatkan ke
+kisi-kisi logam yang dingin.
+
+18
+00:00:49,050 --> 00:00:52,210
+Di dalam kisi itu, refrigeran
+bertekanan rendah menguap,
+
+19
+00:00:52,250 --> 00:00:54,210
+dan menyerap panas dari udara.
+
+20
+00:00:54,400 --> 00:00:57,160
+Udara yang keluar pun
+terasa sejuk. Bonusnya,
+
+21
+00:00:57,200 --> 00:01:00,760
+uap air di udara ikut
+mengembun di kisi dingin,
+
+22
+00:01:00,800 --> 00:01:02,360
+lalu dibuang lewat selang.
+
+23
+00:01:02,550 --> 00:01:05,310
+Itulah kenapa kamar ber-AC
+terasa lebih kering.
+
+24
+00:01:05,950 --> 00:01:09,510
+Kedua, kompresor di unit
+luar, jantung dari sistem AC.
+
+25
+00:01:09,700 --> 00:01:12,860
+Refrigeran yang sudah menjadi
+gas dihisap, lalu dimampatkan.
+
+26
+00:01:13,050 --> 00:01:15,410
+Tekanannya naik, dan
+suhunya ikut melonjak,
+
+27
+00:01:15,450 --> 00:01:18,610
+bahkan lebih panas dari
+udara di luar rumah.
+
+28
+00:01:19,250 --> 00:01:20,210
+Ketiga, kondensor.
+
+29
+00:01:20,400 --> 00:01:23,960
+Gas panas itu mengalir ke
+kisi-kisi di unit luar,
+
+30
+00:01:24,000 --> 00:01:27,160
+dan kipas besar meniupkan
+panasnya ke udara bebas.
+
+31
+00:01:27,350 --> 00:01:30,510
+Itu sebabnya angin dari
+unit luar terasa hangat.
+
+32
+00:01:30,700 --> 00:01:33,460
+Setelah panasnya lepas,
+refrigeran kembali menjadi cair.
+
+33
+00:01:34,100 --> 00:01:37,260
+Keempat, katup ekspansi,
+atau pada banyak AC rumahan,
+
+34
+00:01:37,300 --> 00:01:38,260
+pipa kapiler.
+
+35
+00:01:38,450 --> 00:01:41,610
+Cairan bertekanan tinggi dipaksa
+melewati celah yang sangat
+
+36
+00:01:41,650 --> 00:01:44,010
+sempit. Tekanannya turun
+drastis, suhunya anjlok,
+
+37
+00:01:44,050 --> 00:01:47,210
+dan refrigeran yang kini
+dingin kembali ke evaporator.
+
+38
+00:01:47,400 --> 00:01:48,960
+Siklus pun berulang,
+terus-menerus.
+
+39
+00:01:49,600 --> 00:01:51,160
+Lalu, kapan AC berhenti?
+
+40
+00:01:51,350 --> 00:01:54,510
+Sensor suhu di unit dalam
+terus memantau kamar.
+
+41
+00:01:54,700 --> 00:01:57,060
+Begitu suhu yang
+kamu pilih tercapai,
+
+42
+00:01:57,100 --> 00:01:58,660
+AC biasa mematikan kompresornya.
+
+43
+00:01:58,850 --> 00:02:01,210
+Sementara AC inverter cukup
+memperlambat putarannya,
+
+44
+00:02:01,250 --> 00:02:04,410
+sehingga suhu lebih stabil
+dan listrik lebih hemat.
+
+45
+00:02:05,050 --> 00:02:07,410
+Supaya AC tetap dingin dan awet,
+
+46
+00:02:07,450 --> 00:02:09,410
+ada tiga kebiasaan
+sederhana. Satu,
+
+47
+00:02:09,450 --> 00:02:11,010
+bersihkan filter secara rutin.
+
+48
+00:02:11,200 --> 00:02:13,960
+Filter yang penuh debu
+membuat udara tertahan,
+
+49
+00:02:14,000 --> 00:02:17,960
+AC bekerja lebih berat, dan
+tagihan listrik ikut naik. Dua,
+
+50
+00:02:18,000 --> 00:02:21,160
+jangan halangi unit luar.
+Beri ruang di sekitarnya,
+
+51
+00:02:21,200 --> 00:02:23,960
+supaya panas bisa dibuang
+dengan lancar. Tiga,
+
+52
+00:02:24,000 --> 00:02:25,960
+panggil teknisi
+untuk servis berkala,
+
+53
+00:02:26,000 --> 00:02:28,760
+agar kisi-kisi bersih dan
+refrigeran tetap cukup.
+
+54
+00:02:28,950 --> 00:02:32,110
+Dan selama AC menyala,
+tutup pintu serta jendela,
+
+55
+00:02:32,150 --> 00:02:34,510
+supaya dingin tidak
+bocor ke luar.
+
+56
+00:02:35,150 --> 00:02:37,510
+Jadi, ingat empat langkahnya:
+menyerap, memampatkan,
+
+57
+00:02:37,550 --> 00:02:40,710
+membuang, lalu mengembang.
+Setiap hembusan sejuk dari AC,
+
+58
+00:02:40,750 --> 00:02:43,910
+sebenarnya adalah panas kamarmu
+yang sedang diantar keluar.
+
+59
+00:02:44,550 --> 00:02:45,510
+Nah,
+
+60
+00:02:45,550 --> 00:02:49,110
+kalau kamu punya teman yang
+AC-nya selalu disetel paling
+
+61
+00:02:49,150 --> 00:02:52,710
+dingin, atau yang filternya
+belum dicuci sejak zaman dulu,
+
+62
+00:02:52,750 --> 00:02:55,510
+kirimkan video ini
+ke dia. Anggap saja,
+
+63
+00:02:55,550 --> 00:02:57,510
+kamu sedang mengirim
+sedikit kesejukan.
