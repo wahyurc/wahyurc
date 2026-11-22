@@ -1,0 +1,3 @@
+Music: "Inspiration" — from FreePD.com, released into the Public Domain (CC0 1.0).
+Free for commercial use, no attribution required. Source mirror: github.com/0lhi/FreePD (Upbeat/Inspiration.mp3)
+Used segment: 34.37s – 64.87s (starts on a phrase downbeat; 120 BPM = 1 beat per 12 frames @24fps).

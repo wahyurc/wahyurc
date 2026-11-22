@@ -3,9 +3,23 @@ import React from "react";
 import * as THREE from "three";
 import { C } from "../lib";
 import { dotsTex, pageTex } from "./textures";
-import { Card, OpenBook, PencilCup } from "./objects";
+import { Card, OpenBook, PencilCup, TipPencil } from "./objects";
 
-export const Room: React.FC<{ flip?: number; showChair?: boolean; children?: React.ReactNode }> = ({ flip = 1, showChair = true, children }) => (
+/** hand-writing motion on the right page: write a line left->right, lift, return, next line */
+const writePose = (t: number) => {
+  const dur = 0.85;
+  const n = Math.floor(t / dur), p = (t / dur) % 1;
+  const line = n % 3;
+  const w = p < 0.78 ? p / 0.78 : 1 - (p - 0.78) / 0.22; // write, then glide back
+  const ease = w * w * (3 - 2 * w);
+  const writing = p < 0.78;
+  const x = 0.13 + 0.42 * ease;
+  const y = 0.22 - line * 0.11 + (writing ? Math.sin(t * 46) * 0.008 : 0);
+  const z = writing ? 0.004 : 0.004 + Math.sin(((p - 0.78) / 0.22) * Math.PI) * 0.06;
+  return { x, y, z, wob: Math.sin(t * 9) * 0.04 };
+};
+
+export const Room: React.FC<{ flip?: number; showChair?: boolean; writeT?: number; children?: React.ReactNode }> = ({ flip = 1, showChair = true, writeT, children }) => (
   <group>
     <ambientLight intensity={1.1} color="#ffeadb" />
     <hemisphereLight args={["#fff6ee", "#e3b090", 0.9]} />
@@ -85,6 +99,10 @@ export const Room: React.FC<{ flip?: number; showChair?: boolean; children?: Rea
             <meshStandardMaterial color="#e9a77f" />
           </mesh>
           <OpenBook flip={flip} scale={0.72} left="story" right="white" flipTex="chart" />
+          {writeT !== undefined && (() => {
+            const w = writePose(writeT);
+            return <TipPencil position={[w.x, w.y, w.z + 0.02]} dir={[0.45 + w.wob, -0.35, 0.82]} color={C.orange} len={0.9} scale={0.8} />;
+          })()}
         </group>
       </group>
       {/* small monitor / tablet */}

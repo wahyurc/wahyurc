@@ -6,7 +6,7 @@ import * as THREE from "three";
 import { Stage } from "../three/Stage";
 import { Book, Card, Cube, Cursor3D, Lights, OpenBook, Particles, PencilCup, Pencil } from "../three/objects";
 import { dotsTex, learnCardTex, pageTex, tagTex } from "../three/textures";
-import { C, eBack, eOut, lerp } from "../lib";
+import { C, eBack, eOut, lerp , useF } from "../lib";
 import { Caption, Halftone } from "../fx";
 
 const WindowShadowCaster: React.FC = () => (
@@ -26,7 +26,7 @@ const WindowShadowCaster: React.FC = () => (
 );
 
 export const S01Desk: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const cyc = Math.min(f, 21.999) / 5.5;
   const flip = f < 22 ? Easing.inOut(Easing.cubic)(cyc % 1) : 1;
   const burst = lerp(f, [6, 30], [0, 1], eOut);
@@ -110,7 +110,7 @@ export const S01Desk: React.FC = () => {
           <boxGeometry args={[0.8, 0.45, 1.5]} />
           <meshStandardMaterial map={dotsTex()} color="#ffb08a" />
         </mesh>
-        <Pencil position={[2.8, 0.2, 0.9]} rotation={[0.6, 0.2, 2.6]} color="#b8b0a8" len={1.0} />
+        <Pencil position={[2.85, 0.35, 0.05]} rotation={[0, 0, 2.6]} color="#b8b0a8" len={1.0} />
         <mesh position={[-0.2, -2.3, 0.3]} castShadow>
           <cylinderGeometry args={[0.16, 0.16, 0.28, 18]} />
           <meshStandardMaterial color="#9a3b14" />

@@ -230,3 +230,15 @@ export const Lights: React.FC<{ dir?: V3; intensity?: number; shadow?: boolean }
     />
   </>
 );
+
+/* ---------- pencil whose pivot is its graphite tip, pointing from `dir` back to the tip ---------- */
+export const TipPencil: React.FC<{ position: V3; dir: V3; color?: string; len?: number; scale?: number }> = ({
+  position, dir, color = C.orange, len = 1.0, scale = 1,
+}) => {
+  const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, -1, 0), new THREE.Vector3(...dir).normalize());
+  return (
+    <group position={position} quaternion={q} scale={scale}>
+      <Pencil color={color} len={len} position={[0, -(len / 2 + 0.185), 0]} />
+    </group>
+  );
+};

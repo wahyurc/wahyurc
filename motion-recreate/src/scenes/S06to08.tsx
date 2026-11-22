@@ -7,7 +7,7 @@ import fontJson from "../three/helvetiker_bold.typeface.json";
 import { Stage } from "../three/Stage";
 import { Card, Cursor3D, Lights, Particles, Pencil, PencilCup, Confetti } from "../three/objects";
 import { coverTex, pageTex, stickyTex } from "../three/textures";
-import { C, eBack, eIn, eOut, lerp, rand } from "../lib";
+import { C, eBack, eIn, eOut, lerp, rand , useF } from "../lib";
 import { Halftone, InfoBlock, SpeedLines } from "../fx";
 
 /* rounded play-triangle */
@@ -22,7 +22,7 @@ const triGeo = (() => {
 /* Scene 6 (11.40s – 13.25s): flat-lay of the open ebook (Storyboard ch.13 + cover),
    sticky note, play triangle, cursor, clips, scissors, confetti; orange streak, papers fly at lens. */
 export const S06FlatLay: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const fly = lerp(f, [32, 44], [0, 1], eIn);
   return (
     <AbsoluteFill>
@@ -120,7 +120,7 @@ const NOTES: [string, string, number, number, number][] = [
 /* Scene 7 (13.25s – 15.50s): orange ribbon swoops through floating sticky notes,
    blobs inflate into chunky 3D "code", white line strikes through, then everything spins away. */
 export const S07Code: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const geos = useMemo(() => ["c", "o", "d", "e"].map(letterGeo), []);
   const ribbon = useMemo(() => {
     const curve = new THREE.CatmullRomCurve3([
@@ -183,7 +183,7 @@ export const S07Code: React.FC = () => {
 
 /* Scene 8 (15.50s – 15.80s): orange halftone flash with burst, then white radial burst + arc */
 export const S08Burst: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   if (f < 4)
     return (
       <AbsoluteFill style={{ backgroundColor: C.orange, backgroundImage: "radial-gradient(#ffb98a 30%, transparent 34%)", backgroundSize: "14px 14px" }}>

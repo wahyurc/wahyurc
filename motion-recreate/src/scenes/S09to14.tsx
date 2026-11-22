@@ -5,13 +5,13 @@ import { Stage } from "../three/Stage";
 import { Book, Card, Confetti, Lights, OpenBook, Particles, Pencil, PencilCup } from "../three/objects";
 import { cloudTex, fileTex, folderTex, pageTex } from "../three/textures";
 import { Room } from "../three/Room";
-import { C, eBack, eIn, eOut, lerp, rand } from "../lib";
+import { C, eBack, eIn, eOut, lerp, rand , useF } from "../lib";
 import { Bloom, Halftone } from "../fx";
 
 /* Scene 9 + 10 (15.80s – 18.50s): orange sky with clouds; creator name reveal while an open
    book tumbles/flips; white panel slides up: "One ebook Teaches Full Production". */
 export const S09Sky: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const name = lerp(f, [2, 12, 30, 36], [0, 1, 1, 0]);
   const panel = lerp(f, [34, 44], [0, 1], eOut);
   const cards = (i: number) => lerp(f, [42 + i * 3, 48 + i * 3], [0, 1], eBack);
@@ -86,7 +86,7 @@ export const S09Sky: React.FC = () => {
 /* Scene 11 (18.50s – 20.15s): giant orange halftone ring zooms, ghost word "Codes", a 3D
    folder "motion-graphic" pops a .pdf out; files (.pdf / .epub) fan & stack, then whip away. */
 export const S11Folder: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const ring = lerp(f, [0, 40], [0.75, 1.35], eOut);
   const pdf = lerp(f, [6, 14], [0, 1], eBack);
   const split = lerp(f, [26, 32], [0, 1], eOut);
@@ -151,7 +151,7 @@ const Title3D: React.FC<{ text: string; color?: string; size: number; italic?: b
 );
 
 export const S14End: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const line = lerp(f, [0, 16], [0, 1], eOut);
   const t1 = lerp(f, [6, 16], [0, 1]);
   const t2 = lerp(f, [10, 20], [0, 1]);

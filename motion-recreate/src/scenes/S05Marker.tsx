@@ -5,7 +5,7 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { Stage } from "../three/Stage";
 import { Card, Lights, Particles, Pencil, PencilCup } from "../three/objects";
 import { darkCardTex, setupPageTex } from "../three/textures";
-import { C, eIn, eOut, lerp } from "../lib";
+import { C, eIn, eOut, lerp , useF } from "../lib";
 import { Flash, Halftone, InfoBlock } from "../fx";
 
 const Marker: React.FC<{ position: [number, number, number]; rotation: [number, number, number]; scale?: number }> = (p) => (
@@ -30,7 +30,7 @@ const Marker: React.FC<{ position: [number, number, number]; rotation: [number, 
 );
 
 export const S05Marker: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const a = lerp(f, [0, 14], [0, 1], eOut); // cup shot -> page shot
   const hl = lerp(f, [18, 46], [0, 1]);
   const markerX = -1.3 + hl * 2.9;

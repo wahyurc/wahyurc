@@ -1,4 +1,5 @@
-import { Easing, interpolate } from "remotion";
+import React, { createContext, useContext } from "react";
+import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export const FPS = 24;
 export const W = 1920;
@@ -43,3 +44,7 @@ export const rand = (seed: number) => {
   const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
   return x - Math.floor(x);
 };
+
+/** per-scene time stretch so scene cuts can sit on the music's beat grid */
+export const TimeScale = createContext(1);
+export const useF = () => useCurrentFrame() * useContext(TimeScale);

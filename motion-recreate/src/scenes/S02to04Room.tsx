@@ -2,9 +2,9 @@ import React from "react";
 import { AbsoluteFill, Easing, interpolate, interpolateColors, spring, useCurrentFrame } from "remotion";
 import { Stage } from "../three/Stage";
 import { Room } from "../three/Room";
-import { Card, Cursor3D, Particles, Pencil } from "../three/objects";
+import { Card, Cursor3D, Particles, TipPencil } from "../three/objects";
 import { pageTex, tagTex } from "../three/textures";
-import { C, eBack, eIn, eOut, lerp } from "../lib";
+import { C, eBack, eIn, eOut, lerp , useF } from "../lib";
 import { Bloom, Flash, Halftone, InfoBlock, SpeedLines } from "../fx";
 
 const INFO = ["Motion Graphic with Claude", "Ebook by w4hy03", "24 chapters · 135 pages", "Malay + English"];
@@ -12,7 +12,7 @@ const INFO = ["Motion Graphic with Claude", "Ebook by w4hy03", "24 chapters · 1
 /* Scene 2 (3.20s – 5.40s): whip into the study room, white page flies past, the big
    orange cursor rises from behind the desk and rushes into the lens. */
 export const S02Room: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const camX = lerp(f, [0, 53], [-1.8, -0.6]);
   const cur = lerp(f, [12, 50], [0, 1], eIn);
   const blur = lerp(f, [38, 50], [0, 14]) + lerp(f, [0, 5], [10, 0]);
@@ -49,7 +49,7 @@ const TARGET = { x: 640, y: 128 }; // click point in button-local px (right part
 const TIP = { x: 10, y: 10 }; // arrow tip offset inside the 130x150 cursor svg
 
 export const S03Learn: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF() - 2; // click lands on the beat
   const appear = lerp(f, [0, 12], [0, 1], eOut);
   // cursor travel: starts off to the lower right, eases onto the target, arrives at f18
   const travel = lerp(f, [3, 18], [0, 1], Easing.bezier(0.22, 1, 0.36, 1));
@@ -120,7 +120,7 @@ export const S03Learn: React.FC = () => {
 /* Scene 4 (7.40s – 9.00s): pull back across the desk – book pages flip, tags & mini
    "Learn" button float, a pencil scribbles; speed lines + yellow pencil rush -> yellow flash. */
 export const S04Pull: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useF();
   const k = lerp(f, [0, 30], [0, 1], eOut);
   const rush = lerp(f, [24, 36], [0, 1], eIn);
   return (
@@ -130,14 +130,22 @@ export const S04Pull: React.FC = () => {
         bg="#f6e8dd"
         style={{ filter: `blur(${lerp(f, [0, 4], [8, 0]) + rush * 6}px)` }}
       >
-        <Room flip={(f / 9) % 1} />
+        <Room flip={Easing.inOut(Easing.cubic)((f / 9) % 1)} writeT={f / 24} />
         <Particles t={f / 24} count={140} spread={[8, 5, 6]} color="#fff" size={0.04} />
         <Card tex={tagTex("For beginners", "Install to claude")} w={0.7} h={0.22} position={[-1.6, 2.7, -2.1]} rotation={[0, 0.3, 0.06]} scale={lerp(f, [2, 9], [0, 1], eBack)} />
         <Card tex={tagTex("Learn", "Step by step")} w={0.55} h={0.18} position={[-1.35, 2.35, -2.0]} rotation={[0, 0.3, -0.04]} scale={lerp(f, [5, 12], [0, 1], eBack)} />
         <Card tex={tagTex("For beginners", "Install to claude")} w={0.6} h={0.19} position={[1.2, 2.9, -2.3]} rotation={[0, -0.2, 0.05]} scale={lerp(f, [8, 15], [0, 1], eBack)} />
-        <Pencil position={[-0.1, 2.3, -2.2]} rotation={[0.2, 0, -0.9 + Math.sin(f / 2) * 0.1]} color={C.orange} len={1.0} />
-        {/* yellow pencil rushing at the lens */}
-        <Pencil position={[-2.5 + rush * 3.2, 2.2 + rush * 0.3, -1.5 + rush * 5.5]} rotation={[0.3, 0, -1.2]} color={C.yellow} len={1.8} scale={1 + rush * 2} />
+        {/* yellow pencil: pops out of the desk cup, arcs up and dives tip-first at the lens */}
+        {(() => {
+          const r = lerp(f, [20, 36], [0, 1], Easing.in(Easing.quad));
+          const P0 = [1.65, 2.0, -2.5], P1 = [0.6, 3.6, -0.8], P2 = [-0.4, 2.7, 3.2];
+          const bz = (i: number, u: number) => (1 - u) * (1 - u) * P0[i] + 2 * (1 - u) * u * P1[i] + u * u * P2[i];
+          const d = (i: number, u: number) => 2 * (1 - u) * (P1[i] - P0[i]) + 2 * u * (P2[i] - P1[i]);
+          // tip leads along the path, so body trails opposite to velocity
+          return f >= 20 ? (
+            <TipPencil position={[bz(0, r), bz(1, r), bz(2, r)]} dir={[-d(0, r), -d(1, r), -d(2, r)]} color={C.yellow} len={1.4} scale={0.6 + r * 1.6} />
+          ) : null;
+        })()}
       </Stage>
       <Bloom x="60%" y="20%" o={0.6} />
       <SpeedLines o={lerp(f, [24, 28, 34], [0, 0.95, 0.6])} color="#fff4ea" cx={420} cy={560} seed={4} />
