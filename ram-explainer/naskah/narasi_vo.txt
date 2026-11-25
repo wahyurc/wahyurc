@@ -1,0 +1,13 @@
+Kok bisa, MacBook dengan RAM 16 GB menjalankan AI lebih cepat daripada laptop gaming dengan RAM 32 GB? Jawabannya bukan soal besar RAM, tapi siapa yang bisa memakainya.
+
+Bayangkan laptop gaming sebagai sebuah kantor. Prosesor, si otak, ada di satu gedung. Kartu grafis, si mata, ada di gedung sebelah, dengan gudang arsip kecilnya sendiri: VRAM, cuma 8 GB. Gudang utamanya, RAM 32 GB, ada di tempat lain lagi.
+
+Setiap kali kartu grafis butuh data, data itu harus disalin dulu, lalu dikirim lewat jalur PCIe yang jauh lebih sempit. Kalau datanya lebih besar dari 8 GB, sebagian pekerjaan terpaksa lewat jalur lambat itu.
+
+Di Apple Silicon, misalnya chip M5, prosesor dan grafis ada di satu chip. Memorinya ditempel di paket yang sama, cuma beberapa milimeter jauhnya. Satu meja, dipakai bersama. Data yang disiapkan prosesor bisa langsung dibaca grafis, tanpa perlu disalin.
+
+Makanya, model AI yang lebih besar dari 8 GB tetap bisa jalan lancar di Mac 16 GB.
+
+Tapi jujur saja, untuk main game, laptop gaming tetap juaranya, karena VRAM-nya jauh lebih kencang.
+
+Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama. Follow, biar nggak ketinggalan penjelasan kayak gini.

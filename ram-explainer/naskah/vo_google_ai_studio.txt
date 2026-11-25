@@ -1,0 +1,52 @@
+=====================================================================
+VOICEOVER — "RAM 16 GB vs 32 GB" (Google AI Studio · Speech generation)
+=====================================================================
+
+[1] STYLE INSTRUCTIONS  (tempel di kolom "Style instructions")
+---------------------------------------------------------------------
+Read in Indonesian as a friendly, curious tech explainer talking to a friend
+on TikTok. Warm, clear and energetic, but not shouting. Medium-fast pace,
+crisp consonants. Smile in the voice on the hook and the closing. Slow down
+slightly and lower the pitch a little on the "honest" part. Respect every
+pause tag. Pronounce "GB" as "gigabyte", "VRAM" as "vi-ram", "PCI Express"
+naturally, "M5" as "em lima", and "A I" as "a-i".
+
+Suara yang disarankan: Puck (upbeat) atau Charon (informative).
+Mode: single speaker. Ekspor sebagai WAV.
+
+[2] TEXT  (tempel di kolom teks / script)
+---------------------------------------------------------------------
+[curious, playful] Kok bisa... MacBook dengan RAM enam belas gigabyte, menjalankan A I lebih cepat daripada laptop gaming dengan RAM tiga puluh dua gigabyte? [short pause]
+[confident] Jawabannya bukan soal besar RAM... tapi siapa yang bisa memakainya.
+
+[medium pause]
+
+[storytelling, warm] Bayangkan laptop gaming sebagai sebuah kantor.
+Prosesor, si otak, ada di satu gedung.
+Kartu grafis, si mata, ada di gedung sebelah, [short pause] dengan gudang arsip kecilnya sendiri: [emphasis] vi-ram, cuma delapan gigabyte.
+[slightly surprised] Gudang utamanya, RAM tiga puluh dua gigabyte, ada di tempat lain lagi.
+
+[medium pause]
+
+[explaining, a bit faster] Setiap kali kartu grafis butuh data, data itu harus disalin dulu, [short pause] lalu dikirim lewat jalur PCI Express yang jauh lebih sempit.
+[concerned] Kalau datanya lebih besar dari delapan gigabyte, sebagian pekerjaan terpaksa lewat jalur lambat itu.
+
+[medium pause]
+
+[excited, building up] Di Apple Silicon, misalnya chip em lima, prosesor dan grafis ada di satu chip.
+Memorinya ditempel di paket yang sama, [emphasis] cuma beberapa milimeter jauhnya.
+[satisfied] Satu meja, dipakai bersama.
+Data yang disiapkan prosesor bisa langsung dibaca grafis, [short pause] tanpa perlu disalin.
+
+[short pause]
+
+[confident] Makanya, model A I yang lebih besar dari delapan gigabyte tetap bisa jalan lancar di Mac enam belas gigabyte.
+
+[medium pause]
+
+[honest, slightly slower, lower pitch] Tapi jujur saja... untuk main game, laptop gaming tetap juaranya, karena vi-ram-nya jauh lebih kencang.
+
+[medium pause]
+
+[warm, concluding] Jadi yang penting bukan cuma seberapa besar memorinya, [short pause] tapi siapa saja yang bisa memakainya bersama.
+[friendly, smiling] Follow, biar nggak ketinggalan penjelasan kayak gini!
