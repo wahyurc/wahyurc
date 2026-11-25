@@ -209,12 +209,12 @@ const DimMarker: React.FC<{ k: number; x0: number; x1: number; z: number; y?: nu
   return (
     <group>
       {/* extension (witness) lines dropping onto both edges */}
-      <mesh position={[x0, y - 0.05, z]}><boxGeometry args={[0.008, 0.12, 0.008]} />{mat}</mesh>
-      <mesh position={[x1, y - 0.05, z]} scale={[1, k, 1]}><boxGeometry args={[0.008, 0.12, 0.008]} />{mat}</mesh>
+      <mesh position={[x0, y - 0.05, z]}><boxGeometry args={[0.014, 0.16, 0.014]} />{mat}</mesh>
+      <mesh position={[x1, y - 0.05, z]} scale={[1, k, 1]}><boxGeometry args={[0.014, 0.16, 0.014]} />{mat}</mesh>
       {/* dimension line with arrowheads */}
-      <mesh position={[mid, y, z]}><boxGeometry args={[Math.max(0.001, len), 0.008, 0.008]} /><meshBasicMaterial color={C.orangeD} /></mesh>
-      <mesh position={[x0 + 0.02, y, z]} rotation={[0, 0, Math.PI / 2]}><coneGeometry args={[0.018, 0.04, 12]} /><meshBasicMaterial color={C.orangeD} /></mesh>
-      <mesh position={[x0 + len - 0.02, y, z]} rotation={[0, 0, -Math.PI / 2]} visible={k > 0.95}><coneGeometry args={[0.018, 0.04, 12]} /><meshBasicMaterial color={C.orangeD} /></mesh>
+      <mesh position={[mid, y, z]}><boxGeometry args={[Math.max(0.001, len - 0.06), 0.016, 0.016]} /><meshBasicMaterial color={C.orangeD} /></mesh>
+      <mesh position={[x0 + 0.02, y, z]} rotation={[0, 0, Math.PI / 2]}><coneGeometry args={[0.028, 0.05, 12]} /><meshBasicMaterial color={C.orangeD} /></mesh>
+      <mesh position={[x0 + len - 0.02, y, z]} rotation={[0, 0, -Math.PI / 2]} visible={k > 0.95}><coneGeometry args={[0.028, 0.05, 12]} /><meshBasicMaterial color={C.orangeD} /></mesh>
     </group>
   );
 };
@@ -248,12 +248,12 @@ export const SocScene: React.FC<{ t: number }> = ({ t }) => {
       <Title t={t} at={tApple - 0.2} chip="APPLE SILICON · M5" title={t < tSoC - 0.2 ? "Semuanya dirombak" : "Satu chip = SoC"} accent={t < tSoC - 0.2 ? "dirombak" : "SoC"} y={170} />
       <Spec t={t} at={tSatu - 1.2} out={tSoC - 0.1} title="Satu chip berisi:" lines={["CPU · GPU · NPU", "dan bagian penting lainnya"]} color={C.orange} y={430} />
       {/* SoC definition badge */}
-      <div style={{ position: "absolute", left: 70, right: 70, top: 430, opacity: Math.min(on(t, tSoC, 0.4), lerp(t, [tMem - 0.4, tMem], [1, 0])), transform: `scale(${pop(t, tSoC)})`, padding: "22px 26px", borderRadius: 26, background: C.ink, color: "#fff", fontFamily: "Rubik", textAlign: "center" }}>
+      <div style={{ position: "absolute", left: 70, right: 70, top: 430, opacity: Math.min(on(t, tSoC, 0.4), lerp(t, [tMem - 0.5, tMem - 0.1], [1, 0])), transform: `scale(${pop(t, tSoC)})`, padding: "22px 26px", borderRadius: 26, background: C.ink, color: "#fff", fontFamily: "Rubik", textAlign: "center" }}>
         <div style={{ fontWeight: 900, fontSize: 72, letterSpacing: 2, color: C.orangeL }}>SoC</div>
         <div style={{ fontWeight: 800, fontSize: 42, marginTop: 4 }}>System on a Chip</div>
         <div style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 28, marginTop: 8, color: "#e9dcd0" }}>seluruh sistem inti dalam satu chip</div>
       </div>
-      <Spec t={t} at={tMem} title="Memori di paket yang sama" lines={["bukan di slot terpisah", "M5: hingga 32 GB · 153 GB/s"]} color={C.cold} y={430} />
+      <Spec t={t} at={tMem + 0.1} title="Memori di paket yang sama" lines={["bukan di slot terpisah", "M5: hingga 32 GB · 153 GB/s"]} color={C.cold} y={430} />
       {/* label for the 3D dimension marker (kept in a fixed band, never on top of other text) */}
       <div style={{ position: "absolute", left: 0, right: 0, top: 1210, textAlign: "center", opacity: on(t, tMm, 0.4), transform: `scale(${pop(t, tMm)})` }}>
         <span style={{ display: "inline-block", padding: "12px 26px", borderRadius: 999, background: "rgba(255,250,244,.96)", border: `4px solid ${C.orangeD}`, fontFamily: "Rubik", fontWeight: 900, fontSize: 44, color: C.ink }}>↔ jaraknya cuma beberapa mm</span>
@@ -306,7 +306,7 @@ const NPU_POS: V3 = [-1.025, 0.175, 0.45];
 const TaskIcon: React.FC<{ t: number; at: number; icon: string; text: string; x: number }> = ({ t, at, icon, text, x }) => (
   <div style={{ position: "absolute", left: x, top: 1060, width: 300, textAlign: "center", opacity: on(t, at, 0.4), transform: `scale(${pop(t, at)})` }}>
     <div style={{ width: 120, height: 120, margin: "0 auto", borderRadius: 32, background: "rgba(255,250,244,.96)", boxShadow: "0 10px 24px rgba(120,60,20,.16)", fontSize: 68, lineHeight: "120px" }}>{icon}</div>
-    <div style={{ marginTop: 10, fontFamily: "Rubik", fontWeight: 800, fontSize: 30, color: C.ink, lineHeight: 1.15, whiteSpace: "pre-line" }}>{text}</div>
+    <div style={{ display: "inline-block", marginTop: 10, padding: "8px 14px", borderRadius: 14, background: "rgba(255,250,244,.96)", boxShadow: "0 6px 14px rgba(120,60,20,.14)", fontFamily: "Rubik", fontWeight: 800, fontSize: 30, color: C.ink, lineHeight: 1.15, whiteSpace: "pre-line" }}>{text}</div>
   </div>
 );
 const PowerBar: React.FC<{ label: string; w: number; color: string; k: number }> = ({ label, w, color, k }) => (
@@ -351,14 +351,14 @@ export const NpuScene: React.FC<{ t: number }> = ({ t }) => {
         <TaskIcon t={t} at={tTeks} icon="💬" text={"ucapan\njadi teks"} x={740} />
       </>}
       {/* power comparison (illustrative, not measured) */}
-      <div style={{ position: "absolute", left: 70, right: 70, top: 470, opacity: Math.min(on(t, tHemat - 0.3, 0.4), lerp(t, [tNE - 0.4, tNE], [1, 0])), padding: "20px 24px", borderRadius: 22, background: "rgba(255,250,244,.96)", boxShadow: "0 12px 26px rgba(120,60,20,.15)", display: "flex", flexDirection: "column", gap: 14 }}>
+      <div style={{ position: "absolute", left: 70, right: 70, top: 470, opacity: Math.min(on(t, tHemat - 0.3, 0.4), lerp(t, [tNE - 0.6, tNE - 0.2], [1, 0])), padding: "20px 24px", borderRadius: 22, background: "rgba(255,250,244,.96)", boxShadow: "0 12px 26px rgba(120,60,20,.15)", display: "flex", flexDirection: "column", gap: 14 }}>
         <div style={{ fontFamily: "Rubik", fontWeight: 900, fontSize: 38, color: C.ink }}>Daya untuk tugas AI ringan</div>
         <PowerBar label="CPU" w={0.8} color={C.orange} k={on(t, tHemat - 0.1, 0.6)} />
         <PowerBar label="GPU" w={1.0} color={C.cold} k={on(t, tHemat, 0.6)} />
         <PowerBar label="NPU" w={0.28} color={C.yellow} k={on(t, tHemat + 0.2, 0.6)} />
         <div style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 24, color: "#8a7a6d" }}>ilustrasi perbandingan, bukan hasil ukur</div>
       </div>
-      <Spec t={t} at={tNE} out={tM5 - 0.2} title="Di Mac: Neural Engine" lines={["nama NPU buatan Apple"]} color={C.yellow} y={470} />
+      <Spec t={t} at={tNE + 0.05} out={tM5 - 0.2} title="Di Mac: Neural Engine" lines={["nama NPU buatan Apple"]} color={C.yellow} y={470} />
       <Spec t={t} at={tM5} title="Chip M5" lines={["Neural Engine 16 inti", "+ akselerator AI di tiap inti GPU"]} color={C.orange} y={470} />
       <Halftone opacity={0.3} />
     </AbsoluteFill>
@@ -368,21 +368,21 @@ export const NpuScene: React.FC<{ t: number }> = ({ t }) => {
 /* ===================== 9 · OUTRO + CTA ===================== */
 export const Outro: React.FC<{ t: number }> = ({ t }) => {
   const tPenting = cue("penting", 121), tSiapa = cue("siapa", 124), tBersama = cue("bersama", 125), tLike = cue("like", 127), tKomen = cue("komentar", 128), tFollow = cue("follow", 133);
-  const cta = t > tLike - 0.4;
+  const k = lerp(t, [tLike - 0.5, tLike + 0.6], [0, 1], eSoft); // chip moves only after the text has gone
   return (
     <AbsoluteFill>
-      <Stage cam={{ pos: [0, 5.6, 6.2], look: [0, 0.2, cta ? 0.9 : 0.3], fov: 40 }} bg="#f6ece3">
+      <Stage cam={{ pos: [0, 5.6, 6.2], look: [0, 0.2, 0.3 + k * 0.6], fov: 40 }} bg="#f6ece3">
         <Lights dir={[2, 8, 5]} />
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]} receiveShadow>
           <planeGeometry args={[30, 30]} />
           <meshStandardMaterial color="#f1dfd0" />
         </mesh>
-        <group rotation={[0, t * 0.15, 0]} scale={0.8} position={[0, 0, cta ? -1.2 : 0]}>
+        <group rotation={[0, t * 0.15, 0]} scale={0.8} position={[0, 0, -1.2 * k]}>
           <SoC memK={1} glowK={0.5 + 0.5 * Math.sin(t * 3) * on(t, tBersama, 0.3)} />
         </group>
       </Stage>
       <HeaderFade />
-      <div style={{ position: "absolute", left: 60, right: 60, top: 190, textAlign: "center", fontFamily: "Rubik", fontWeight: 900, fontSize: 64, lineHeight: 1.1, color: C.ink, opacity: lerp(t, [tLike - 0.6, tLike - 0.2], [1, 0]) }}>
+      <div style={{ position: "absolute", left: 60, right: 60, top: 190, textAlign: "center", fontFamily: "Rubik", fontWeight: 900, fontSize: 64, lineHeight: 1.1, color: C.ink, opacity: lerp(t, [tLike - 1.0, tLike - 0.5], [1, 0]) }}>
         <div style={{ opacity: on(t, tPenting - 0.3, 0.4) }}>Bukan cuma <span style={{ color: C.orange }}>seberapa besar</span></div>
         <div style={{ opacity: on(t, tSiapa - 0.2, 0.4) }}>tapi <span style={{ color: C.coldD }}>siapa</span> yang bisa</div>
         <div style={{ opacity: on(t, tBersama - 0.4, 0.4) }}>memakainya <span style={{ color: C.orange }}>bersama</span></div>
