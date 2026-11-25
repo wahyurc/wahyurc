@@ -1,0 +1,19 @@
+Kok bisa, MacBook dengan RAM 16 GB menjalankan AI lebih cepat daripada laptop gaming dengan RAM 32 GB? Jawabannya bukan soal besar RAM, tapi siapa yang bisa memakainya.
+
+Bayangkan laptop gaming sebagai sebuah kantor. Prosesor, si otak, ada di satu gedung. Kartu grafis, si mata, ada di gedung sebelah, dengan gudang arsip kecilnya sendiri: VRAM, cuma 8 GB. Gudang utamanya, RAM 32 GB, ada di tempat lain lagi.
+
+Setiap kali kartu grafis butuh data, data itu harus disalin dulu, lalu dikirim lewat jalur PCIe yang jauh lebih sempit. Kalau datanya lebih besar dari 8 GB, sebagian pekerjaan terpaksa lewat jalur lambat itu.
+
+Di Apple Silicon, misalnya chip M5, semuanya dirombak. Prosesor, grafis, dan bagian penting lainnya disatukan dalam satu chip. Inilah yang disebut SoC, System on a Chip. Memorinya pun ditempel di paket yang sama, cuma beberapa milimeter jauhnya.
+
+Hasilnya, semua bekerja di satu meja yang sama. Data yang disiapkan prosesor bisa langsung dibaca grafis, tanpa perlu disalin. Inilah yang disebut memori terpadu, atau unified memory.
+
+Di dalam SoC modern juga ada satu anggota baru: NPU, Neural Processing Unit. Ini prosesor khusus AI. Tugasnya hal-hal seperti mengenali wajah di foto, membersihkan suara saat video call, atau mengubah ucapan jadi teks, dengan daya listrik jauh lebih hemat daripada CPU atau GPU. Di Mac, namanya Neural Engine. Chip M5 punya Neural Engine 16 inti, ditambah akselerator AI di setiap inti grafisnya.
+
+Laptop Windows baru dengan Intel Core Ultra, AMD Ryzen AI, atau Snapdragon juga sudah punya NPU. Tapi untuk model AI yang besar, kerja beratnya biasanya tetap di GPU. Di situlah memori terpadu tadi jadi penentu.
+
+Makanya, model AI yang lebih besar dari 8 GB tetap bisa jalan lancar di Mac 16 GB.
+
+Tapi jujur saja, untuk main game, laptop gaming tetap juaranya, karena VRAM-nya jauh lebih kencang.
+
+Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama. Follow, biar nggak ketinggalan penjelasan kayak gini.

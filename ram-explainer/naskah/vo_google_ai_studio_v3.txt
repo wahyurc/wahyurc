@@ -1,0 +1,50 @@
+=====================================================================
+VOICEOVER v3 — "RAM 16 GB vs 32 GB" + SoC + NPU (Google AI Studio · Speech generation)
+=====================================================================
+
+CARA PAKAI
+- [1] ke kolom "Style instructions", [2] ke kolom teks.
+- Ekspresi pakai kurung sudut < > lewat tombol "+ Expression" (bukan [ ]).
+- Jeda: koma = pendek, titik = sedang, "..." = dramatis, baris kosong = ganti bagian.
+- Tag yang dipakai hanya <breath> dan <short pause>. Kalau <short pause> tidak ada
+  di daftar "+ Expression", ganti dengan "...".
+- Pakai suara yang sama dengan rekaman sebelumnya supaya konsisten. Ekspor WAV.
+
+[1] STYLE INSTRUCTIONS
+---------------------------------------------------------------------
+Speak Indonesian as a friendly, curious tech explainer talking to a friend on
+TikTok. Warm, clear and relaxed, medium pace (not rushed), crisp consonants.
+Leave a natural breath between sections. Read terms exactly as written.
+Section by section:
+- Opening question: curious and playful, then confident on "Jawabannya...".
+- "Bayangkan laptop gaming...": warm storytelling, painting a picture.
+- "Setiap kali kartu grafis...": explaining, slightly concerned at the end.
+- "Di Apple Silicon...": excited, building up; proud reveal on "Inilah yang disebut es-o-ce".
+- "Hasilnya...": satisfied, calm.
+- "Di dalam SoC modern...": curious and fresh, like introducing a new team member.
+- "Laptop Windows baru...": fair and balanced, matter-of-fact.
+- "Makanya...": confident.
+- "Tapi jujur saja...": honest, slightly slower, lower pitch.
+- Closing: warm and conclusive, smiling on "Follow".
+
+[2] TEXT
+---------------------------------------------------------------------
+Kok bisa... MacBook dengan RAM enam belas gigabyte, menjalankan A I lebih cepat daripada laptop gaming dengan RAM tiga puluh dua gigabyte? <short pause> Jawabannya bukan soal besar RAM... tapi siapa yang bisa memakainya.
+
+<breath> Bayangkan laptop gaming sebagai sebuah kantor. Prosesor, si otak, ada di satu gedung. Kartu grafis, si mata, ada di gedung sebelah, dengan gudang arsip kecilnya sendiri: vi-ram, cuma delapan gigabyte. Gudang utamanya, RAM tiga puluh dua gigabyte... ada di tempat lain lagi.
+
+Setiap kali kartu grafis butuh data, data itu harus disalin dulu, lalu dikirim lewat jalur PCI Express yang jauh lebih sempit. Kalau datanya lebih besar dari delapan gigabyte, sebagian pekerjaan terpaksa lewat jalur lambat itu.
+
+<breath> Di Apple Silicon, misalnya chip em lima, semuanya dirombak. Prosesor, grafis, dan bagian penting lainnya disatukan dalam satu chip. <short pause> Inilah yang disebut es-o-ce... System on a Chip. Memorinya pun ditempel di paket yang sama, cuma beberapa milimeter jauhnya.
+
+Hasilnya, semua bekerja di satu meja yang sama. Data yang disiapkan prosesor bisa langsung dibaca grafis, tanpa perlu disalin. Inilah yang disebut memori terpadu, atau unified memory.
+
+<breath> Di dalam es-o-ce modern juga ada satu anggota baru: en-pe-u, Neural Processing Unit. Ini prosesor khusus A I. Tugasnya hal-hal seperti mengenali wajah di foto, membersihkan suara saat video call, atau mengubah ucapan jadi teks... dengan daya listrik jauh lebih hemat daripada ce-pe-u atau ge-pe-u. Di Mac, namanya Neural Engine. Chip em lima punya Neural Engine enam belas inti, ditambah akselerator A I di setiap inti grafisnya.
+
+Laptop Windows baru dengan Intel Core Ultra, A-M-D Ryzen A I, atau Snapdragon juga sudah punya en-pe-u. Tapi untuk model A I yang besar, kerja beratnya biasanya tetap di ge-pe-u. Di situlah memori terpadu tadi jadi penentu.
+
+Makanya, model A I yang lebih besar dari delapan gigabyte tetap bisa jalan lancar di Mac enam belas gigabyte.
+
+Tapi jujur saja... untuk main game, laptop gaming tetap juaranya, karena vi-ram-nya jauh lebih kencang.
+
+Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama. Follow, biar nggak ketinggalan penjelasan kayak gini!
