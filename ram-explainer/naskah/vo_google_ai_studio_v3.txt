@@ -26,8 +26,8 @@ Section by section:
 - "Makanya...": confident.
 - "Tapi jujur saja...": honest, slightly slower, lower pitch.
 - "Jadi yang penting...": warm and conclusive.
-- Call to action: playful and smiling, a little teasing on "tim satu meja, atau tim beda gedung?",
-  rising intonation on the question, upbeat on "Dan follow".
+- Call to action: playful and smiling; rising, curious intonation on "punya en-pe-u atau belum?",
+  upbeat and friendly on "Lalu follow".
 
 [2] TEXT
 ---------------------------------------------------------------------
@@ -51,4 +51,4 @@ Tapi jujur saja... untuk main game, laptop gaming tetap juaranya, karena vi-ram-
 
 Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama.
 
-<breath> Kalau sekarang otakmu sudah klik, kasih like... anggap saja itu sinyal tercepat dari jarimu ke prosesor kami. <short pause> Terus tulis di komentar: kamu tim satu meja, atau tim beda gedung? Dan follow, biar nggak ketinggalan penjelasan kayak gini!
+<breath> Like kalau kamu baru tahu ini... komentar, laptopmu sekarang punya en-pe-u atau belum? <short pause> Lalu follow, buat penjelasan berikutnya!
