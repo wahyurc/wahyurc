@@ -21,12 +21,12 @@ const CamRig: React.FC<CamSpec> = ({ pos, look, fov = 40, roll = 0 }) => {
   return null;
 };
 
-export const Stage: React.FC<{ cam: CamSpec; bg?: string; fog?: [number, number]; children: React.ReactNode; style?: React.CSSProperties; shadows?: boolean }> = ({
-  cam, bg = "#f3dcc8", fog, children, style, shadows = true,
+export const Stage: React.FC<{ cam: CamSpec; bg?: string; fog?: [number, number]; children: React.ReactNode; style?: React.CSSProperties; shadows?: boolean; width?: number; height?: number }> = ({
+  cam, bg = "#f3dcc8", fog, children, style, shadows = true, width = W, height = H,
 }) => (
   <ThreeCanvas
-    width={W}
-    height={H}
+    width={width}
+    height={height}
     style={{ position: "absolute", inset: 0, ...style }}
     shadows={shadows}
     gl={{ antialias: true, preserveDrawingBuffer: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.05 }}
