@@ -196,13 +196,36 @@ export const DataCube: React.FC<P & { color?: string; tint?: number }> = ({ colo
 );
 
 /* ---------------- laptops (no logos) ---------------- */
-export const Laptop: React.FC<P & { open?: number; body?: string; lid?: string; rgb?: boolean; screen?: string; progress?: number; barColor?: string }> = ({
-  open = 1, body = "#d9dbde", lid, rgb = false, screen = "#1f1b19", progress = 0, barColor = C.orange, ...p
-}) => (
+/** per-key RGB keyboard texture (rainbow across the keys); scrolled over time for a wave effect */
+const rgbKeysTex = () => {
+  const t = canvasTex("kb-rgb", 1024, 192, (g, w, h) => {
+    g.fillStyle = "#151211"; g.fillRect(0, 0, w, h);
+    for (let r = 0; r < 5; r++) for (let c = 0; c < 28; c++) {
+      const hue = (c / 28) * 360 + r * 12;
+      g.fillStyle = `hsl(${hue}, 95%, 60%)`; g.fillRect(4 + c * 36.5, 6 + r * 37, 30, 30);
+      g.fillStyle = "rgba(20,16,14,.55)"; g.fillRect(9 + c * 36.5, 11 + r * 37, 20, 20);
+    }
+  });
+  t.wrapS = THREE.RepeatWrapping; t.repeat.set(0.5, 1);
+  return t;
+};
+
+export const Laptop: React.FC<P & { open?: number; body?: string; lid?: string; rgb?: boolean; screen?: string; progress?: number; barColor?: string; t?: number }> = ({
+  open = 1, body = "#d9dbde", lid, rgb = false, screen = "#1f1b19", progress = 0, barColor = C.orange, t = 0, ...p
+}) => {
+  const kb = rgb ? rgbKeysTex() : null;
+  if (kb) kb.offset.x = (t * 0.12) % 1;
+  return (
   <group {...p}>
     <RBox size={[2.6, 0.1, 1.8]} r={0.05} color={body} rough={0.35} />
     {/* keyboard + trackpad */}
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.052, -0.15]}>
+    {kb && (
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.053, -0.15]}>
+        <planeGeometry args={[2.2, 0.8]} />
+        <meshStandardMaterial map={kb} emissiveMap={kb} emissive="#ffffff" emissiveIntensity={1.1} roughness={0.4} />
+      </mesh>
+    )}
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.052, -0.15]} visible={!kb}>
       <planeGeometry args={[2.2, 0.8]} />
       <meshStandardMaterial map={canvasTex("kb" + body, 512, 192, (g, w, h) => {
         g.fillStyle = "rgba(0,0,0,.18)"; g.fillRect(0, 0, w, h);
@@ -216,7 +239,7 @@ export const Laptop: React.FC<P & { open?: number; body?: string; lid?: string; 
     {rgb && (
       <mesh position={[0, 0.02, 0.91]}>
         <boxGeometry args={[2.3, 0.02, 0.01]} />
-        <meshBasicMaterial color={C.orange} />
+        <meshBasicMaterial color={`hsl(${(t * 90) % 360}, 95%, 60%)`} />
       </mesh>
     )}
     {/* lid, hinged at the back edge: open=1 -> tilted back ~15°, open=0 -> closed flat */}
@@ -237,7 +260,8 @@ export const Laptop: React.FC<P & { open?: number; body?: string; lid?: string; 
       </mesh>
     </group>
   </group>
-);
+  );
+};
 
 /* ---------------- SoC package: one die (CPU + GPU) + 2 memory packages ---------------- */
 const dieTex = () => canvasTex("die", 1024, 768, (g, w, h) => {

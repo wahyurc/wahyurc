@@ -49,8 +49,8 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
           <planeGeometry args={[40, 40]} />
           <meshStandardMaterial color="#f3e2d4" />
         </mesh>
-        <Laptop position={[-0.85, 0, 1.15]} rotation={[0, 0.18, 0]} scale={0.72} body="#dcdee1" screen="#262220" progress={pMac} barColor={C.cold} open={lerp(t, [0, 0.8], [0.2, 1], eOut)} />
-        <Laptop position={[0.95, 0, -1.3]} rotation={[0, -0.18, 0]} scale={0.72} body="#3a3330" lid="#2f2927" rgb screen="#1d1917" progress={pGam} barColor={C.orange} open={lerp(t, [0.2, 1.0], [0.2, 1], eOut)} />
+        <Laptop position={[-0.85, 0, 1.15]} rotation={[0, 0.18, 0]} scale={0.72} body="#8e9095" lid="#85878c" screen="#262220" progress={pMac} barColor={C.cold} open={lerp(t, [0, 0.8], [0.2, 1], eOut)} />
+        <Laptop position={[0.95, 0, -1.3]} rotation={[0, -0.18, 0]} scale={0.72} body="#3a3330" lid="#2f2927" rgb t={t} screen="#1d1917" progress={pGam} barColor={C.orange} open={lerp(t, [0.2, 1.0], [0.2, 1], eOut)} />
       </Stage>
       <HeaderFade />
       {/* capacity tags */}
