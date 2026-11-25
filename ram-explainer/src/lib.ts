@@ -4,8 +4,8 @@ import WORDS from "./words_aligned.json";
 export const FPS = 30;
 export const W = 1080;
 export const H = 1920;
-export const DURATION_S = 84;
-export const TOTAL = DURATION_S * FPS; // 2520 frames
+export const DURATION_S = 139;
+export const TOTAL = DURATION_S * FPS; // 4170 frames
 
 export const C = {
   cream: "#f6eee5",
@@ -66,8 +66,10 @@ const cut = (w: string, after: number) => Math.round((cue(w, after) - 0.35) * 10
 export const SCENES = {
   hook: [0, cut("bayangkan", 5)],
   office: [cut("bayangkan", 5), cut("setiap", 20)],
-  copy: [cut("setiap", 20), cut("di", 40)],
-  soc: [cut("di", 40), cut("makanya", 50)],
-  compare: [cut("makanya", 50), cut("jadi", 60)], // HyperFrames segment
-  outro: [cut("jadi", 60), DURATION_S],
+  copy: [cut("setiap", 20), cut("di", 43.5)],
+  soc: [cut("di", 43.5), cut("hasilnya", 55)],
+  table: [cut("hasilnya", 55), cut("di", 69.8)],
+  npu: [cut("di", 69.8), cut("laptop", 94)],
+  compare: [cut("laptop", 94), cut("jadi", 120)], // HyperFrames: Windows NPU + "model AI > 8 GB" + gaming honesty
+  outro: [cut("jadi", 120), DURATION_S],
 } as const;

@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, OffthreadVideo, Sequence, staticFile, useCurrentFr
 import { loadFonts } from "./fonts";
 import { FPS, SCENES, TOTAL } from "./lib";
 import { Captions, Grain, SceneFade, Vignette, Watermark } from "./fx";
-import { Copy, Hook, Office, Outro, SocScene } from "./scenes/scenes";
+import { Copy, Hook, NpuScene, Office, Outro, SocScene, TableScene } from "./scenes/scenes";
 
 loadFonts();
 const OVER = 0.6;
@@ -25,7 +25,7 @@ const Clip: React.FC<{ a: number; b: number; src: string }> = ({ a, b, src }) =>
   );
 };
 
-const LIST: [keyof typeof SCENES, React.FC<{ t: number }>][] = [["hook", Hook], ["office", Office], ["copy", Copy], ["soc", SocScene], ["outro", Outro]];
+const LIST: [keyof typeof SCENES, React.FC<{ t: number }>][] = [["hook", Hook], ["office", Office], ["copy", Copy], ["soc", SocScene], ["table", TableScene], ["npu", NpuScene], ["outro", Outro]];
 
 export const Main: React.FC = () => {
   const [ca, cb] = SCENES.compare;

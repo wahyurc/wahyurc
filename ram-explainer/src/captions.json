@@ -1,157 +1,257 @@
 [
 {
 "s": 1.0,
-"e": 1.5,
+"e": 1.68,
 "t": "Kok bisa,"
 },
 {
-"s": 1.54,
-"e": 5.52,
+"s": 1.72,
+"e": 5.9799999999999995,
 "t": "MacBook dengan RAM 16 GB\nmenjalankan AI lebih cepat"
 },
 {
-"s": 5.56,
-"e": 8.34,
+"s": 6.02,
+"e": 8.92,
 "t": "daripada laptop gaming\ndengan RAM 32 GB?"
 },
 {
-"s": 8.8,
-"e": 10.72,
+"s": 9.26,
+"e": 11.4,
 "t": "Jawabannya bukan\nsoal besar RAM,"
 },
 {
-"s": 10.76,
-"e": 13.0,
+"s": 11.44,
+"e": 13.940000000000001,
 "t": "tapi siapa yang\nbisa memakainya."
 },
 {
-"s": 13.56,
-"e": 15.88,
+"s": 14.62,
+"e": 17.32,
 "t": "Bayangkan laptop gaming\nsebagai sebuah kantor."
 },
 {
-"s": 16.1,
-"e": 19.3,
+"s": 17.36,
+"e": 20.48,
 "t": "Prosesor, si otak, ada di\nsatu gedung. Kartu grafis,"
 },
 {
-"s": 19.34,
-"e": 20.900000000000002,
+"s": 20.52,
+"e": 22.18,
 "t": "si mata, ada di\ngedung sebelah,"
 },
 {
-"s": 20.94,
-"e": 24.78,
+"s": 22.22,
+"e": 26.32,
 "t": "dengan gudang arsip kecilnya\nsendiri: VRAM, cuma 8 GB."
 },
 {
-"s": 25.18,
-"e": 29.18,
+"s": 26.52,
+"e": 30.720000000000002,
 "t": "Gudang utamanya, RAM 32 GB,\nada di tempat lain lagi."
 },
 {
-"s": 29.22,
-"e": 31.78,
+"s": 31.0,
+"e": 33.099999999999994,
 "t": "Setiap kali kartu\ngrafis butuh data,"
 },
 {
-"s": 31.82,
-"e": 33.559999999999995,
+"s": 33.16,
+"e": 34.800000000000004,
 "t": "data itu harus disalin dulu,"
 },
 {
-"s": 33.62,
-"e": 37.3,
+"s": 34.84,
+"e": 38.239999999999995,
 "t": "lalu dikirim lewat jalur\nPCIe yang jauh lebih sempit."
 },
 {
-"s": 37.34,
-"e": 39.76,
+"s": 38.36,
+"e": 40.5,
 "t": "Kalau datanya lebih\nbesar dari 8 GB,"
 },
 {
-"s": 40.04,
-"e": 43.019999999999996,
+"s": 40.76,
+"e": 43.5,
 "t": "sebagian pekerjaan terpaksa\nlewat jalur lambat itu."
 },
 {
-"s": 43.32,
-"e": 45.98,
-"t": "Di Apple Silicon,\nmisalnya chip M5,"
+"s": 44.06,
+"e": 47.82,
+"t": "Di Apple Silicon, misalnya\nchip M5, semuanya dirombak."
 },
 {
-"s": 46.02,
-"e": 48.64,
-"t": "prosesor dan grafis\nada di satu chip."
+"s": 47.96,
+"e": 49.28,
+"t": "Prosesor, grafis,"
 },
 {
-"s": 48.74,
-"e": 50.72,
-"t": "Memorinya ditempel\ndi paket yang sama,"
+"s": 49.32,
+"e": 51.84,
+"t": "dan bagian penting lainnya\ndisatukan dalam satu chip."
 },
 {
-"s": 50.76,
-"e": 53.480000000000004,
-"t": "cuma beberapa milimeter\njauhnya. Satu meja,"
+"s": 51.88,
+"e": 54.739999999999995,
+"t": "Inilah yang disebut\nSoC, System on a Chip."
 },
 {
-"s": 53.52,
-"e": 54.44,
-"t": "dipakai bersama."
+"s": 54.96,
+"e": 57.14,
+"t": "Memorinya pun ditempel\ndi paket yang sama,"
 },
 {
-"s": 54.48,
-"e": 57.56,
+"s": 57.18,
+"e": 59.04,
+"t": "cuma beberapa\nmilimeter jauhnya."
+},
+{
+"s": 59.46,
+"e": 62.3,
+"t": "Hasilnya, semua bekerja\ndi satu meja yang sama."
+},
+{
+"s": 62.44,
+"e": 64.6,
 "t": "Data yang disiapkan prosesor\nbisa langsung dibaca"
 },
 {
-"s": 57.6,
-"e": 59.68,
+"s": 64.64,
+"e": 66.48,
 "t": "grafis, tanpa perlu disalin."
 },
 {
-"s": 60.06,
-"e": 60.68,
-"t": "Makanya,"
-},
-{
-"s": 60.72,
-"e": 63.78,
-"t": "model AI yang lebih besar\ndari 8 GB tetap bisa jalan"
-},
-{
-"s": 63.82,
-"e": 65.7,
-"t": "lancar di Mac 16 GB."
-},
-{
-"s": 66.0,
+"s": 66.64,
 "e": 68.44,
-"t": "Tapi jujur saja,\nuntuk main game,"
+"t": "Inilah yang disebut\nmemori terpadu,"
 },
 {
 "s": 68.48,
-"e": 70.11999999999999,
+"e": 69.89999999999999,
+"t": "atau unified memory."
+},
+{
+"s": 70.36,
+"e": 73.98,
+"t": "Di dalam SoC modern juga\nada satu anggota baru: NPU,"
+},
+{
+"s": 74.06,
+"e": 77.1,
+"t": "Neural Processing Unit.\nIni prosesor khusus AI."
+},
+{
+"s": 77.3,
+"e": 79.89999999999999,
+"t": "Tugasnya hal-hal seperti\nmengenali wajah di foto,"
+},
+{
+"s": 80.02,
+"e": 81.89999999999999,
+"t": "membersihkan suara\nsaat video call,"
+},
+{
+"s": 81.94,
+"e": 83.75999999999999,
+"t": "atau mengubah\nucapan jadi teks,"
+},
+{
+"s": 83.8,
+"e": 86.55999999999999,
+"t": "dengan daya listrik jauh\nlebih hemat daripada CPU atau"
+},
+{
+"s": 86.6,
+"e": 89.5,
+"t": "GPU. Di Mac, namanya\nNeural Engine."
+},
+{
+"s": 89.66,
+"e": 92.44,
+"t": "Chip M5 punya Neural\nEngine 16 inti,"
+},
+{
+"s": 92.48,
+"e": 95.36,
+"t": "ditambah akselerator AI\ndi setiap inti grafisnya."
+},
+{
+"s": 95.54,
+"e": 98.16,
+"t": "Laptop Windows baru\ndengan Intel Core Ultra,"
+},
+{
+"s": 98.26,
+"e": 101.53999999999999,
+"t": "AMD Ryzen AI, atau Snapdragon\njuga sudah punya NPU."
+},
+{
+"s": 101.68,
+"e": 103.28,
+"t": "Tapi untuk model\nAI yang besar,"
+},
+{
+"s": 103.34,
+"e": 105.3,
+"t": "kerja beratnya\nbiasanya tetap di GPU."
+},
+{
+"s": 105.48,
+"e": 108.14,
+"t": "Di situlah memori terpadu\ntadi jadi penentu."
+},
+{
+"s": 108.46,
+"e": 109.11999999999999,
+"t": "Makanya,"
+},
+{
+"s": 109.16,
+"e": 111.94,
+"t": "model AI yang lebih besar\ndari 8 GB tetap bisa jalan"
+},
+{
+"s": 111.98,
+"e": 113.47999999999999,
+"t": "lancar di Mac 16 GB."
+},
+{
+"s": 113.52,
+"e": 116.92,
+"t": "Tapi jujur saja,\nuntuk main game,"
+},
+{
+"s": 117.0,
+"e": 119.05999999999999,
 "t": "laptop gaming tetap juaranya,"
 },
 {
-"s": 70.16,
-"e": 72.24,
+"s": 119.1,
+"e": 121.17,
 "t": "karena VRAM-nya\njauh lebih kencang."
 },
 {
-"s": 73.28,
-"e": 76.39999999999999,
+"s": 121.32,
+"e": 124.96,
 "t": "Jadi yang penting bukan cuma\nseberapa besar memorinya,"
 },
 {
-"s": 76.5,
-"e": 80.3,
-"t": "tapi siapa saja yang bisa\nmemakainya bersama. Follow,"
+"s": 125.08,
+"e": 127.98,
+"t": "tapi siapa saja yang\nbisa memakainya bersama."
 },
 {
-"s": 80.36,
-"e": 82.3,
-"t": "biar nggak ketinggalan\npenjelasan kayak gini."
+"s": 128.38,
+"e": 130.42000000000002,
+"t": "Like kalau kamu baru tahu ini,"
+},
+{
+"s": 130.62,
+"e": 134.32000000000002,
+"t": "komentar laptopmu sekarang\npunya NPU atau belum,"
+},
+{
+"s": 134.58,
+"e": 136.86,
+"t": "lalu follow buat\npenjelasan berikutnya."
 }
 ]

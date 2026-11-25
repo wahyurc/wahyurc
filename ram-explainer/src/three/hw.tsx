@@ -269,11 +269,13 @@ const dieTex = () => canvasTex("die", 1024, 768, (g, w, h) => {
   // CPU cluster (warm) left, GPU array (cool) right, caches between
   const blk = (x: number, y: number, bw: number, bh: number, c: string) => { g.fillStyle = c; g.fillRect(x, y, bw, bh); g.strokeStyle = "rgba(255,255,255,.12)"; g.lineWidth = 3; g.strokeRect(x, y, bw, bh); };
   for (let i = 0; i < 4; i++) blk(40 + (i % 2) * 150, 60 + Math.floor(i / 2) * 170, 130, 150, "#e8743a");
-  for (let i = 0; i < 6; i++) blk(40 + (i % 3) * 100, 420 + Math.floor(i / 3) * 120, 88, 100, "#f3a56c");
+  for (let i = 0; i < 6; i++) blk(40 + (i % 3) * 100, 420 + Math.floor(i / 3) * 80, 88, 64, "#f3a56c");
+  blk(40, 590, 290, 110, "#ffc21f"); // NPU / Neural Engine
   blk(360, 60, 120, 640, "#8a6f5c");
   for (let r = 0; r < 5; r++) for (let c = 0; c < 2; c++) blk(510 + c * 240, 60 + r * 130, 220, 112, "#5fa9e6");
   g.fillStyle = "rgba(255,255,255,.75)"; g.font = "800 46px Inter";
   g.fillText("CPU", 120, 395); g.fillText("GPU", 690, 745 - 18);
+  g.fillStyle = "rgba(60,40,10,.85)"; g.fillText("NPU", 130, 662);
 });
 export const SoC: React.FC<P & { memK?: number; glowK?: number }> = ({ memK = 1, glowK = 0, ...p }) => (
   <group {...p}>

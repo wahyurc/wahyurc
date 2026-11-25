@@ -1,8 +1,8 @@
 """Align display script (narasi_vo.txt) to Whisper word times; VO is placed at +OFFSET s in the video.
 Writes src/words_aligned.json, src/captions.json and naskah/narasi.srt (re-synced)."""
-import json, re, difflib
+import json, re, difflib, sys
 OFFSET = 1.0
-paras = [p.strip() for p in open("naskah/narasi_vo.txt").read().strip().split("\n\n")]
+paras = [p.strip() for p in open(sys.argv[2] if len(sys.argv) > 2 else "naskah/narasi_vo.txt").read().strip().split("\n\n")]
 import sys
 W = json.load(open(sys.argv[1] if len(sys.argv) > 1 else "naskah/whisper_words.json"))
 def toks(text):  # keep "16 GB" as one token like whisper's "16GB"
