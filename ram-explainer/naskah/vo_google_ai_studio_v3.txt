@@ -25,7 +25,9 @@ Section by section:
 - "Laptop Windows baru...": fair and balanced, matter-of-fact.
 - "Makanya...": confident.
 - "Tapi jujur saja...": honest, slightly slower, lower pitch.
-- Closing: warm and conclusive, smiling on "Follow".
+- "Jadi yang penting...": warm and conclusive.
+- Call to action: playful and smiling, a little teasing on "tim satu meja, atau tim beda gedung?",
+  rising intonation on the question, upbeat on "Dan follow".
 
 [2] TEXT
 ---------------------------------------------------------------------
@@ -47,4 +49,6 @@ Makanya, model A I yang lebih besar dari delapan gigabyte tetap bisa jalan lanca
 
 Tapi jujur saja... untuk main game, laptop gaming tetap juaranya, karena vi-ram-nya jauh lebih kencang.
 
-Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama. Follow, biar nggak ketinggalan penjelasan kayak gini!
+Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama.
+
+<breath> Kalau sekarang otakmu sudah klik, kasih like... anggap saja itu sinyal tercepat dari jarimu ke prosesor kami. <short pause> Terus tulis di komentar: kamu tim satu meja, atau tim beda gedung? Dan follow, biar nggak ketinggalan penjelasan kayak gini!
