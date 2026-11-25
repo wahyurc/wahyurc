@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <!-- HyperFrames segment (video 55.5s -> 68.6s). Times are relative to 55.5s, taken from the word-aligned VO.
+         Numbers shown are verified: RTX 5060 Laptop 8 GB GDDR7 ~384 GB/s (NVIDIA spec table); Apple M5 unified memory 153 GB/s (Apple). -->
+    <script src="./assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Rubik"; font-weight: 700; src: url(./assets/rubik-latin-700-normal.woff2); }
+      @font-face { font-family: "Rubik"; font-weight: 800; src: url(./assets/rubik-latin-800-normal.woff2); }
+      @font-face { font-family: "Rubik"; font-weight: 900; src: url(./assets/rubik-latin-900-normal.woff2); }
+      :root { --orange: #ff6a1a; --orangeD: #e2500c; --red: #e8402a; --cold: #5fb8ff; --coldD: #2f86d6; --ink: #1f1a17; --green: #3aa56b; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #f6ece3; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Rubik, Inter, sans-serif; color: var(--ink);
+        background: radial-gradient(ellipse at 50% 40%, #fbf4ee 0%, #f6ece3 60%, #f0ddcd 100%); }
+      .clip { position: absolute; inset: 0; }
+      .chip { position: absolute; left: 50%; top: 170px; transform: translateX(-50%); padding: 10px 26px; border-radius: 999px; background: var(--orange); color: #fff; font-weight: 800; font-size: 30px; letter-spacing: 2px; white-space: nowrap; }
+      .h1 { position: absolute; left: 50px; right: 50px; top: 235px; text-align: center; font-weight: 900; font-size: 78px; letter-spacing: -2px; line-height: 1.02; }
+      .h1 b { color: var(--orange); }
+      .col { position: absolute; top: 470px; width: 430px; height: 820px; border-radius: 36px; background: #fffaf5; box-shadow: 0 20px 44px rgba(150,80,30,.15); }
+      #colA { left: 70px; } #colB { right: 70px; }
+      .col h3 { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-size: 42px; font-weight: 900; }
+      .col .sub { position: absolute; left: 0; right: 0; top: 86px; text-align: center; font-size: 26px; font-weight: 700; color: #7a6a5e; }
+      .tank { position: absolute; left: 115px; width: 200px; bottom: 150px; border: 8px solid #3b3431; border-radius: 22px; overflow: hidden; background: #f3ebe3; }
+      #tankA { height: 250px; } #tankB { height: 500px; }
+      .cap { position: absolute; left: 0; right: 0; bottom: 92px; text-align: center; font-weight: 900; font-size: 40px; }
+      .model { position: absolute; left: 50%; width: 170px; height: 310px; transform: translateX(-50%); border-radius: 16px; background: linear-gradient(180deg, #ffb27a, var(--orange)); color: #fff; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 10px 20px rgba(200,80,20,.3); }
+      #modelA { bottom: 160px; } #modelB { bottom: 160px; }
+      .verdict { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; font-weight: 900; font-size: 34px; }
+      #spill { position: absolute; left: 70px; top: 1305px; width: 430px; text-align: center; font-weight: 800; font-size: 30px; color: var(--red); }
+      /* bandwidth part */
+      .bar { position: absolute; left: 80px; right: 80px; height: 150px; border-radius: 30px; background: #fffaf5; box-shadow: 0 14px 30px rgba(150,80,30,.14); }
+      .bar .lbl { position: absolute; left: 34px; top: 22px; font-size: 34px; font-weight: 900; }
+      .bar .tag { position: absolute; left: 34px; top: 70px; font-size: 24px; font-weight: 700; color: #7a6a5e; }
+      .bar .track { position: absolute; left: 34px; right: 260px; bottom: 22px; height: 26px; border-radius: 13px; background: #efe2d6; overflow: hidden; }
+      .bar .fill { height: 100%; width: 0; border-radius: 13px; }
+      .bar .num { position: absolute; right: 30px; bottom: 14px; font-size: 38px; font-weight: 900; }
+      #barA { top: 620px; } #barB { top: 820px; }
+      #trophy { position: absolute; left: 0; right: 0; top: 1030px; text-align: center; font-size: 130px; }
+      #game { position: absolute; left: 0; right: 0; top: 1190px; text-align: center; font-weight: 900; font-size: 46px; }
+      #src { position: absolute; left: 80px; right: 80px; top: 1290px; text-align: center; font-size: 22px; font-weight: 600; color: #8a7a6d; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="13.1" data-width="1080" data-height="1920">
+
+      <!-- 0 – 6.3 : does a >8 GB AI model fit in GPU-usable memory? -->
+      <div id="s1" class="clip" data-start="0" data-duration="6.4" data-track-index="0">
+        <div class="chip">MAKANYA</div>
+        <div class="h1">Model AI <b>&gt; 8 GB</b></div>
+        <div class="col" id="colA">
+          <h3>Laptop gaming</h3><div class="sub">GPU cuma bisa pakai VRAM</div>
+          <div class="tank" id="tankA"></div>
+          <div class="cap">8 GB</div>
+          <div class="model" id="modelA">model AI<br>&gt; 8 GB</div>
+          <div class="verdict" id="vA" style="color: var(--red)">✕ tidak muat</div>
+        </div>
+        <div class="col" id="colB">
+          <h3>Mac 16 GB</h3><div class="sub">GPU pakai memori terpadu</div>
+          <div class="tank" id="tankB"></div>
+          <div class="cap">16 GB</div>
+          <div class="model" id="modelB">model AI<br>&gt; 8 GB</div>
+          <div class="verdict" id="vB" style="color: var(--green)">✓ muat, lancar</div>
+        </div>
+        <div id="spill">sisanya lewat PCIe → lambat</div>
+      </div>
+
+      <!-- 6.2 – 13.1 : honest part: for games the dedicated VRAM is much faster -->
+      <div id="s2" class="clip" data-start="6.2" data-duration="6.9" data-track-index="1">
+        <div class="chip">TAPI JUJUR SAJA</div>
+        <div class="h1">Main game? <b>Laptop gaming</b> juaranya</div>
+        <div class="bar" id="barA">
+          <div class="lbl">VRAM laptop gaming</div><div class="tag">RTX 5060 Laptop · GDDR7</div>
+          <div class="track"><div class="fill" id="fA" style="background: var(--orange)"></div></div>
+          <div class="num" style="color: var(--orangeD)">±384 GB/s</div>
+        </div>
+        <div class="bar" id="barB">
+          <div class="lbl">Memori terpadu Mac</div><div class="tag">Apple M5</div>
+          <div class="track"><div class="fill" id="fB" style="background: var(--cold)"></div></div>
+          <div class="num" style="color: var(--coldD)">153 GB/s</div>
+        </div>
+        <div id="trophy">🏆🎮</div>
+        <div id="game">VRAM-nya jauh lebih kencang</div>
+        <div id="src">Sumber: tabel spesifikasi NVIDIA (RTX 5060 Laptop), Apple Newsroom (M5)</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const O = "power3.out", S = "power2.inOut";
+      tl.fromTo("#s1 .chip", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 0.15);
+      tl.fromTo("#s1 .h1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: O }, 1.2);
+      tl.fromTo("#colA", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.5, ease: O }, 0.4);
+      tl.fromTo("#colB", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.5, ease: O }, 0.55);
+      // model blocks drop into both tanks ("lebih besar dari 8 GB" ~2.0-2.6)
+      tl.fromTo("#modelA", { y: -700, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out" }, 2.0);
+      tl.fromTo("#modelB", { y: -700, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out" }, 2.15);
+      tl.to("#modelA", { background: "linear-gradient(180deg,#ff8a7a,#e8402a)", duration: 0.3 }, 2.8);
+      tl.fromTo("#vA", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 2.9);
+      tl.fromTo("#spill", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35 }, 3.2);
+      tl.fromTo("#vB", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 3.7);
+      tl.to("#s1", { opacity: 0, duration: 0.25 }, 6.15);
+      // honest comparison ("Tapi jujur" 6.3, "main game" 7.5, "juaranya" 9.2, "kencang" 11.1)
+      tl.fromTo("#s2", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 6.2);
+      tl.fromTo("#s2 .chip", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 6.3);
+      tl.fromTo("#s2 .h1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: O }, 7.4);
+      tl.fromTo("#barA", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: O }, 8.2);
+      tl.fromTo("#barB", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: O }, 8.4);
+      tl.fromTo("#fA", { width: "0%" }, { width: "100%", duration: 1.0, ease: S }, 10.0);
+      tl.fromTo("#fB", { width: "0%" }, { width: "39.8%", duration: 1.0, ease: S }, 10.1);
+      tl.fromTo("#trophy", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 8.9);
+      tl.fromTo("#game", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.6);
+      tl.fromTo("#src", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.8);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

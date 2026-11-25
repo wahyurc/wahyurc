@@ -1,0 +1,157 @@
+[
+{
+"s": 1.0,
+"e": 1.46,
+"t": "Kok bisa,"
+},
+{
+"s": 1.5,
+"e": 5.8,
+"t": "MacBook dengan RAM 16 GB\nmenjalankan AI lebih cepat"
+},
+{
+"s": 5.84,
+"e": 8.540000000000001,
+"t": "daripada laptop gaming\ndengan RAM 32 GB?"
+},
+{
+"s": 8.7,
+"e": 10.9,
+"t": "Jawabannya bukan\nsoal besar RAM,"
+},
+{
+"s": 10.94,
+"e": 13.06,
+"t": "tapi siapa yang\nbisa memakainya."
+},
+{
+"s": 13.34,
+"e": 16.12,
+"t": "Bayangkan laptop gaming\nsebagai sebuah kantor."
+},
+{
+"s": 16.16,
+"e": 19.7,
+"t": "Prosesor, si otak, ada di\nsatu gedung. Kartu grafis,"
+},
+{
+"s": 19.74,
+"e": 21.560000000000002,
+"t": "si mata, ada di\ngedung sebelah,"
+},
+{
+"s": 21.6,
+"e": 25.32,
+"t": "dengan gudang arsip kecilnya\nsendiri: VRAM, cuma 8 GB."
+},
+{
+"s": 25.48,
+"e": 28.740000000000002,
+"t": "Gudang utamanya, RAM 32 GB,\nada di tempat lain lagi."
+},
+{
+"s": 28.78,
+"e": 31.060000000000002,
+"t": "Setiap kali kartu\ngrafis butuh data,"
+},
+{
+"s": 31.12,
+"e": 32.88,
+"t": "data itu harus disalin dulu,"
+},
+{
+"s": 32.92,
+"e": 36.16,
+"t": "lalu dikirim lewat jalur\nPCIe yang jauh lebih sempit."
+},
+{
+"s": 36.3,
+"e": 38.339999999999996,
+"t": "Kalau datanya lebih\nbesar dari 8 GB,"
+},
+{
+"s": 38.44,
+"e": 40.86,
+"t": "sebagian pekerjaan terpaksa\nlewat jalur lambat itu."
+},
+{
+"s": 41.26,
+"e": 43.6,
+"t": "Di Apple Silicon,\nmisalnya chip M5,"
+},
+{
+"s": 43.64,
+"e": 46.0,
+"t": "prosesor dan grafis\nada di satu chip."
+},
+{
+"s": 46.04,
+"e": 48.14,
+"t": "Memorinya ditempel\ndi paket yang sama,"
+},
+{
+"s": 48.18,
+"e": 50.7,
+"t": "cuma beberapa milimeter\njauhnya. Satu meja,"
+},
+{
+"s": 50.74,
+"e": 51.879999999999995,
+"t": "dipakai bersama."
+},
+{
+"s": 52.2,
+"e": 54.18,
+"t": "Data yang disiapkan prosesor\nbisa langsung dibaca"
+},
+{
+"s": 54.22,
+"e": 55.64,
+"t": "grafis, tanpa perlu disalin."
+},
+{
+"s": 55.68,
+"e": 56.78,
+"t": "Makanya,"
+},
+{
+"s": 56.82,
+"e": 59.7,
+"t": "model AI yang lebih besar\ndari 8 GB tetap bisa jalan"
+},
+{
+"s": 59.74,
+"e": 61.44,
+"t": "lancar di Mac 16 GB."
+},
+{
+"s": 61.78,
+"e": 63.9,
+"t": "Tapi jujur saja,\nuntuk main game,"
+},
+{
+"s": 63.94,
+"e": 65.41999999999999,
+"t": "laptop gaming tetap juaranya,"
+},
+{
+"s": 65.46,
+"e": 67.32,
+"t": "karena VRAM-nya\njauh lebih kencang."
+},
+{
+"s": 68.5,
+"e": 71.47999999999999,
+"t": "Jadi yang penting bukan cuma\nseberapa besar memorinya,"
+},
+{
+"s": 71.52,
+"e": 74.22,
+"t": "tapi siapa saja yang bisa\nmemakainya bersama. Follow,"
+},
+{
+"s": 74.26,
+"e": 76.38,
+"t": "biar nggak ketinggalan\npenjelasan kayak gini."
+}
+]

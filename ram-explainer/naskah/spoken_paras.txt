@@ -1,0 +1,7 @@
+Kok bisa... MacBook dengan RAM enam belas gigabyte, menjalankan A I lebih cepat daripada laptop gaming dengan RAM tiga puluh dua gigabyte? Jawabannya bukan soal besar RAM... tapi siapa yang bisa memakainya.
+Bayangkan laptop gaming sebagai sebuah kantor. Prosesor, si otak, ada di satu gedung. Kartu grafis, si mata, ada di gedung sebelah, dengan gudang arsip kecilnya sendiri: vi-ram, cuma delapan gigabyte. Gudang utamanya, RAM tiga puluh dua gigabyte... ada di tempat lain lagi.
+Setiap kali kartu grafis butuh data, data itu harus disalin dulu, lalu dikirim lewat jalur PCI Express yang jauh lebih sempit. Kalau datanya lebih besar dari delapan gigabyte, sebagian pekerjaan terpaksa lewat jalur lambat itu.
+Di Apple Silicon, misalnya chip em lima, prosesor dan grafis ada di satu chip. Memorinya ditempel di paket yang sama, cuma beberapa milimeter jauhnya. Satu meja, dipakai bersama. Data yang disiapkan prosesor bisa langsung dibaca grafis, tanpa perlu disalin.
+Makanya, model A I yang lebih besar dari delapan gigabyte tetap bisa jalan lancar di Mac enam belas gigabyte.
+Tapi jujur saja... untuk main game, laptop gaming tetap juaranya, karena vi-ram-nya jauh lebih kencang.
+Jadi yang penting bukan cuma seberapa besar memorinya, tapi siapa saja yang bisa memakainya bersama. Follow, biar nggak ketinggalan penjelasan kayak gini!
