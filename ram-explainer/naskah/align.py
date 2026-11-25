@@ -3,7 +3,8 @@ Writes src/words_aligned.json, src/captions.json and naskah/narasi.srt (re-synce
 import json, re, difflib
 OFFSET = 1.0
 paras = [p.strip() for p in open("naskah/narasi_vo.txt").read().strip().split("\n\n")]
-W = json.load(open("naskah/whisper_words.json"))
+import sys
+W = json.load(open(sys.argv[1] if len(sys.argv) > 1 else "naskah/whisper_words.json"))
 def toks(text):  # keep "16 GB" as one token like whisper's "16GB"
     return re.sub(r"(\d+) GB", r"\1GB", text).split()
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower().replace("ei", "ai") if s.lower().strip(".,?!") == "ei" else s.lower())

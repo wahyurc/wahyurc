@@ -4,8 +4,8 @@ import WORDS from "./words_aligned.json";
 export const FPS = 30;
 export const W = 1080;
 export const H = 1920;
-export const DURATION_S = 78;
-export const TOTAL = DURATION_S * FPS; // 2340 frames
+export const DURATION_S = 84;
+export const TOTAL = DURATION_S * FPS; // 2520 frames
 
 export const C = {
   cream: "#f6eee5",
@@ -61,12 +61,13 @@ export const on = (t: number, at: number, dur = 0.45, ease = eSoft) => lerp(t, [
 /** pop with overshoot */
 export const pop = (t: number, at: number, dur = 0.4) => lerp(t, [at, at + dur], [0, 1], eBack);
 
-/** scene windows (seconds) — cuts sit just before the first word of each section */
+/** scene windows (seconds) — derived from the voice: each cut sits 0.35 s before its section's first word */
+const cut = (w: string, after: number) => Math.round((cue(w, after) - 0.35) * 100) / 100;
 export const SCENES = {
-  hook: [0, 13.05],
-  office: [13.05, 28.6],
-  copy: [28.6, 41.0],
-  soc: [41.0, 55.5],
-  compare: [55.5, 68.2], // HyperFrames segment
-  outro: [68.2, 78],
+  hook: [0, cut("bayangkan", 5)],
+  office: [cut("bayangkan", 5), cut("setiap", 20)],
+  copy: [cut("setiap", 20), cut("di", 40)],
+  soc: [cut("di", 40), cut("makanya", 50)],
+  compare: [cut("makanya", 50), cut("jadi", 60)], // HyperFrames segment
+  outro: [cut("jadi", 60), DURATION_S],
 } as const;

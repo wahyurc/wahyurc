@@ -6,7 +6,7 @@ import { Captions, Grain, SceneFade, Vignette, Watermark } from "./fx";
 import { Copy, Hook, Office, Outro, SocScene } from "./scenes/scenes";
 
 loadFonts();
-const OVER = 0.4;
+const OVER = 0.6;
 
 const Scene: React.FC<{ a: number; b: number; Comp: React.FC<{ t: number }> }> = ({ a, b, Comp }) => {
   const t = (useCurrentFrame() + Math.round(a * FPS)) / FPS;

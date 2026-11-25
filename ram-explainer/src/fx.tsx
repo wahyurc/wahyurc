@@ -107,8 +107,8 @@ export const Watermark: React.FC = () => (
 
 /** soft enter/exit for scene roots (crossfade + slight scale/blur) */
 export const SceneFade: React.FC<{ t: number; a: number; b: number; children: React.ReactNode }> = ({ t, a, b, children }) => {
-  const i = lerp(t, [a, a + 0.35], [0, 1], eOut);
-  const o = lerp(t, [b, b + 0.35], [1, 0], eOut);
+  const i = lerp(t, [a, a + 0.55], [0, 1], eOut);
+  const o = lerp(t, [b, b + 0.55], [1, 0], eOut);
   return (
     <AbsoluteFill style={{ opacity: i * o, transform: `scale(${1.04 - 0.04 * i})`, filter: i < 1 ? `blur(${(1 - i) * 8}px)` : undefined }}>
       {children}

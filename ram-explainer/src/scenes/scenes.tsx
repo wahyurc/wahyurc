@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { Stage } from "../three/Stage";
 import { Lights, Pipe, routedPath } from "../three/parts";
 import { Building, Chip, DataCube, Laptop, MemChip, PCB, RoundTable, SODIMM, SoC, Worker } from "../three/hw";
-import { C, cue, eOut, eSoft, lerp, on, pop } from "../lib";
+import { C, SCENES, cue, eOut, eSoft, lerp, on, pop } from "../lib";
 import { HeaderFade, Halftone, Title } from "../fx";
 
 type V3 = [number, number, number];
@@ -24,8 +24,8 @@ const Spec: React.FC<{ t: number; at: number; out?: number; title: string; lines
   const k = Math.min(on(t, at, 0.35), lerp(t, [out - 0.3, out], [1, 0]));
   return (
     <div style={{ position: "absolute", left: 70, top: y, opacity: k, transform: `translateX(${(1 - k) * -30}px)`, padding: "18px 24px", borderRadius: 20, background: "rgba(255,250,244,.94)", boxShadow: "0 14px 30px rgba(120,60,20,.16)", borderLeft: `10px solid ${color}`, fontFamily: "Rubik" }}>
-      <div style={{ fontWeight: 900, fontSize: 40, color: C.ink }}>{title}</div>
-      {lines.map((l, i) => <div key={i} style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 27, color: "#6d5a4d", marginTop: 4 }}>{l}</div>)}
+      <div style={{ fontWeight: 900, fontSize: 48, color: C.ink }}>{title}</div>
+      {lines.map((l, i) => <div key={i} style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 31, color: "#6d5a4d", marginTop: 6 }}>{l}</div>)}
     </div>
   );
 };
@@ -36,11 +36,34 @@ const Big: React.FC<{ t: number; at: number; out?: number; children: React.React
   </div>
 );
 
+/** numbered step chips that build up one by one (clear, readable explanation) */
+const Steps: React.FC<{ t: number; items: [number, string, string][]; out?: number; y?: number }> = ({ t, items, out = 1e9, y = 1060 }) => (
+  <div style={{ position: "absolute", left: 70, right: 70, top: y, display: "flex", flexDirection: "column", gap: 14, opacity: lerp(t, [out - 0.3, out], [1, 0]) }}>
+    {items.map(([at, n, txt], i) => {
+      const k = on(t, at, 0.4);
+      return (
+        <div key={i} style={{ display: "flex", alignItems: "center", gap: 16, opacity: k, transform: `translateX(${(1 - k) * -40}px)` }}>
+          <div style={{ width: 62, height: 62, borderRadius: 18, background: n === "!" ? C.red : C.orange, color: "#fff", fontFamily: "Rubik", fontWeight: 900, fontSize: 36, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{n}</div>
+          <div style={{ padding: "10px 20px", borderRadius: 16, background: "rgba(255,250,244,.95)", fontFamily: "Rubik", fontWeight: 800, fontSize: 38, color: C.ink, boxShadow: "0 8px 20px rgba(120,60,20,.14)" }}>{txt}</div>
+        </div>
+      );
+    })}
+  </div>
+);
+
+/** legend comparing lane widths */
+const LaneKey: React.FC<{ t: number; at: number; out?: number }> = ({ t, at, out = 1e9 }) => (
+  <div style={{ position: "absolute", left: 70, right: 70, top: 470, opacity: Math.min(on(t, at, 0.4), lerp(t, [out - 0.3, out], [1, 0])), display: "flex", flexDirection: "column", gap: 12, padding: "18px 24px", borderRadius: 20, background: "rgba(255,250,244,.95)", boxShadow: "0 10px 24px rgba(120,60,20,.14)", fontFamily: "Rubik", fontWeight: 800, fontSize: 32, color: C.ink }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 16 }}><span style={{ width: 160, height: 26, borderRadius: 13, background: C.cold }} />GPU ↔ VRAM: lebar, cepat</div>
+    <div style={{ display: "flex", alignItems: "center", gap: 16 }}><span style={{ width: 160, height: 8, borderRadius: 4, background: "#7fc6ff", margin: "9px 0" }} />RAM → GPU (PCIe): sempit</div>
+  </div>
+);
+
 /* ===================== 1 · HOOK (0 – 13.05) ===================== */
 export const Hook: React.FC<{ t: number }> = ({ t }) => {
   const t16 = cue("16"), tAI = cue("menjalankan"), tCepat = cue("cepat"), t32 = cue("32"), tJaw = cue("jawabannya"), tSiapa = cue("siapa", 10);
   const pMac = lerp(t, [tAI, tAI + 2.4], [0, 1], eSoft), pGam = lerp(t, [tAI, tAI + 7], [0, 0.42], (x) => x);
-  const cam = camPath(t, [[0, [0.3, 6.6, 12.2], [0, 0.2, -0.2]], [13, [-0.5, 5.8, 11.0], [0, 0.3, -0.2]]]);
+  const cam = camPath(t, [[0, [0.3, 6.6, 12.2], [0, 0.2, -0.2]], [SCENES.hook[1], [-0.3, 6.0, 11.4], [0, 0.3, -0.2]]]);
   return (
     <AbsoluteFill>
       <Stage cam={{ ...cam, fov: 40 }} bg="#f6ece3">
@@ -60,6 +83,9 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
         AI {Math.round(pMac * 100)}% {pMac >= 1 && <span style={{ color: "#3aa56b" }}>✓ selesai</span>}
       </div>
       <div style={{ position: "absolute", right: 110, top: 600, opacity: on(t, tAI, 0.3), fontFamily: "Rubik", fontWeight: 800, fontSize: 40, color: C.orangeD, textAlign: "right" }}>AI {Math.round(pGam * 100)}%</div>
+      {/* device name tags */}
+      <div style={{ position: "absolute", left: 110, top: 1080, opacity: on(t, cue("macbook"), 0.4), fontFamily: "Rubik", fontWeight: 800, fontSize: 34, color: "#fff", background: "#7d7f84", padding: "8px 18px", borderRadius: 14 }}>MacBook</div>
+      <div style={{ position: "absolute", right: 110, top: 410, opacity: on(t, cue("laptop", 4), 0.4), fontFamily: "Rubik", fontWeight: 800, fontSize: 34, color: "#fff", background: C.ink, padding: "8px 18px", borderRadius: 14 }}>Laptop gaming</div>
       <Title t={t} at={0.2} chip="KOK BISA?" title="16 GB vs 32 GB" accent="16" out={tJaw - 0.1} y={170} />
       <Title t={t} at={tJaw} chip="JAWABANNYA" title="Bukan soal besar RAM" accent="besar" y={170} />
       <Big t={t} at={tSiapa} y={410} size={56}>tapi <span style={{ color: C.orange }}>siapa</span> yang bisa memakainya</Big>
@@ -107,13 +133,13 @@ const Board: React.FC<{ t: number; cpuK: number; gpuK: number; vramGlow: number;
 export const Office: React.FC<{ t: number }> = ({ t }) => {
   const tKantor = cue("kantor"), tCPU = cue("prosesor", 15), tGPU = cue("kartu", 18), tGudang = cue("gudang", 21), tVRAM = cue("vram", 23), tRAM = cue("gudang", 25), tLain = cue("lain", 28);
   const cam = camPath(t, [
-    [13.05, [0, 13, 10.5], [0, 0, 0.6]],
+    [SCENES.office[0], [0, 13, 10.5], [0, 0, 0.6]],
     [tCPU - 0.2, [0.4, 9.5, 8.0], [0, 0, 0.2]],
     [tCPU + 1.0, [-0.6, 4.6, 1.8], [-1.7, 0.9, -2.3]],
     [tGPU + 0.8, [2.9, 4.4, 2.4], [1.7, 0.7, -1.4]],
     [tVRAM + 0.6, [1.9, 4.8, 2.0], [1.7, 0.1, -1.4]],
     [tRAM + 1.2, [-0.2, 4.4, 7.6], [-1.6, 0.1, 3.4]],
-    [28.6, [0.2, 6.0, 8.6], [-0.6, 0.0, 2.2]],
+    [SCENES.office[1], [0.2, 6.0, 8.6], [-0.6, 0.0, 2.2]],
   ]);
   return (
     <AbsoluteFill>
@@ -122,12 +148,14 @@ export const Office: React.FC<{ t: number }> = ({ t }) => {
         <Board t={t} cpuK={pop(t, tCPU)} gpuK={pop(t, tGPU)} vramGlow={on(t, tGudang, 0.5)} ramGlow={on(t, tRAM, 0.5)} />
       </Stage>
       <HeaderFade />
-      <Title t={t} at={13.1} chip="ANALOGI" title="Laptop gaming = kantor" accent="kantor" y={170} out={tCPU} />
+      <Title t={t} at={SCENES.office[0] + 0.1} chip="ANALOGI" title="Laptop gaming = kantor" accent="kantor" y={170} out={tCPU} />
       <Spec t={t} at={tCPU} out={tGPU} title="Prosesor (CPU)" lines={["si otak", "gedung pertama"]} color={C.orange} y={200} />
       <Spec t={t} at={tGPU} out={tGudang - 0.1} title="Kartu grafis (GPU)" lines={["si mata", "gedung sebelah"]} color={C.cold} y={200} />
       <Spec t={t} at={tGudang} out={tRAM - 0.1} title="VRAM · 8 GB" lines={["gudang arsip kecil milik GPU", "contoh: RTX 5060 Laptop, GDDR7"]} color={C.coldD} y={200} />
       <Spec t={t} at={tRAM} title="RAM · 32 GB" lines={["gudang arsip utama", "contoh: 2 × 16 GB SO-DIMM"]} color={C.orangeD} y={200} />
-      <Big t={t} at={tLain - 0.6} y={1220} size={52}>…ada di <span style={{ color: C.orange }}>tempat lain lagi</span></Big>
+      {/* big capacity numbers when each storage is introduced */}
+      <Big t={t} at={tVRAM} out={tRAM - 0.1} y={1170} size={110}><span style={{ color: C.coldD }}>8 GB</span></Big>
+      <Big t={t} at={cue("32", 25)} y={1170} size={110}><span style={{ color: C.orangeD }}>32 GB</span></Big>
       <Halftone opacity={0.3} />
       <span style={{ display: "none" }}>{tKantor}</span>
     </AbsoluteFill>
@@ -139,9 +167,9 @@ export const Copy: React.FC<{ t: number }> = ({ t }) => {
   const tButuh = cue("butuh"), tSalin = cue("disalin", 31), tKirim = cue("dikirim"), tSempit = cue("sempit"), tKalau = cue("kalau", 36), t8 = cue("8", 37), tSebagian = cue("sebagian"), tLambat = cue("lambat");
   const pcie = useMemo(() => routedPath([[-0.45, 0.07, 3.45], [0.4, 0.07, 3.45], [0.4, 0.07, 0.6], [1.7, 0.07, 0.6], [1.7, 0.07, -0.55]], 0.25), []);
   const lift = on(t, tSalin, 0.5);
-  const travel = lerp(t, [tKirim, tSempit + 0.4], [0, 1], (x) => x);
+  const travel = lerp(t, [tKirim, tKalau - 0.3], [0, 1], (x) => x);
   const queue = t > tSebagian - 0.3;
-  const cam = camPath(t, [[28.6, [0.2, 6.0, 8.6], [-0.6, 0.0, 2.2]], [tKirim, [1.0, 9.6, 9.6], [0.4, 0.0, 0.2]], [41, [0.9, 10.2, 10.2], [0.5, 0, 0.0]]]);
+  const cam = camPath(t, [[SCENES.copy[0], [0.2, 6.0, 8.6], [-0.6, 0.0, 2.2]], [tKirim, [1.0, 9.6, 9.6], [0.4, 0.0, 0.2]], [SCENES.copy[1], [0.9, 10.2, 10.2], [0.5, 0, 0.0]]]);
   return (
     <AbsoluteFill>
       <Stage cam={{ ...cam, fov: 42 }} bg="#f6ece3">
@@ -161,9 +189,10 @@ export const Copy: React.FC<{ t: number }> = ({ t }) => {
       </Stage>
       <HeaderFade />
       <Title t={t} at={tButuh - 0.3} chip="MASALAHNYA" title="Data harus disalin dulu" accent="disalin" y={170} out={tKalau - 0.1} />
-      <Big t={t} at={tSempit - 0.4} out={tKalau} y={1210} size={50}>lewat jalur <span style={{ color: C.coldD }}>PCIe</span> yang jauh lebih <span style={{ color: C.orange }}>sempit</span></Big>
+      <Steps t={t} items={[[tSalin, "1", "Data disalin dari RAM"], [tKirim, "2", "Dikirim lewat PCIe (sempit)"]]} out={tKalau} />
+      <LaneKey t={t} at={tSempit - 0.3} out={tKalau} />
       <Title t={t} at={tKalau} chip="KALAU DATANYA > 8 GB" title="VRAM penuh" accent="penuh" y={170} />
-      <Big t={t} at={tLambat - 0.5} y={1210} size={50}>sebagian lewat <span style={{ color: C.red }}>jalur lambat</span> 🐢</Big>
+      <Steps t={t} items={[[t8, "!", "VRAM 8 GB sudah penuh"], [tSebagian, "→", "sisanya antre di PCIe 🐢"]]} />
       <Halftone opacity={0.3} />
     </AbsoluteFill>
   );
@@ -175,7 +204,7 @@ export const SocScene: React.FC<{ t: number }> = ({ t }) => {
   const table = t >= tMeja - 0.3;
   const memK = lerp(t, [tMem, tMem + 1.0], [0, 1], eSoft);
   if (!table) {
-    const cam = camPath(t, [[41.0, [0, 9, 5.5], [0, 0, 0]], [tSatuChip, [0.4, 6.0, 4.6], [-0.2, 0, 0]], [tMm, [1.2, 3.4, 2.6], [0.6, 0.1, 0]], [tMeja, [1.4, 2.8, 2.2], [0.7, 0.1, 0]]]);
+    const cam = camPath(t, [[SCENES.soc[0], [0, 9, 5.5], [0, 0, 0]], [tSatuChip, [0.4, 6.0, 4.6], [-0.2, 0, 0]], [tMm, [1.2, 3.4, 2.6], [0.6, 0.1, 0]], [tMeja, [1.4, 2.8, 2.2], [0.7, 0.1, 0]]]);
     return (
       <AbsoluteFill>
         <Stage cam={{ ...cam, fov: 40 }} bg="#f6ece3">
@@ -222,6 +251,7 @@ export const SocScene: React.FC<{ t: number }> = ({ t }) => {
       </Stage>
       <HeaderFade />
       <Title t={t} at={tMeja - 0.2} chip="UNIFIED MEMORY" title="Satu meja, dipakai bersama" accent="bersama" y={170} />
+      <Steps t={t} items={[[tData, "1", "CPU menaruh data di meja"], [tBaca, "2", "GPU langsung membacanya"]]} y={440} />
       <Big t={t} at={tTanpa} y={1160} size={60}>
         <span style={{ display: "inline-block", padding: "12px 30px", borderRadius: 999, background: C.ink, color: "#fff" }}>0 salinan ✕</span>
       </Big>

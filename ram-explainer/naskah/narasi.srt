@@ -1,147 +1,147 @@
 1
-00:00:01,000 --> 00:00:01,460
+00:00:01,000 --> 00:00:01,500
 Kok bisa,
 
 2
-00:00:01,500 --> 00:00:05,800
+00:00:01,540 --> 00:00:05,520
 MacBook dengan RAM 16 GB
 menjalankan AI lebih cepat
 
 3
-00:00:05,840 --> 00:00:08,540
+00:00:05,560 --> 00:00:08,340
 daripada laptop gaming
 dengan RAM 32 GB?
 
 4
-00:00:08,700 --> 00:00:10,900
+00:00:08,800 --> 00:00:10,720
 Jawabannya bukan
 soal besar RAM,
 
 5
-00:00:10,940 --> 00:00:13,060
+00:00:10,760 --> 00:00:13,000
 tapi siapa yang
 bisa memakainya.
 
 6
-00:00:13,340 --> 00:00:16,120
+00:00:13,560 --> 00:00:15,880
 Bayangkan laptop gaming
 sebagai sebuah kantor.
 
 7
-00:00:16,160 --> 00:00:19,700
+00:00:16,100 --> 00:00:19,300
 Prosesor, si otak, ada di
 satu gedung. Kartu grafis,
 
 8
-00:00:19,740 --> 00:00:21,560
+00:00:19,340 --> 00:00:20,900
 si mata, ada di
 gedung sebelah,
 
 9
-00:00:21,600 --> 00:00:25,320
+00:00:20,940 --> 00:00:24,780
 dengan gudang arsip kecilnya
 sendiri: VRAM, cuma 8 GB.
 
 10
-00:00:25,480 --> 00:00:28,740
+00:00:25,180 --> 00:00:29,180
 Gudang utamanya, RAM 32 GB,
 ada di tempat lain lagi.
 
 11
-00:00:28,780 --> 00:00:31,060
+00:00:29,220 --> 00:00:31,780
 Setiap kali kartu
 grafis butuh data,
 
 12
-00:00:31,120 --> 00:00:32,880
+00:00:31,820 --> 00:00:33,560
 data itu harus disalin dulu,
 
 13
-00:00:32,920 --> 00:00:36,160
+00:00:33,620 --> 00:00:37,300
 lalu dikirim lewat jalur
 PCIe yang jauh lebih sempit.
 
 14
-00:00:36,300 --> 00:00:38,340
+00:00:37,340 --> 00:00:39,760
 Kalau datanya lebih
 besar dari 8 GB,
 
 15
-00:00:38,440 --> 00:00:40,860
+00:00:40,040 --> 00:00:43,020
 sebagian pekerjaan terpaksa
 lewat jalur lambat itu.
 
 16
-00:00:41,260 --> 00:00:43,600
+00:00:43,320 --> 00:00:45,980
 Di Apple Silicon,
 misalnya chip M5,
 
 17
-00:00:43,640 --> 00:00:46,000
+00:00:46,020 --> 00:00:48,640
 prosesor dan grafis
 ada di satu chip.
 
 18
-00:00:46,040 --> 00:00:48,140
+00:00:48,740 --> 00:00:50,720
 Memorinya ditempel
 di paket yang sama,
 
 19
-00:00:48,180 --> 00:00:50,700
+00:00:50,760 --> 00:00:53,480
 cuma beberapa milimeter
 jauhnya. Satu meja,
 
 20
-00:00:50,740 --> 00:00:51,880
+00:00:53,520 --> 00:00:54,440
 dipakai bersama.
 
 21
-00:00:52,200 --> 00:00:54,180
+00:00:54,480 --> 00:00:57,560
 Data yang disiapkan prosesor
 bisa langsung dibaca
 
 22
-00:00:54,220 --> 00:00:55,640
+00:00:57,600 --> 00:00:59,680
 grafis, tanpa perlu disalin.
 
 23
-00:00:55,680 --> 00:00:56,780
+00:01:00,060 --> 00:01:00,680
 Makanya,
 
 24
-00:00:56,820 --> 00:00:59,700
+00:01:00,720 --> 00:01:03,780
 model AI yang lebih besar
 dari 8 GB tetap bisa jalan
 
 25
-00:00:59,740 --> 00:01:01,440
+00:01:03,820 --> 00:01:05,700
 lancar di Mac 16 GB.
 
 26
-00:01:01,780 --> 00:01:03,900
+00:01:06,000 --> 00:01:08,440
 Tapi jujur saja,
 untuk main game,
 
 27
-00:01:03,940 --> 00:01:05,420
+00:01:08,480 --> 00:01:10,120
 laptop gaming tetap juaranya,
 
 28
-00:01:05,460 --> 00:01:07,320
+00:01:10,160 --> 00:01:12,240
 karena VRAM-nya
 jauh lebih kencang.
 
 29
-00:01:08,500 --> 00:01:11,480
+00:01:13,280 --> 00:01:16,400
 Jadi yang penting bukan cuma
 seberapa besar memorinya,
 
 30
-00:01:11,520 --> 00:01:14,220
+00:01:16,500 --> 00:01:20,300
 tapi siapa saja yang bisa
 memakainya bersama. Follow,
 
 31
-00:01:14,260 --> 00:01:16,380
+00:01:20,360 --> 00:01:22,300
 biar nggak ketinggalan
 penjelasan kayak gini.

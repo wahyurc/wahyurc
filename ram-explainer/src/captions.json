@@ -1,157 +1,157 @@
 [
 {
 "s": 1.0,
-"e": 1.46,
+"e": 1.5,
 "t": "Kok bisa,"
 },
 {
-"s": 1.5,
-"e": 5.8,
+"s": 1.54,
+"e": 5.52,
 "t": "MacBook dengan RAM 16 GB\nmenjalankan AI lebih cepat"
 },
 {
-"s": 5.84,
-"e": 8.540000000000001,
+"s": 5.56,
+"e": 8.34,
 "t": "daripada laptop gaming\ndengan RAM 32 GB?"
 },
 {
-"s": 8.7,
-"e": 10.9,
+"s": 8.8,
+"e": 10.72,
 "t": "Jawabannya bukan\nsoal besar RAM,"
 },
 {
-"s": 10.94,
-"e": 13.06,
+"s": 10.76,
+"e": 13.0,
 "t": "tapi siapa yang\nbisa memakainya."
 },
 {
-"s": 13.34,
-"e": 16.12,
+"s": 13.56,
+"e": 15.88,
 "t": "Bayangkan laptop gaming\nsebagai sebuah kantor."
 },
 {
-"s": 16.16,
-"e": 19.7,
+"s": 16.1,
+"e": 19.3,
 "t": "Prosesor, si otak, ada di\nsatu gedung. Kartu grafis,"
 },
 {
-"s": 19.74,
-"e": 21.560000000000002,
+"s": 19.34,
+"e": 20.900000000000002,
 "t": "si mata, ada di\ngedung sebelah,"
 },
 {
-"s": 21.6,
-"e": 25.32,
+"s": 20.94,
+"e": 24.78,
 "t": "dengan gudang arsip kecilnya\nsendiri: VRAM, cuma 8 GB."
 },
 {
-"s": 25.48,
-"e": 28.740000000000002,
+"s": 25.18,
+"e": 29.18,
 "t": "Gudang utamanya, RAM 32 GB,\nada di tempat lain lagi."
 },
 {
-"s": 28.78,
-"e": 31.060000000000002,
+"s": 29.22,
+"e": 31.78,
 "t": "Setiap kali kartu\ngrafis butuh data,"
 },
 {
-"s": 31.12,
-"e": 32.88,
+"s": 31.82,
+"e": 33.559999999999995,
 "t": "data itu harus disalin dulu,"
 },
 {
-"s": 32.92,
-"e": 36.16,
+"s": 33.62,
+"e": 37.3,
 "t": "lalu dikirim lewat jalur\nPCIe yang jauh lebih sempit."
 },
 {
-"s": 36.3,
-"e": 38.339999999999996,
+"s": 37.34,
+"e": 39.76,
 "t": "Kalau datanya lebih\nbesar dari 8 GB,"
 },
 {
-"s": 38.44,
-"e": 40.86,
+"s": 40.04,
+"e": 43.019999999999996,
 "t": "sebagian pekerjaan terpaksa\nlewat jalur lambat itu."
 },
 {
-"s": 41.26,
-"e": 43.6,
+"s": 43.32,
+"e": 45.98,
 "t": "Di Apple Silicon,\nmisalnya chip M5,"
 },
 {
-"s": 43.64,
-"e": 46.0,
+"s": 46.02,
+"e": 48.64,
 "t": "prosesor dan grafis\nada di satu chip."
 },
 {
-"s": 46.04,
-"e": 48.14,
+"s": 48.74,
+"e": 50.72,
 "t": "Memorinya ditempel\ndi paket yang sama,"
 },
 {
-"s": 48.18,
-"e": 50.7,
+"s": 50.76,
+"e": 53.480000000000004,
 "t": "cuma beberapa milimeter\njauhnya. Satu meja,"
 },
 {
-"s": 50.74,
-"e": 51.879999999999995,
+"s": 53.52,
+"e": 54.44,
 "t": "dipakai bersama."
 },
 {
-"s": 52.2,
-"e": 54.18,
+"s": 54.48,
+"e": 57.56,
 "t": "Data yang disiapkan prosesor\nbisa langsung dibaca"
 },
 {
-"s": 54.22,
-"e": 55.64,
+"s": 57.6,
+"e": 59.68,
 "t": "grafis, tanpa perlu disalin."
 },
 {
-"s": 55.68,
-"e": 56.78,
+"s": 60.06,
+"e": 60.68,
 "t": "Makanya,"
 },
 {
-"s": 56.82,
-"e": 59.7,
+"s": 60.72,
+"e": 63.78,
 "t": "model AI yang lebih besar\ndari 8 GB tetap bisa jalan"
 },
 {
-"s": 59.74,
-"e": 61.44,
+"s": 63.82,
+"e": 65.7,
 "t": "lancar di Mac 16 GB."
 },
 {
-"s": 61.78,
-"e": 63.9,
+"s": 66.0,
+"e": 68.44,
 "t": "Tapi jujur saja,\nuntuk main game,"
 },
 {
-"s": 63.94,
-"e": 65.41999999999999,
+"s": 68.48,
+"e": 70.11999999999999,
 "t": "laptop gaming tetap juaranya,"
 },
 {
-"s": 65.46,
-"e": 67.32,
+"s": 70.16,
+"e": 72.24,
 "t": "karena VRAM-nya\njauh lebih kencang."
 },
 {
-"s": 68.5,
-"e": 71.47999999999999,
+"s": 73.28,
+"e": 76.39999999999999,
 "t": "Jadi yang penting bukan cuma\nseberapa besar memorinya,"
 },
 {
-"s": 71.52,
-"e": 74.22,
+"s": 76.5,
+"e": 80.3,
 "t": "tapi siapa saja yang bisa\nmemakainya bersama. Follow,"
 },
 {
-"s": 74.26,
-"e": 76.38,
+"s": 80.36,
+"e": 82.3,
 "t": "biar nggak ketinggalan\npenjelasan kayak gini."
 }
 ]
