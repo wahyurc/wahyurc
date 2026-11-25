@@ -150,11 +150,11 @@ export const Copy: React.FC<{ t: number }> = ({ t }) => {
         {/* original document stays in RAM; its copy lifts off and crawls through PCIe */}
         <DataCube position={[-0.9, 0.12, 3.45]} scale={2} />
         {t > tSalin - 0.1 && !queue && (() => {
-          const p = travel > 0 ? pcie.getPointAt(Math.min(1, travel)) : new THREE.Vector3(-0.9 + lift * 0.45, 0.12 + lift * 0.5, 3.45);
+          const p = travel > 0 ? pcie.getPointAt(Math.min(0.999, travel)) : new THREE.Vector3(-0.9 + lift * 0.45, 0.12 + lift * 0.5, 3.45);
           return <DataCube position={[p.x, travel > 0 ? 0.35 : p.y, p.z]} scale={2} tint={0.35} />;
         })()}
         {queue && Array.from({ length: 9 }).map((_, i) => {
-          const u = Math.min(0.97, ((t - tSebagian) * 0.06 + i * 0.1) % 1);
+          const u = Math.min(0.97, Math.max(0.001, (Math.max(0, t - tSebagian) * 0.06 + i * 0.1) % 1));
           const p = pcie.getPointAt(u);
           return <DataCube key={i} position={[p.x, 0.3, p.z]} scale={1.6} tint={0.5} />;
         })}
