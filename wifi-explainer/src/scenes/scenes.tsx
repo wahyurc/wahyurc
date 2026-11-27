@@ -11,7 +11,7 @@ import { C, SCENES, cue, eOut, eSoft, lerp, on, pop } from "../lib";
 import { HeaderFade, Halftone, Title } from "../fx";
 import { Big, Card, Pill, Steps, camPath, vis } from "../ui";
 
-const Floor: React.FC<{ color?: string }> = ({ color = "#f1dfd0" }) => (
+export const Floor: React.FC<{ color?: string }> = ({ color = "#f1dfd0" }) => (
   <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
     <planeGeometry args={[60, 60]} />
     <meshStandardMaterial color={color} />
@@ -19,7 +19,7 @@ const Floor: React.FC<{ color?: string }> = ({ color = "#f1dfd0" }) => (
 );
 
 /* two-room cut-away house used in the hook: living room (left) | bedroom (right) */
-const House: React.FC = () => (
+export const House: React.FC = () => (
   <group>
     <RBox size={[3.8, 0.12, 2.2]} r={0.03} color="#efd2bd" position={[0, 0.06, 0]} />
     <RBox size={[3.8, 1.5, 0.12]} r={0.02} color="#f6e6da" position={[0, 0.85, -1.04]} />
@@ -99,8 +99,8 @@ export const Terms: React.FC<{ t: number }> = ({ t }) => {
 };
 
 /* ===================== 3 · TWO WAVES ===================== */
-const L24 = 1.0, L5 = 0.48; // wavelength ratio 12.5 cm : 6 cm
-const DimBracket: React.FC<{ x0: number; len: number; y: number; color: string; k: number }> = ({ x0, len, y, color, k }) => (
+export const L24 = 1.0, L5 = 0.48; // wavelength ratio 12.5 cm : 6 cm
+export const DimBracket: React.FC<{ x0: number; len: number; y: number; color: string; k: number }> = ({ x0, len, y, color, k }) => (
   <group visible={k > 0.01}>
     <mesh position={[x0 + (len * k) / 2, y, 0]}><boxGeometry args={[Math.max(0.001, len * k), 0.018, 0.018]} /><meshBasicMaterial color={color} /></mesh>
     <mesh position={[x0, y - 0.07, 0]}><boxGeometry args={[0.018, 0.16, 0.018]} /><meshBasicMaterial color={color} /></mesh>
@@ -240,7 +240,7 @@ export const Walls: React.FC<{ t: number }> = ({ t }) => {
 };
 
 /* ===================== 6 · TIPS on a floor plan ===================== */
-const PlanWalls: React.FC = () => {
+export const PlanWalls: React.FC = () => {
   const w = (x: number, z: number, sx: number, sz: number, k: number) => <RBox key={k} size={[sx, 0.5, sz]} r={0.02} color="#e9c7b0" position={[x, 0.25, z]} />;
   return (
     <group>
