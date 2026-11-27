@@ -10,4 +10,4 @@ Tapi ada harganya. Gelombang berfrekuensi tinggi lebih mudah teredam saat menemb
 
 Jadi, gimana biar WiFi di rumah lancar? Satu, taruh router di tengah rumah dan di tempat yang agak tinggi, jangan disembunyikan di lemari. Dua, jauhkan dari benda logam, cermin besar, dan akuarium. Tiga, kalau rumahmu besar atau bertingkat, pertimbangkan sistem mesh. Dan pakai 5 GHz saat dekat router, lalu 2,4 GHz saat jauh. Banyak router modern sudah bisa memilihkan ini secara otomatis.
 
-Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. Like kalau kamu baru tahu ini, komentar router di rumahmu ditaruh di mana, lalu follow buat penjelasan berikutnya.
+Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. Kalau video ini sampai ke kamu tanpa buffering, berarti sinyalnya diterima dengan baik. Kirim balik sinyalnya lewat like, tulis di komentar router di rumahmu ditaruh di mana, dan follow, biar penjelasan berikutnya langsung tersambung ke kamu.

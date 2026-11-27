@@ -25,7 +25,8 @@ Section by section:
 - "Kenapa lima gigahertz lebih kencang?": energetic; contrast "lebar dan sepi" vs "sempit yang ramai".
 - "Tapi ada harganya...": slower, a bit dramatic; playful and relatable on the party/bass analogy.
 - Tips: practical, upbeat, clear numbering ("Satu... Dua... Tiga...").
-- Closing: warm and conclusive; playful CTA with rising intonation on "ditaruh di mana?".
+- Closing: warm and conclusive. CTA: playful and witty, a small smile on "tanpa buffering",
+  rising intonation on "ditaruh di mana?", upbeat on "Dan follow".
 
 [2] TEXT
 ---------------------------------------------------------------------
@@ -41,4 +42,4 @@ Tapi ada harganya. <short pause> Gelombang berfrekuensi tinggi lebih mudah tered
 
 <breath> Jadi, gimana biar WiFi di rumah lancar? Satu, taruh router di tengah rumah dan di tempat yang agak tinggi, jangan disembunyikan di lemari. Dua, jauhkan dari benda logam, cermin besar, dan akuarium. Tiga, kalau rumahmu besar atau bertingkat, pertimbangkan sistem mesh. Dan pakai lima gigahertz saat dekat router, lalu dua koma empat gigahertz saat jauh. Banyak router modern sudah bisa memilihkan ini secara otomatis.
 
-Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. <breath> Like kalau kamu baru tahu ini... komentar, router di rumahmu ditaruh di mana? <short pause> Lalu follow, buat penjelasan berikutnya!
+Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. <breath> Kalau video ini sampai ke kamu tanpa buffering... berarti sinyalnya diterima dengan baik. Kirim balik sinyalnya lewat like, tulis di komentar, router di rumahmu ditaruh di mana? <short pause> Dan follow, biar penjelasan berikutnya langsung tersambung ke kamu!
