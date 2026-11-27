@@ -1,0 +1,227 @@
+[
+{
+"s": 1.0,
+"e": 3.88,
+"t": "WiFi 5 GHz katanya\nlebih kencang."
+},
+{
+"s": 3.92,
+"e": 6.3,
+"t": "Tapi kenapa begitu\nkamu pindah kamar,"
+},
+{
+"s": 6.34,
+"e": 8.66,
+"t": "sinyalnya malah hilang?\nOh iya, satu lagi:"
+},
+{
+"s": 8.7,
+"e": 12.0,
+"t": "5 GHz di WiFi itu\nbukan 5G di HP kamu."
+},
+{
+"s": 12.4,
+"e": 15.200000000000001,
+"t": "5G adalah generasi\nkelima jaringan seluler."
+},
+{
+"s": 15.4,
+"e": 18.48,
+"t": "Sedangkan 5 GHz adalah\nfrekuensi gelombang radio yang"
+},
+{
+"s": 18.52,
+"e": 21.84,
+"t": "dipancarkan router. Namanya\nmirip, tapi barangnya beda."
+},
+{
+"s": 22.38,
+"e": 24.98,
+"t": "Router di rumah biasanya\nmemancarkan dua jenis gelombang:"
+},
+{
+"s": 25.02,
+"e": 27.66,
+"t": "2,4 GHz dan 5 GHz."
+},
+{
+"s": 27.94,
+"e": 29.76,
+"t": "Angka ini menunjukkan\nseberapa cepat gelombangnya"
+},
+{
+"s": 29.8,
+"e": 32.0,
+"t": "bergetar, miliaran\nkali setiap detik."
+},
+{
+"s": 32.34,
+"e": 35.02,
+"t": "Semakin tinggi frekuensinya,\nsemakin pendek gelombangnya."
+},
+{
+"s": 35.06,
+"e": 38.879999999999995,
+"t": "Gelombang 2,4 GHz panjangnya\nsekitar 12 sentimeter,"
+},
+{
+"s": 39.18,
+"e": 41.959999999999994,
+"t": "sedangkan 5 GHz hanya\nsekitar 6 sentimeter."
+},
+{
+"s": 42.76,
+"e": 44.459999999999994,
+"t": "Kenapa 5 GHz lebih kencang?"
+},
+{
+"s": 44.7,
+"e": 46.44,
+"t": "Karena jalurnya lebih\nbanyak dan lebih lebar,"
+},
+{
+"s": 46.48,
+"e": 47.68,
+"t": "dan masih jarang dipakai."
+},
+{
+"s": 47.86,
+"e": 50.08,
+"t": "Bayangkan jalan tol\nyang lebar dan sepi."
+},
+{
+"s": 50.44,
+"e": 53.339999999999996,
+"t": "Sementara 2,4 GHz itu\njalan sempit yang ramai."
+},
+{
+"s": 53.5,
+"e": 55.52,
+"t": "Router tetangga,\nperangkat Bluetooth,"
+},
+{
+"s": 55.56,
+"e": 57.099999999999994,
+"t": "bahkan microwave\nyang sedang menyala,"
+},
+{
+"s": 57.24,
+"e": 58.74,
+"t": "semuanya berebut\ndi jalur yang sama."
+},
+{
+"s": 58.78,
+"e": 60.94,
+"t": "Tapi ada harganya."
+},
+{
+"s": 61.24,
+"e": 63.36,
+"t": "Gelombang berfrekuensi tinggi\nlebih mudah teredam saat"
+},
+{
+"s": 63.4,
+"e": 66.64,
+"t": "menembus penghalang. Dinding\nbata dan beton menyerapnya,"
+},
+{
+"s": 66.68,
+"e": 69.25999999999999,
+"t": "logam memantulkannya, dan\nair, seperti akuarium,"
+},
+{
+"s": 69.3,
+"e": 73.06,
+"t": "ikut menyerapnya. Coba ingat\npesta di rumah tetangga."
+},
+{
+"s": 73.24,
+"e": 75.78,
+"t": "Yang tembus ke kamarmu\nbiasanya cuma suara bass, kan?"
+},
+{
+"s": 76.36,
+"e": 79.32,
+"t": "Gelombang 2,4 GHz mirip\nbass itu: lebih lambat,"
+},
+{
+"s": 79.36,
+"e": 81.78,
+"t": "tapi jangkauannya lebih\njauh dan lebih tahan tembok."
+},
+{
+"s": 82.54,
+"e": 85.74,
+"t": "Jadi, gimana biar WiFi\ndi rumah lancar? Satu,"
+},
+{
+"s": 85.8,
+"e": 87.77999999999999,
+"t": "taruh router di tengah rumah\ndan di tempat yang agak"
+},
+{
+"s": 87.82,
+"e": 90.8,
+"t": "tinggi, jangan disembunyikan\ndi lemari. Dua,"
+},
+{
+"s": 91.02,
+"e": 94.02,
+"t": "jauhkan dari benda logam,\ncermin besar, dan akuarium."
+},
+{
+"s": 94.44,
+"e": 96.69999999999999,
+"t": "Tiga, kalau rumahmu\nbesar atau bertingkat,"
+},
+{
+"s": 96.74,
+"e": 98.08,
+"t": "pertimbangkan sistem mesh."
+},
+{
+"s": 98.34,
+"e": 102.56,
+"t": "Dan pakai 5 GHz saat dekat\nrouter, lalu 2,4 GHz saat jauh."
+},
+{
+"s": 102.72,
+"e": 105.58,
+"t": "Banyak router modern sudah bisa\nmemilihkan ini secara otomatis."
+},
+{
+"s": 106.36,
+"e": 108.92,
+"t": "Jadi bukan WiFi-nya yang lemah,"
+},
+{
+"s": 109.0,
+"e": 112.3,
+"t": "tapi dua gelombang ini memang\npunya karakter yang beda."
+},
+{
+"s": 112.52,
+"e": 114.94,
+"t": "Kalau video ini sampai\nke kamu tanpa buffering,"
+},
+{
+"s": 114.98,
+"e": 116.98,
+"t": "berarti sinyalnya\nditerima dengan baik."
+},
+{
+"s": 117.1,
+"e": 119.0,
+"t": "Kirim balik\nsinyalnya lewat like,"
+},
+{
+"s": 119.16,
+"e": 123.14,
+"t": "tulis di komentar router di rumahmu\nditaruh di mana, dan follow,"
+},
+{
+"s": 123.24,
+"e": 125.96,
+"t": "biar penjelasan berikutnya\nlangsung tersambung ke kamu."
+}
+]

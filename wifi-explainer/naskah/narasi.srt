@@ -1,0 +1,218 @@
+1
+00:00:01,000 --> 00:00:03,880
+WiFi 5 GHz katanya
+lebih kencang.
+
+2
+00:00:03,920 --> 00:00:06,300
+Tapi kenapa begitu
+kamu pindah kamar,
+
+3
+00:00:06,340 --> 00:00:08,660
+sinyalnya malah hilang?
+Oh iya, satu lagi:
+
+4
+00:00:08,700 --> 00:00:12,000
+5 GHz di WiFi itu
+bukan 5G di HP kamu.
+
+5
+00:00:12,400 --> 00:00:15,200
+5G adalah generasi
+kelima jaringan seluler.
+
+6
+00:00:15,400 --> 00:00:18,480
+Sedangkan 5 GHz adalah
+frekuensi gelombang radio yang
+
+7
+00:00:18,520 --> 00:00:21,840
+dipancarkan router. Namanya
+mirip, tapi barangnya beda.
+
+8
+00:00:22,380 --> 00:00:24,980
+Router di rumah biasanya
+memancarkan dua jenis gelombang:
+
+9
+00:00:25,020 --> 00:00:27,660
+2,4 GHz dan 5 GHz.
+
+10
+00:00:27,940 --> 00:00:29,760
+Angka ini menunjukkan
+seberapa cepat gelombangnya
+
+11
+00:00:29,800 --> 00:00:32,000
+bergetar, miliaran
+kali setiap detik.
+
+12
+00:00:32,340 --> 00:00:35,020
+Semakin tinggi frekuensinya,
+semakin pendek gelombangnya.
+
+13
+00:00:35,060 --> 00:00:38,880
+Gelombang 2,4 GHz panjangnya
+sekitar 12 sentimeter,
+
+14
+00:00:39,180 --> 00:00:41,960
+sedangkan 5 GHz hanya
+sekitar 6 sentimeter.
+
+15
+00:00:42,760 --> 00:00:44,460
+Kenapa 5 GHz lebih kencang?
+
+16
+00:00:44,700 --> 00:00:46,440
+Karena jalurnya lebih
+banyak dan lebih lebar,
+
+17
+00:00:46,480 --> 00:00:47,680
+dan masih jarang dipakai.
+
+18
+00:00:47,860 --> 00:00:50,080
+Bayangkan jalan tol
+yang lebar dan sepi.
+
+19
+00:00:50,440 --> 00:00:53,340
+Sementara 2,4 GHz itu
+jalan sempit yang ramai.
+
+20
+00:00:53,500 --> 00:00:55,520
+Router tetangga,
+perangkat Bluetooth,
+
+21
+00:00:55,560 --> 00:00:57,100
+bahkan microwave
+yang sedang menyala,
+
+22
+00:00:57,240 --> 00:00:58,740
+semuanya berebut
+di jalur yang sama.
+
+23
+00:00:58,780 --> 00:01:00,940
+Tapi ada harganya.
+
+24
+00:01:01,240 --> 00:01:03,360
+Gelombang berfrekuensi tinggi
+lebih mudah teredam saat
+
+25
+00:01:03,400 --> 00:01:06,640
+menembus penghalang. Dinding
+bata dan beton menyerapnya,
+
+26
+00:01:06,680 --> 00:01:09,260
+logam memantulkannya, dan
+air, seperti akuarium,
+
+27
+00:01:09,300 --> 00:01:13,060
+ikut menyerapnya. Coba ingat
+pesta di rumah tetangga.
+
+28
+00:01:13,240 --> 00:01:15,780
+Yang tembus ke kamarmu
+biasanya cuma suara bass, kan?
+
+29
+00:01:16,360 --> 00:01:19,320
+Gelombang 2,4 GHz mirip
+bass itu: lebih lambat,
+
+30
+00:01:19,360 --> 00:01:21,780
+tapi jangkauannya lebih
+jauh dan lebih tahan tembok.
+
+31
+00:01:22,540 --> 00:01:25,740
+Jadi, gimana biar WiFi
+di rumah lancar? Satu,
+
+32
+00:01:25,800 --> 00:01:27,780
+taruh router di tengah rumah
+dan di tempat yang agak
+
+33
+00:01:27,820 --> 00:01:30,800
+tinggi, jangan disembunyikan
+di lemari. Dua,
+
+34
+00:01:31,020 --> 00:01:34,020
+jauhkan dari benda logam,
+cermin besar, dan akuarium.
+
+35
+00:01:34,440 --> 00:01:36,700
+Tiga, kalau rumahmu
+besar atau bertingkat,
+
+36
+00:01:36,740 --> 00:01:38,080
+pertimbangkan sistem mesh.
+
+37
+00:01:38,340 --> 00:01:42,560
+Dan pakai 5 GHz saat dekat
+router, lalu 2,4 GHz saat jauh.
+
+38
+00:01:42,720 --> 00:01:45,580
+Banyak router modern sudah bisa
+memilihkan ini secara otomatis.
+
+39
+00:01:46,360 --> 00:01:48,920
+Jadi bukan WiFi-nya yang lemah,
+
+40
+00:01:49,000 --> 00:01:52,300
+tapi dua gelombang ini memang
+punya karakter yang beda.
+
+41
+00:01:52,520 --> 00:01:54,940
+Kalau video ini sampai
+ke kamu tanpa buffering,
+
+42
+00:01:54,980 --> 00:01:56,980
+berarti sinyalnya
+diterima dengan baik.
+
+43
+00:01:57,100 --> 00:01:59,000
+Kirim balik
+sinyalnya lewat like,
+
+44
+00:01:59,160 --> 00:02:03,140
+tulis di komentar router di rumahmu
+ditaruh di mana, dan follow,
+
+45
+00:02:03,240 --> 00:02:05,960
+biar penjelasan berikutnya
+langsung tersambung ke kamu.
