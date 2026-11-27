@@ -1,0 +1,44 @@
+=====================================================================
+VOICEOVER — "WiFi 2,4 GHz vs 5 GHz" (Google AI Studio · Speech generation)
+=====================================================================
+
+CARA PAKAI
+- [1] ke kolom "Style instructions", [2] ke kolom teks.
+- Ekspresi pakai kurung sudut < > lewat tombol "+ Expression" (bukan [ ]).
+- Jeda: koma = pendek, titik = sedang, "..." = dramatis, baris kosong = ganti bagian.
+- Tag yang dipakai hanya <breath> dan <short pause>. Kalau <short pause> tidak ada di
+  daftar "+ Expression", ganti dengan "...".
+- Pakai suara yang sama dengan video sebelumnya (Elio). Ekspor WAV.
+- PENTING: setelah generate, dengarkan sampai akhir. Kalau TTS menambah kalimat
+  yang tidak ada di teks (seperti di rekaman sebelumnya), generate ulang.
+
+[1] STYLE INSTRUCTIONS
+---------------------------------------------------------------------
+Speak Indonesian as a friendly, curious tech explainer talking to a friend on
+TikTok. Warm, clear and relaxed, medium pace (not rushed), crisp consonants.
+Read ONLY the provided text, do not add or repeat any sentence.
+Section by section:
+- Opening: puzzled and playful on the question, then a "plot twist" tone on
+  "satu lagi: lima gigahertz di WiFi itu bukan lima ge di HP kamu".
+- "Lima ge adalah...": clear, matter-of-fact, a little smile on "barangnya beda".
+- "Router di rumah...": calm teaching tone.
+- "Kenapa lima gigahertz lebih kencang?": energetic; contrast "lebar dan sepi" vs "sempit yang ramai".
+- "Tapi ada harganya...": slower, a bit dramatic; playful and relatable on the party/bass analogy.
+- Tips: practical, upbeat, clear numbering ("Satu... Dua... Tiga...").
+- Closing: warm and conclusive; playful CTA with rising intonation on "ditaruh di mana?".
+
+[2] TEXT
+---------------------------------------------------------------------
+WiFi lima gigahertz katanya lebih kencang. Tapi kenapa begitu kamu pindah kamar... sinyalnya malah hilang? <short pause> Oh iya, satu lagi: lima gigahertz di WiFi itu bukan lima ge di HP kamu.
+
+<breath> Lima ge adalah generasi kelima jaringan seluler. Sedangkan lima gigahertz adalah frekuensi gelombang radio yang dipancarkan router. Namanya mirip, tapi barangnya beda.
+
+Router di rumah biasanya memancarkan dua jenis gelombang: dua koma empat gigahertz, dan lima gigahertz. Angka ini menunjukkan seberapa cepat gelombangnya bergetar, miliaran kali setiap detik. Semakin tinggi frekuensinya, semakin pendek gelombangnya. Gelombang dua koma empat gigahertz panjangnya sekitar dua belas sentimeter, sedangkan lima gigahertz hanya sekitar enam sentimeter.
+
+<breath> Kenapa lima gigahertz lebih kencang? Karena jalurnya lebih banyak dan lebih lebar, dan masih jarang dipakai. Bayangkan jalan tol yang lebar dan sepi. Sementara dua koma empat gigahertz itu jalan sempit yang ramai. Router tetangga, perangkat Bluetooth, bahkan microwave yang sedang menyala... semuanya berebut di jalur yang sama.
+
+Tapi ada harganya. <short pause> Gelombang berfrekuensi tinggi lebih mudah teredam saat menembus penghalang. Dinding bata dan beton menyerapnya, logam memantulkannya, dan air, seperti akuarium, ikut menyerapnya. Coba ingat pesta di rumah tetangga. Yang tembus ke kamarmu biasanya cuma suara bass, kan? Gelombang dua koma empat gigahertz mirip bass itu: lebih lambat, tapi jangkauannya lebih jauh dan lebih tahan tembok.
+
+<breath> Jadi, gimana biar WiFi di rumah lancar? Satu, taruh router di tengah rumah dan di tempat yang agak tinggi, jangan disembunyikan di lemari. Dua, jauhkan dari benda logam, cermin besar, dan akuarium. Tiga, kalau rumahmu besar atau bertingkat, pertimbangkan sistem mesh. Dan pakai lima gigahertz saat dekat router, lalu dua koma empat gigahertz saat jauh. Banyak router modern sudah bisa memilihkan ini secara otomatis.
+
+Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. <breath> Like kalau kamu baru tahu ini... komentar, router di rumahmu ditaruh di mana? <short pause> Lalu follow, buat penjelasan berikutnya!

@@ -1,0 +1,13 @@
+WiFi 5 GHz katanya lebih kencang. Tapi kenapa begitu kamu pindah kamar, sinyalnya malah hilang? Oh iya, satu lagi: 5 GHz di WiFi itu bukan 5G di HP kamu.
+
+5G adalah generasi kelima jaringan seluler. Sedangkan 5 GHz adalah frekuensi gelombang radio yang dipancarkan router. Namanya mirip, tapi barangnya beda.
+
+Router di rumah biasanya memancarkan dua jenis gelombang: 2,4 GHz dan 5 GHz. Angka ini menunjukkan seberapa cepat gelombangnya bergetar, miliaran kali setiap detik. Semakin tinggi frekuensinya, semakin pendek gelombangnya. Gelombang 2,4 GHz panjangnya sekitar 12 sentimeter, sedangkan 5 GHz hanya sekitar 6 sentimeter.
+
+Kenapa 5 GHz lebih kencang? Karena jalurnya lebih banyak dan lebih lebar, dan masih jarang dipakai. Bayangkan jalan tol yang lebar dan sepi. Sementara 2,4 GHz itu jalan sempit yang ramai. Router tetangga, perangkat Bluetooth, bahkan microwave yang sedang menyala, semuanya berebut di jalur yang sama.
+
+Tapi ada harganya. Gelombang berfrekuensi tinggi lebih mudah teredam saat menembus penghalang. Dinding bata dan beton menyerapnya, logam memantulkannya, dan air, seperti akuarium, ikut menyerapnya. Coba ingat pesta di rumah tetangga. Yang tembus ke kamarmu biasanya cuma suara bass, kan? Gelombang 2,4 GHz mirip bass itu: lebih lambat, tapi jangkauannya lebih jauh dan lebih tahan tembok.
+
+Jadi, gimana biar WiFi di rumah lancar? Satu, taruh router di tengah rumah dan di tempat yang agak tinggi, jangan disembunyikan di lemari. Dua, jauhkan dari benda logam, cermin besar, dan akuarium. Tiga, kalau rumahmu besar atau bertingkat, pertimbangkan sistem mesh. Dan pakai 5 GHz saat dekat router, lalu 2,4 GHz saat jauh. Banyak router modern sudah bisa memilihkan ini secara otomatis.
+
+Jadi bukan WiFi-nya yang lemah, tapi dua gelombang ini memang punya karakter yang beda. Like kalau kamu baru tahu ini, komentar router di rumahmu ditaruh di mana, lalu follow buat penjelasan berikutnya.
