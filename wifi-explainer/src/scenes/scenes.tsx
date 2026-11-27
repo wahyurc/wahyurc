@@ -117,7 +117,7 @@ export const Waves: React.FC<{ t: number }> = ({ t }) => {
     <AbsoluteFill>
       <Stage cam={{ pos: [0.15, 0.4, 8.8], look: [0.15, 0.05, 0], fov: 40 }} bg="#f6ece3">
         <Lights dir={[2, 6, 7]} shadow={false} />
-        <Router position={[-1.2, -0.25, 0]} rotation={[0.25, 0.5, 0]} scale={0.42} t={t} />
+        <Router position={[-1.08, -0.25, 0]} rotation={[0.25, 0.5, 0]} scale={0.36} t={t} />
         {k24 > 0 && <Wave from={x0} to={x0 + (x1 - x0) * k24} lambda={L24} amp={0.26} phase={t * Math.PI * 2 * 0.6} color={BAND24} y={1.05} r={0.04} />}
         {k5 > 0 && <Wave from={x0} to={x0 + (x1 - x0) * k5} lambda={L5} amp={0.18} phase={t * Math.PI * 2 * 1.25} color={BAND5} y={0.0} r={0.035} />}
         <DimBracket x0={x0 + L24 * 0.25} len={L24} y={1.45} color={BAND24} k={on(t, t12 - 0.4, 0.6)} />
@@ -219,9 +219,9 @@ export const Walls: React.FC<{ t: number }> = ({ t }) => {
       <Stage cam={{ pos: [0.15, 1.2, 8.2], look: [0.15, 0.4, 0], fov: 40 }} bg="#f6ece3">
         <Lights dir={[2, 6, 7]} />
         <Floor />
-        <Speaker position={[-1.25, 0.7, 0]} rotation={[0, 0.5, 0]} scale={0.7} pump={Math.max(0, Math.sin(tw * 9))} />
-        <Wave from={-0.85} to={1.7} lambda={1.1} amp={0.3} phase={tw * Math.PI * 2 * 0.5} color={BAND24} y={1.3} ampAt={(x) => (x < 0.25 ? 1 : 0.75)} />
-        <Wave from={-0.85} to={1.7} lambda={0.32} amp={0.12} phase={tw * Math.PI * 2 * 1.8} color={BAND5} y={0.5} ampAt={(x) => (x < 0.25 ? 1 : 0.05)} />
+        <Speaker position={[-1.08, 0.7, 0]} rotation={[0, 0.45, 0]} scale={0.56} pump={Math.max(0, Math.sin(tw * 9))} />
+        <Wave from={-0.72} to={1.7} lambda={1.1} amp={0.3} phase={tw * Math.PI * 2 * 0.5} color={BAND24} y={1.3} ampAt={(x) => (x < 0.25 ? 1 : 0.75)} />
+        <Wave from={-0.72} to={1.7} lambda={0.32} amp={0.12} phase={tw * Math.PI * 2 * 1.8} color={BAND5} y={0.5} ampAt={(x) => (x < 0.25 ? 1 : 0.05)} />
         <BrickWall size={[0.28, 2.0, 1.6]} position={[0.2, 1.0, 0]} />
       </Stage>
       <HeaderFade />
